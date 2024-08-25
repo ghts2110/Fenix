@@ -1,0 +1,44 @@
+services:
+  db:
+    container_name: fenix-project_db
+    image: mariadb:latest
+    env_file:
+      - .env
+    # volumes:
+    #   - mariadb
+    ports:
+      - "3306:3306"
+    networks:
+      fenix-project:
+        ipv4_address: 0.0.0.0
+    restart: unless-stopped
+
+  api:
+    container_name: fenix-project_api
+    build: 
+      context: ./api
+      dockerfile: dockerfile
+    depends_on:
+      - db
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    networks:
+      fenix-project:
+        ipv4_address: 0.0.0.0
+    restart: unless-stopped
+
+  web:
+    container_name: fenix-project_web
+    build: 
+      context: ./web
+      dockerfile: dockerfile
+    env_file:
+      - .env
+    ports:
+      - "5173:5173"
+    networks:
+      fenix-project:
+        ipv4_address: 0.0.0.0
+    restart: unless-stopped
