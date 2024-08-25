@@ -1,0 +1,5 @@
+name: Integration Testing
+
+on:
+  push:
+    branches: ['main']
