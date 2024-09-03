@@ -1,8 +1,8 @@
-import styles from "./Footer.module.css";
+import styles from "./Forms.module.css";
 
-function Footer(){
+function Forms(){
     return(
-        <footer className={styles.footer}>
+        <section className={styles.forms}>
             <h1> Institulo Fenix </h1>
             <p>Bem vindo de volta! Por favor insira as informações de login</p>
             <forms>
@@ -22,8 +22,8 @@ function Footer(){
 
             </forms>
             
-        </footer>
+        </section>
     );
 }
 
-export default Footer;
+export default Forms;

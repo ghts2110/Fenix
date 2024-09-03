@@ -1,4 +1,4 @@
-.footer {
+.forms {
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -7,31 +7,31 @@
     background-color: brown;
 
 }
-.footer h1{
+.forms h1{
     font-size: 40px;
 }
-.footer p{
+.forms p{
     opacity: 0.75;
     margin-top: 0;
 }
-.footer forms {
+.forms forms {
     display: flex;
     flex-direction: column;
 }
-.footer .textinputs{
+.forms .textinputs{
     display: flex;
     flex-direction: column;
 }
-.footer .textinputs input{
+.forms .textinputs input{
     border-radius: 50px;
     height: 2rem;
 }
-.footer .links{
+.forms .links{
     display: flex;
     display: inline;
     align-items: self-end;
 }
-.footer .links a{
+.forms .links a{
     text-decoration: none;
     color: aqua;
 }
