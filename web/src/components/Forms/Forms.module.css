@@ -4,34 +4,71 @@
     padding: 2rem;
     width: 50%;
     height: 100%;
-    background-color: brown;
+    background-color: rgb(255, 255, 255);
 
 }
 .forms h1{
-    font-size: 40px;
+    font-size: 90px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 .forms p{
-    opacity: 0.75;
+    opacity: 0.5;
     margin-top: 0;
+    font-size: 20px;
+    font-family: 'Arial', sans-serif;
+    font-style: italic;
 }
-.forms forms {
-    display: flex;
-    flex-direction: column;
-}
+
 .forms .textinputs{
     display: flex;
     flex-direction: column;
+    padding-top: 60px;
+    padding-bottom: 10px;
 }
 .forms .textinputs input{
-    border-radius: 50px;
-    height: 2rem;
+    border-radius: 10px;
+    height: 3rem;
+    margin-bottom: 20px;
+    border-color: rgb(240, 136, 136) ;
+}
+
+input::placeholder {         
+    font-size: 16px;
+    padding: 10px;
+    opacity: 0.75;   
+}
+.forms .textinputs label{
+    font-size: 17px;
+    padding: 10px;
 }
 .forms .links{
     display: flex;
-    display: inline;
-    align-items: self-end;
+    justify-content: space-between; 
 }
 .forms .links a{
     text-decoration: none;
-    color: aqua;
+    color: rgb(0, 0, 0);
 }
+
+
+.forms .buttonsLogin button{
+    width: 100px;
+    height: 50px;
+    margin-top: 20px;
+    margin-right: 20px;
+    border-color: rgb(240, 136, 136) ;
+    background-color: rgb(231, 228, 223);
+    text-align: center;
+}
+
+.buttonsLogin .btlogin{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.buttonsLogin .btregistro{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}
+ 
