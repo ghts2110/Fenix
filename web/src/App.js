@@ -1,9 +1,9 @@
-import Forms from "./components/Forms";
-
-
+import TelaLogin from "./components/TelaLogin";
 function App() {
   return (
-    <Forms></Forms>
+    <>
+      <TelaLogin></TelaLogin>
+    </>
 
   );
 }
