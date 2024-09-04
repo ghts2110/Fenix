@@ -1,15 +1,22 @@
 package com.fenix.api.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import jakarta.persistence.TemporalType;
 
-public class TE_DJESFSA {
-    @Id
+@Entity
+@Table(name = "TE_DJESFSA")
+public class TeDjesfsa {
+       @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cadastro")
     private Integer cadastro; // Chave primária
@@ -32,9 +39,9 @@ public class TE_DJESFSA {
     @Column(name = "rg", length = 10)
     private String rg;
 
-    // @ManyToOne
-    // @JoinColumn(name = "fk_categ_cnh_categ_cnh_PK")
-    // private CategCnh categCnh;
+    @ManyToOne
+    @JoinColumn(name = "fk_categ_cnh_categ_cnh_PK")
+    private CategCnh categCnh;
 
     @Column(name = "un_prisional", length = 100)
     private String unPrisional;
@@ -51,9 +58,9 @@ public class TE_DJESFSA {
     @Column(name = "reincidente")
     private Boolean reincidente;
 
-    // @Column(name = "termino_pena")
-    // @Temporal(TemporalType.DATE)
-    // private Date terminoPena;
+    @Column(name = "termino_pena")
+    @Temporal(TemporalType.DATE)
+    private Date terminoPena;
 
     @Column(name = "regime_atual", length = 100)
     private String regimeAtual;
@@ -61,9 +68,9 @@ public class TE_DJESFSA {
     @Column(name = "situacao_process", length = 100)
     private String situacaoProcess;
 
-    // @ManyToOne
-    // @JoinColumn(name = "fk_artigo_artigo_PK")
-    // private Artigo artigo;
+    @ManyToOne
+    @JoinColumn(name = "fk_artigo_artigo_PK")
+    private Artigo artigo;
 
     @Column(name = "escolaridade", length = 100)
     private String escolaridade;
@@ -74,9 +81,9 @@ public class TE_DJESFSA {
     @Column(name = "letrado")
     private Boolean letrado;
 
-    // @Column(name = "dt_aperfeicoamento")
-    // @Temporal(TemporalType.DATE)
-    // private Date dtAperfeicoamento;
+    @Column(name = "dt_aperfeicoamento")
+    @Temporal(TemporalType.DATE)
+    private Date dtAperfeicoamento;
 
     @Column(name = "obs_social", length = 300)
     private String obsSocial;
@@ -99,13 +106,13 @@ public class TE_DJESFSA {
     @Column(name = "obs_perfil", length = 300)
     private String obsPerfil;
 
-    // @Column(name = "dt_atnd_indv")
-    // @Temporal(TemporalType.DATE)
-    // private Date dtAtndIndv;
+    @Column(name = "dt_atnd_indv")
+    @Temporal(TemporalType.DATE)
+    private Date dtAtndIndv;
 
-    // @ManyToOne
-    // @JoinColumn(name = "fk_exp_prof_exp_prof_PK")
-    // private ExpProf expProf;
+    @ManyToOne
+    @JoinColumn(name = "fk_exp_prof_exp_prof_PK")
+    private ExpProf expProf;
 
     @Column(name = "estado_civil", length = 20)
     private String estadoCivil;
@@ -116,20 +123,20 @@ public class TE_DJESFSA {
     @Column(name = "nome_pai", length = 50)
     private String nomePai;
 
-    // @ManyToOne
-    // @JoinColumn(name = "fk_idd_filhos_idd_filhos_PK")
-    // private IdadeFilhos idadeFilhos;
+    @ManyToOne
+    @JoinColumn(name = "fk_idd_filhos_idd_filhos_PK")
+    private IdadeFilhos idadeFilhos;
 
     @Column(name = "triagem_familia")
     private Boolean triagemFamilia;
 
-    // @Column(name = "dt_atend_fam")
-    // @Temporal(TemporalType.DATE)
-    // private Date dtAtendFam;
+    @Column(name = "dt_atend_fam")
+    @Temporal(TemporalType.DATE)
+    private Date dtAtendFam;
 
-    // @Column(name = "dt_aniversario")
-    // @Temporal(TemporalType.DATE)
-    // private Date dtAniversario;
+    @Column(name = "dt_aniversario")
+    @Temporal(TemporalType.DATE)
+    private Date dtAniversario;
 
     @Column(name = "raca", length = 10)
     private String raca;
@@ -143,16 +150,16 @@ public class TE_DJESFSA {
     @Column(name = "cidade_nativa", length = 50)
     private String cidadeNativa;
 
-    // @ManyToOne
-    // @JoinColumn(name = "fk_q_def_q_def_PK")
-    // private QDef qDef;
+    @ManyToOne
+    @JoinColumn(name = "fk_q_def_q_def_PK")
+    private QDef qDef;
 
     @Column(name = "estado_nativo", length = 100)
     private String estadoNativo;
 
-    // @Column(name = "dt_inscricao")
-    // @Temporal(TemporalType.DATE)
-    // private Date dtInscricao;
+    @Column(name = "dt_inscricao")
+    @Temporal(TemporalType.DATE)
+    private Date dtInscricao;
 
     @Column(name = "nome_completo", length = 50)
     private String nomeCompleto;
@@ -165,4 +172,7 @@ public class TE_DJESFSA {
 
     @Column(name = "nome_social", length = 50)
     private String nomeSocial;
+
+    @OneToMany(mappedBy = "teDjesfsa")
+    private List<SitTrab> sitTrabList;
 }
