@@ -10,9 +10,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Web point entry
-        run: cd ./web/
+      # - name: Web point entry
+      #   run: cd ./web/
       - name: Install modules
-        run: npm install
+        run: |
+          cd web/
+          npm install
       - name: Run Jest
-        run: npm test                 
+        run: |
+          cd web/
+          npm test 
