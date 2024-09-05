@@ -1,8 +1,10 @@
-import Footer from "./components/Footer";
-
+import TelaLogin from "./components/TelaLogin";
 function App() {
   return (
-    <Footer/>
+    <>
+      <TelaLogin></TelaLogin>
+    </>
+
   );
 }
 

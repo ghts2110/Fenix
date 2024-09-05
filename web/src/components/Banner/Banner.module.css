@@ -1,0 +1,18 @@
+/* src/components/Banner/Banner.module.css */
+.background {
+    top :0;
+    width: 100%;
+    overflow: hidden;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    background-color: black;
+}
+
+.banner {
+    width: 350px; 
+    height: 350px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
