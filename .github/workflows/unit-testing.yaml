@@ -10,8 +10,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      # - name: Web point entry
-      #   run: cd ./web/
       - name: Install modules
         run: |
           cd web/
