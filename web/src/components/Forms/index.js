@@ -1,5 +1,14 @@
 import styles from "./Forms.module.css";
 
+const btLogin = document.getElementById("btlogin");
+
+btLogin.onclick = loginProcess();
+
+function loginProcess() {
+    const email_id = document.getElementById("email").value;
+    const password_id = document.getElementById("senha").value;
+}
+
 function Forms(){
     return(
         <section className={styles.forms}>
