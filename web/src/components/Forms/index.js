@@ -7,6 +7,8 @@ btLogin.onclick = loginProcess();
 function checkInput(data) {
     if(!input.Passw || 
         input.Passw.trim() === "") {}
+
+    return true;
 }
 
 function loginProcess() {
@@ -19,7 +21,7 @@ function loginProcess() {
     };
 
     if(checkInput(data)) {
-
+        // return that the login is wrong
     }
 }
 
