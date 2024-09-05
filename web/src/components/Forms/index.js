@@ -1,5 +1,28 @@
 import styles from "./Forms.module.css";
 
+const btLogin = document.getElementById("btlogin");
+
+btLogin.onclick = loginProcess();
+
+function checkInput(data) {
+    if(!input.Passw || 
+        input.Passw.trim() === "") {}
+}
+
+function loginProcess() {
+    const email_id = document.getElementById("email").value;
+    const password_id = document.getElementById("senha").value;
+
+    let data = {
+        Email: email_id,
+        Passw: password_id
+    };
+
+    if(checkInput(data)) {
+
+    }
+}
+
 function Forms(){
     return(
         <section className={styles.forms}>
