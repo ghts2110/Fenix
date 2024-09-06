@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  width: 1539px;
+  height: 105px;
+  top: 1050px;
+  left: 457px;
+  gap: 0px;
+  opacity: 0px;
+}
+
+.iconButton {
+  background: none; /* Remove o fundo padrão do botão */
+  border: none; /* Remove a borda do botão */
+  cursor: pointer; /* Mostra que o botão é clicável */
+  padding: 10px; /* Aumenta o padding para aumentar a área clicável */
+  font-size: 30px; /* Aumenta o tamanho do ícone */
+}
+
+.icons {
+  display: flex;
+  margin-left: auto; /* Empurra os ícones para o lado direito */
+}
