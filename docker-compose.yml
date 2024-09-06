@@ -1,44 +1,50 @@
+version: '3.1'
+
 services:
   db:
-    container_name: fenix-project_db
     image: mariadb:latest
-    env_file:
-      - .env
-    # volumes:
-    #   - mariadb
+    container_name: fenix-project_db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3306:3306"
+    volumes:
+      - ./database/:/docker-entrypoint-initdb.d/
     networks:
-      fenix-project:
-        ipv4_address: 0.0.0.0
-    restart: unless-stopped
+      - my_network
 
   api:
-    container_name: fenix-project_api
-    build: 
+    build:
       context: ./api
-      dockerfile: dockerfile
-    depends_on:
-      - db
-    env_file:
-      - .env
+      dockerfile: Dockerfile
+    container_name: fenix-project_api
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: ${MYSQL_PASSWORD}
+      DB_NAME: ${MYSQL_DATABASE}
     ports:
       - "8080:8080"
+    depends_on:
+      - db
     networks:
-      fenix-project:
-        ipv4_address: 0.0.0.0
-    restart: unless-stopped
+      - my_network
 
   web:
-    container_name: fenix-project_web
-    build: 
+    build:
       context: ./web
-      dockerfile: dockerfile
-    env_file:
-      - .env
+      dockerfile: Dockerfile
+    container_name: fenix-project_web
     ports:
-      - "5173:5173"
+      - "3000:80"
+    depends_on:
+      - api
     networks:
-      fenix-project:
-        ipv4_address: 0.0.0.0
-    restart: unless-stopped
+      - my_network
+
+  networks:
+    my_network:
+      driver: bridge
