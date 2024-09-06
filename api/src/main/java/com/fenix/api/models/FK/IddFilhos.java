@@ -17,5 +17,32 @@ public class IddFilhos implements Serializable {
     @Column(name = "IddFilhos", length = 14)
     private String IddFilhos;
 
-    // Getters and Setters
+    public IddFilhos(){}
+
+    public IddFilhos(int iddFilhosPK, String iddFilhos) {
+        IddFilhosPK = iddFilhosPK;
+        IddFilhos = iddFilhos;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public int getIddFilhosPK() {
+        return IddFilhosPK;
+    }
+
+    public void setIddFilhosPK(int iddFilhosPK) {
+        IddFilhosPK = iddFilhosPK;
+    }
+
+    public String getIddFilhos() {
+        return IddFilhos;
+    }
+
+    public void setIddFilhos(String iddFilhos) {
+        IddFilhos = iddFilhos;
+    }
+
+    
 }

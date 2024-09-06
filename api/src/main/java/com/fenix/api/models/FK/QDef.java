@@ -17,5 +17,32 @@ public class QDef implements Serializable {
     @Column(name = "QDef", length = 14)
     private String QDef;
 
-    // Getters and Setters
+    public QDef(){}
+
+    public QDef(int qDefPK, String qDef) {
+        QDefPK = qDefPK;
+        QDef = qDef;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public int getQDefPK() {
+        return QDefPK;
+    }
+
+    public void setQDefPK(int qDefPK) {
+        QDefPK = qDefPK;
+    }
+
+    public String getQDef() {
+        return QDef;
+    }
+
+    public void setQDef(String qDef) {
+        QDef = qDef;
+    }
+
+    
 }

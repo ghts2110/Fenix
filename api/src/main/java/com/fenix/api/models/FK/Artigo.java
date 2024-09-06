@@ -17,4 +17,33 @@ public class Artigo implements Serializable {
     @Column(name = "Artigo", length = 14)
     private String Artigo;
 
+    public Artigo(){}
+
+    public Artigo(int artigoPK, String artigo) {
+        ArtigoPK = artigoPK;
+        Artigo = artigo;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public int getArtigoPK() {
+        return ArtigoPK;
+    }
+
+    public void setArtigoPK(int artigoPK) {
+        ArtigoPK = artigoPK;
+    }
+
+    public String getArtigo() {
+        return Artigo;
+    }
+
+    public void setArtigo(String artigo) {
+        Artigo = artigo;
+    }
+
+
+    
 }

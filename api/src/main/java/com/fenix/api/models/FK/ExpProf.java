@@ -17,4 +17,33 @@ public class ExpProf implements Serializable {
     @Column(name = "ExpProf", length = 14)
     private String ExpProf;
 
+    public ExpProf() {}
+
+    public ExpProf(int expProfPK, String expProf) {
+        ExpProfPK = expProfPK;
+        ExpProf = expProf;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public int getExpProfPK() {
+        return ExpProfPK;
+    }
+
+    public void setExpProfPK(int expProfPK) {
+        ExpProfPK = expProfPK;
+    }
+
+    public String getExpProf() {
+        return ExpProf;
+    }
+
+    public void setExpProf(String expProf) {
+        ExpProf = expProf;
+    }
+
+    
+
 }

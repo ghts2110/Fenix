@@ -17,4 +17,32 @@ public class Telefone implements Serializable {
     @Column(name = "telefone", length = 14)
     private String telefone;
 
+    public Telefone() {}
+
+    public Telefone(int telefonePK, String telefone) {
+        this.telefonePK = telefonePK;
+        this.telefone = telefone;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public int getTelefonePK() {
+        return telefonePK;
+    }
+
+    public void setTelefonePK(int telefonePK) {
+        this.telefonePK = telefonePK;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    
 }

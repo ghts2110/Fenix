@@ -17,5 +17,25 @@ public class CategCnh implements Serializable {
     @Column(name = "CategCnh", length = 14)
     private String CategCnh;
 
-    // Getters and Setters
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public int getCategCnhPK() {
+        return CategCnhPK;
+    }
+
+    public void setCategCnhPK(int categCnhPK) {
+        CategCnhPK = categCnhPK;
+    }
+
+    public String getCategCnh() {
+        return CategCnh;
+    }
+
+    public void setCategCnh(String categCnh) {
+        CategCnh = categCnh;
+    }
+
+    
 }
