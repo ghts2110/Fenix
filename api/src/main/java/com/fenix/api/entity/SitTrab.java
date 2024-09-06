@@ -10,16 +10,9 @@ public class SitTrab implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "FK_ESFSA_cadastro")
     private Integer fkEsfsaCadastro; // Chave primária e chave estrangeira referenciando TE_DJESFSA
-
-    @Column(name = "esta_tb")
     private Boolean estaTb;
-
-    @Column(name = "local_tb", length = 100)
     private String localTb;
-
-    @Column(name = "modalidade_tb", length = 100)
     private String modalidadeTb;
 
     @ManyToOne

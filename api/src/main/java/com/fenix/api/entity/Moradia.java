@@ -1,11 +1,12 @@
 package com.fenix.api.entity;
 
-// import javax.persistence.*;
 
 import org.springframework.data.annotation.Id;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -16,23 +17,18 @@ import java.io.Serializable;
 @Table(name = "Moradia")
 public class Moradia implements Serializable {
 
-    // @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
-    // private Long id; // Adicione um campo ID para chave primária
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id; // Adicione um campo ID para chave primária
 
-    @Column(name = "endr", length = 100)
     private String endereco;
 
-    @Column(name = "bairro", length = 100)
     private String bairro;
 
-    @Column(name = "cidade", length = 100)
     private String cidade;
 
-    @Column(name = "est", length = 100)
     private String estado;
 
-    @Column(name = "cep", length = 8)
     private String cep;
 
     // @ManyToOne
