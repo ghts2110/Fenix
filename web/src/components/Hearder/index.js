@@ -1,10 +1,10 @@
 import styles from "./Header.module.css"; // Importação do CSS
 import { FaBell, FaUserCircle } from "react-icons/fa"; // Font Awesome icons
 
-function Header() {
+function Header({pagina}) {
   return (
     <header className={styles.header}>
-        <h1>Painel de Controle</h1>
+        <h1>{pagina}</h1>
 
         <div className={styles.icons}>
             <button className={styles.iconButton} aria-label="Notificações">
