@@ -12,7 +12,7 @@ function NavigatePanel() {
 
         <div className={styles.buttonsContainer}>
           <button className={styles.button}> <FaUser className={styles.icon} /> Painel de Controle</button>
-          <button className={styles.button}> <FaTasks className={styles.icon} /> Processos</button>
+          <button className={styles.button}> <FaTasks className={styles.icon} /> Assistidos</button>
           <button className={styles.button}> <FaUserPlus className={styles.icon} /> Cadastro do Cliente</button>
           <button className={styles.button}> <FaFileAlt className={styles.icon} /> Solicitações</button>
           <button className={styles.buttonConfig}> <FaCog className={styles.icon} /> Configurações</button>

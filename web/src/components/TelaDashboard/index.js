@@ -7,7 +7,7 @@ function TelaDashboard() {
         <main className={styles.TelaDashboard}>
             <div className={styles.container}>
                 <NavigatePanel className={styles.item1}/>
-                <Header className={styles.item2} pagina = "Painel de Controle" name="iago" position="lutador de boxe" imagem="iago-de-terno"/>
+                <Header className={styles.item2} pagina = "Painel de Controle" name="iago" position="lutador de boxe" imagem="imagems/iago-de-terno.png"/>
             </div>
         </main>
     );

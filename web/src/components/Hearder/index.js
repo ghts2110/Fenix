@@ -35,9 +35,11 @@ function Header({ pagina, name, position, imagem}) {
 
         <div className={styles.profileBox}>
           <img
-            src={`url:../imagems/iago-de-terno.png`}
+            src={imagem}
             alt="Foto do Usuário"
-            className={styles.profileImage}/>
+            className={styles.profileImage}
+          />
+          
           <div className={styles.profileInfo}>
             <span className={styles.profileName}>{name}</span>
             <span className={styles.profileRole}>{position}</span>
