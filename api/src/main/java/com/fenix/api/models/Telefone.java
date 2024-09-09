@@ -1,4 +1,4 @@
-package com.fenix.api.models.FK;
+package com.fenix.api.models;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
@@ -11,13 +11,10 @@ public class Telefone implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "telefone_PK")
-    private int telefonePK;
-
-    @Column(name = "telefone", length = 14)
+    private long telefonePK;
     private String telefone;
 
-    public Telefone() {}
+    public Telefone(){}
 
     public Telefone(int telefonePK, String telefone) {
         this.telefonePK = telefonePK;
@@ -28,7 +25,7 @@ public class Telefone implements Serializable {
         return serialVersionUID;
     }
 
-    public int getTelefonePK() {
+    public long getTelefonePK() {
         return telefonePK;
     }
 

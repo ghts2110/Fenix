@@ -1,4 +1,4 @@
-package com.fenix.api.models.FK;
+package com.fenix.api.models;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
@@ -11,37 +11,35 @@ public class IddFilhos implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IddFilhos_PK")
-    private int IddFilhosPK;
+    private long iddFilhosPK;
 
-    @Column(name = "IddFilhos", length = 14)
-    private String IddFilhos;
+    private String iddFilhos;
 
     public IddFilhos(){}
 
-    public IddFilhos(int iddFilhosPK, String iddFilhos) {
-        IddFilhosPK = iddFilhosPK;
-        IddFilhos = iddFilhos;
+    public IddFilhos(long iddFilhosPK, String iddFilhos) {
+        this.iddFilhosPK = iddFilhosPK;
+        this.iddFilhos = iddFilhos;
     }
 
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
 
-    public int getIddFilhosPK() {
-        return IddFilhosPK;
+    public long getIddFilhosPK() {
+        return iddFilhosPK;
     }
 
-    public void setIddFilhosPK(int iddFilhosPK) {
-        IddFilhosPK = iddFilhosPK;
+    public void setIddFilhosPK(long iddFilhosPK) {
+        this.iddFilhosPK = iddFilhosPK;
     }
 
     public String getIddFilhos() {
-        return IddFilhos;
+        return iddFilhos;
     }
 
     public void setIddFilhos(String iddFilhos) {
-        IddFilhos = iddFilhos;
+        this.iddFilhos = iddFilhos;
     }
 
     

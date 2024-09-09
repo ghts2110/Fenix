@@ -8,22 +8,17 @@ import java.io.Serializable;
 public class SitTrabModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    @Column(name = "esta_tb")
     private boolean estaTb;
-
-    @Column(name = "local_tb", length = 100)
     private String localTb;
-
-    @Column(name = "modalidade_tb", length = 100)
     private String modalidadeTb;
 
     @ManyToOne
     @JoinColumn(name = "FK_ESFSA_cadastro", referencedColumnName = "cadastro")
-    private TE_DJESFSAModel teDjesfsa;
+    private TeDjesfsa teDjesfsa;
 
+    public SitTrabModel(){}
 
-    public SitTrabModel(boolean estaTb, String localTb, String modalidadeTb, TE_DJESFSAModel teDjesfsa) {
+    public SitTrabModel(boolean estaTb, String localTb, String modalidadeTb, TeDjesfsa teDjesfsa) {
         this.estaTb = estaTb;
         this.localTb = localTb;
         this.modalidadeTb = modalidadeTb;
@@ -58,11 +53,11 @@ public class SitTrabModel implements Serializable {
         this.modalidadeTb = modalidadeTb;
     }
 
-    public TE_DJESFSAModel getTeDjesfsa() {
+    public TeDjesfsa getTeDjesfsa() {
         return teDjesfsa;
     }
 
-    public void setTeDjesfsa(TE_DJESFSAModel teDjesfsa) {
+    public void setTeDjesfsa(TeDjesfsa teDjesfsa) {
         this.teDjesfsa = teDjesfsa;
     }
 

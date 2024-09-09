@@ -3,27 +3,18 @@ package com.fenix.api.models;
 import jakarta.persistence.*;
 import java.io.Serializable;
 
-import com.fenix.api.models.FK.Telefone;
-
 @Entity
 @Table(name = "Moradia")
 public class MoradiaModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    @Column(name = "endr", length = 100)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String endr;
-
-    @Column(name = "bairro", length = 100)
     private String bairro;
-
-    @Column(name = "cidade", length = 100)
     private String cidade;
-
-    @Column(name = "est", length = 100)
     private String est;
-
-    @Column(name = "cep", length = 8)
     private String cep;
 
     @ManyToOne
@@ -32,12 +23,12 @@ public class MoradiaModel implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "FK_SFSA_cadastro", referencedColumnName = "cadastro")
-    private TE_DJESFSAModel teDjesfsa;
+    private TeDjesfsa teDjesfsa;
 
-    
+    public MoradiaModel(){}
 
     public MoradiaModel(String endr, String bairro, String cidade, String est, String cep, Telefone telefone,
-            TE_DJESFSAModel teDjesfsa) {
+            TeDjesfsa teDjesfsa) {
         this.endr = endr;
         this.bairro = bairro;
         this.cidade = cidade;
@@ -99,11 +90,11 @@ public class MoradiaModel implements Serializable {
         this.telefone = telefone;
     }
 
-    public TE_DJESFSAModel getTeDjesfsa() {
+    public TeDjesfsa getTeDjesfsa() {
         return teDjesfsa;
     }
 
-    public void setTeDjesfsa(TE_DJESFSAModel teDjesfsa) {
+    public void setTeDjesfsa(TeDjesfsa teDjesfsa) {
         this.teDjesfsa = teDjesfsa;
     }
 

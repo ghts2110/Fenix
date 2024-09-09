@@ -1,4 +1,4 @@
-package com.fenix.api.models.FK;
+package com.fenix.api.models;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
@@ -11,37 +11,35 @@ public class ExpProf implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ExpProf_PK")
-    private int ExpProfPK;
+    private long expProfPK;
 
-    @Column(name = "ExpProf", length = 14)
-    private String ExpProf;
+    private String expProf;
 
     public ExpProf() {}
 
     public ExpProf(int expProfPK, String expProf) {
-        ExpProfPK = expProfPK;
-        ExpProf = expProf;
+        this.expProfPK = expProfPK;
+        this.expProf = expProf;
     }
 
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
 
-    public int getExpProfPK() {
-        return ExpProfPK;
+    public long getexpProfPK() {
+        return this.expProfPK;
     }
 
-    public void setExpProfPK(int expProfPK) {
-        ExpProfPK = expProfPK;
+    public void setexpProfPK(int expProfPK) {
+        this.expProfPK = expProfPK;
     }
 
     public String getExpProf() {
-        return ExpProf;
+        return this.expProf;
     }
 
     public void setExpProf(String expProf) {
-        ExpProf = expProf;
+        this.expProf = expProf;
     }
 
     

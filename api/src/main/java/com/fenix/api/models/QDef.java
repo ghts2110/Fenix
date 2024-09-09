@@ -1,4 +1,4 @@
-package com.fenix.api.models.FK;
+package com.fenix.api.models;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
@@ -12,7 +12,7 @@ public class QDef implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "QDef_PK")
-    private int QDefPK;
+    private long QDefPK;
 
     @Column(name = "QDef", length = 14)
     private String QDef;
@@ -28,7 +28,7 @@ public class QDef implements Serializable {
         return serialVersionUID;
     }
 
-    public int getQDefPK() {
+    public long getQDefPK() {
         return QDefPK;
     }
 
