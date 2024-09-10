@@ -1,7 +1,7 @@
 import styles from "./Forms.module.css";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const btLogin = document.getElementById("btlogin");
+// const btLogin = document.getElementById("btlogin");
 
 // btLogin.onclick = loginProcess();
 
