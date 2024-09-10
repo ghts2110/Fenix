@@ -32,5 +32,8 @@ build/
 ### VS Code ###
 .vscode/
 
+### BancoDeDados ###
+.sql
+.brM3
 ### specify ###
 /src/main/resources/*.properties

@@ -1,4 +1,5 @@
 import styles from "./Forms.module.css";
+import { Link, useNavigate } from 'react-router-dom';
 
 // const btLogin = document.getElementById("btlogin");
 
@@ -45,7 +46,11 @@ function Forms(){
                     <a href =" "><strong>esqueceu senha?</strong></a>
                 </div>
                 <div className = {styles.buttonsLogin}>   
-                <button className = {styles.btlogin} type = "submit" name = "btlogin" id = "btlogin">Login</button>
+                
+                <Link to="/dashboard" className='link'>
+                    <button className = {styles.btlogin} type = "submit" name = "btlogin" id = "btlogin">Login</button>
+                </Link>
+
                 <button className = {styles.btregistro} type = "submit" name = "btregistro" id ="btregistro">Cadastre-se</button>
                 </div>
 
