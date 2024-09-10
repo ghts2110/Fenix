@@ -2,4 +2,4 @@
 .env
 
 # data_base
-banco_de_dados/
+banco_de_dados/test.sql
