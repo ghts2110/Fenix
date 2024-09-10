@@ -1,5 +1,5 @@
-import Forms from '../Forms'; // Caminho relativo correto para Forms
-import Banner from '../Banner'; // Caminho relativo correto para Banner
+import Forms from './Forms'; // Caminho relativo correto para Forms
+import Banner from './Banner'; // Caminho relativo correto para Banner
 import styles from './TelaLogin.module.css';
 
 function TelaLogin() {
