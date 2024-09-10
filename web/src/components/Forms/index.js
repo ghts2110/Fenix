@@ -1,29 +1,29 @@
 import styles from "./Forms.module.css";
 
-const btLogin = document.getElementById("btlogin");
+// const btLogin = document.getElementById("btlogin");
 
-btLogin.onclick = loginProcess();
+// btLogin.onclick = loginProcess();
 
-function checkInput(data) {
-    if(!input.Passw || 
-        input.Passw.trim() === "") {}
+// function checkInput(data) {
+//     if(!input.Passw || 
+//         input.Passw.trim() === "") {}
 
-    return true;
-}
+//     return true;
+// }
 
-function loginProcess() {
-    const email_id = document.getElementById("email").value;
-    const password_id = document.getElementById("senha").value;
+// function loginProcess() {
+//     const email_id = document.getElementById("email").value;
+//     const password_id = document.getElementById("senha").value;
 
-    let data = {
-        Email: email_id,
-        Passw: password_id
-    };
+//     let data = {
+//         Email: email_id,
+//         Passw: password_id
+//     };
 
-    if(checkInput(data)) {
-        // return that the login is wrong
-    }
-}
+//     if(checkInput(data)) {
+//         // return that the login is wrong
+//     }
+// }
 
 function Forms(){
     return(
