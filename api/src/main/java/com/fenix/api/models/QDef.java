@@ -11,10 +11,7 @@ public class QDef implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "QDef_PK")
     private long QDefPK;
-
-    @Column(name = "QDef", length = 14)
     private String QDef;
 
     public QDef(){}
