@@ -1,63 +1,117 @@
 import styles from "./Forms.module.css";
-import { Link } from 'react-router-dom';
 
-// const btLogin = document.getElementById("btlogin");
+const Forms = () => {
+  const urlBase = "https://parseapi.back4app.com/classes/assistido";
+  const headers = {
+    "X-Parse-Application-Id": "9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt",
+    "X-Parse-REST-API-Key": "ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump",
+  };
 
-// btLogin.onclick = loginProcess();
+  // verificar cadastro
+  const carregarTarefas = async () => {
+    const response = await fetch(urlBase, {
+      method: "GET",
+      headers: headers,
+    });
+    const data = await response.json();
+    listarTarefas(data.results);
+  };
 
-// function checkInput(data) {
-//     if(!input.Passw || 
-//         input.Passw.trim() === "") {}
+  const listarTarefas = (tarefas) =>{
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("senha").value;
 
-//     return true;
-// }
+    for(const t of tarefas){
+      if(email === t.email){
+        if(password === t.password){
+          window.open("/dashboard", "_self");
+        }else{
+          console.log("not ok");
+        }
+      }
+    }
+  }
 
-// function loginProcess() {
-//     const email_id = document.getElementById("email").value;
-//     const password_id = document.getElementById("senha").value;
+  
 
-//     let data = {
-//         Email: email_id,
-//         Passw: password_id
-//     };
 
-//     if(checkInput(data)) {
-//         // return that the login is wrong
-//     }
-// }
+  
 
-function Forms(){
-    return(
-        <section className={styles.forms}>
-            <h1> Instituto Fenix </h1>
-            <p>Bem vindo de volta! Por favor insira as informações de login</p>
-            <forms>
-                <div className = {styles.textinputs}>
-                    <label for = "email">E-mail</label>
-                    <input type = "email" id = "email" name = "email" placeholder = "nome@gmail.com"></input>
-                    <label for = "senha">Senha</label>
-                    <input type = "password" id = "senha" name = "senha" placeholder = "********"></input>
-                </div> 
-                <div className={styles.links}>
-                    <div className ={styles.conteinerlembrar}>
-                        <input type="checkbox" id="lembrar" name="lembrar" value="true"></input>
-                        <label for="lembrar">Lembrar-se da senha</label>
-                    </div>
-                    <a href =" "><strong>esqueceu senha?</strong></a>
-                </div>
-                <div className = {styles.buttonsLogin}>   
-                
-                <Link to="/dashboard" className='link'>
-                    <button className = {styles.btlogin} type = "submit" name = "btlogin" id = "btlogin">Login</button>
-                </Link>
+  return (
+    <section className={styles.forms}>
+      <h1> Instituto Fenix </h1>
+      <p>Bem vindo de volta! Por favor insira as informações de login</p>
 
-                <button className = {styles.btregistro} type = "submit" name = "btregistro" id ="btregistro">Cadastre-se</button>
-                </div>
+      <forms>
+        <div className={styles.textinputs}>
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="nome@gmail.com"
+          ></input>
 
-            </forms>
-            
-        </section>
-    );
-}
+          <label for="senha">Senha</label>
+          <input
+            type="password"
+            name="password"
+            id="senha"
+            placeholder="********"
+          ></input>
+        </div>
+
+        <div className={styles.links}>
+          <div className={styles.conteinerlembrar}>
+            <input
+              type="checkbox"
+              id="lembrar"
+              name="lembrar"
+              value="true"
+            ></input>
+            <label for="lembrar">Lembrar-se da senha</label>
+          </div>
+          <a href=" ">
+            <strong>esqueceu senha?</strong>
+          </a>
+        </div>
+
+        <div className={styles.buttonsLogin}>
+          <button
+            className={styles.btlogin}
+            type="submit"
+            name="btlogin"
+            id="btlogin"
+            onClick={carregarTarefas}>
+            Login
+          </button>
+        </div>
+      </forms>
+    </section>
+  );
+};
 
 export default Forms;
+
+
+// curl -X POST \
+// -H "X-Parse-Application-Id: 9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt" \
+// -H "X-Parse-REST-API-Key: ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump" \
+// -H "Content-Type: application/json" \
+// -d "{ \"email\":\"A string\",\"password\":\"A string\" }" \
+// https://parseapi.back4app.com/classes/assistido
+
+  // cirar conta no back4app
+  // const addbanck = async (event) => {
+  //   event.preventDefault();
+  //   const email = document.getElementById("email").value;
+  //   const password = document.getElementById("senha").value;
+  //   const response = await fetch(urlBase, {
+  //     method: "POST",
+  //     headers: headersJson,
+  //     body: JSON.stringify({ email: email, password:password }),
+  //   });
+  //   const data = await response.json();
+  //   console.log(response);
+  //   console.log(data);
+  // };
