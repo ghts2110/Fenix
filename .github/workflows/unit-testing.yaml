@@ -2,4 +2,19 @@ name: Unit Testing
 
 on:
   push:
-    branches: ['main']
+    branches: ['main', 'dev', 'feature/workflow']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: |
+          cd web/
+          npm install
+      - name: Run Jest
+        run: |
+          cd web/
+          npm test 

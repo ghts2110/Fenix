@@ -1,13 +1,12 @@
 import styles from "./Forms.module.css";
 import React, { useState } from "react";
-
+import { Link } from 'react-router-dom';
 
 const Forms = () => {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
-  
+
   const handleSubmit = (event) => {
-    
     console.log("Envio");
   };
 
@@ -53,19 +52,21 @@ const Forms = () => {
             <strong>esqueceu senha?</strong>
           </a>
         </div>
+
         <div className={styles.buttonsLogin}>
-          <button
-            className={styles.btlogin}
-            type="submit"
-            name="btlogin"
-            id="btlogin"
-          >
-            Login
-          </button>
+          <Link to="/dashboard" className="link">
+            <button
+              className={styles.btlogin}
+              type="submit"
+              name="btlogin"
+              id="btlogin">
+              Login
+            </button>
+          </Link>
         </div>
       </forms>
     </section>
   );
-}
+};
 
 export default Forms;

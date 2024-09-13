@@ -3,11 +3,9 @@
     flex-direction: column;
     padding: 2rem;
     width: 100%;
-    height: 100%;
     background-color: rgb(255, 255, 255);
     margin-bottom: 0;
     font-family: Inter;
-
 }
 .forms h1{
     font-size: 80px;
