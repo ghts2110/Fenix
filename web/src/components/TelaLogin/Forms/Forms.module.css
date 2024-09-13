@@ -5,12 +5,14 @@
     width: 100%;
     background-color: rgb(255, 255, 255);
     margin-bottom: 0;
-
+    font-family: Inter;
 }
 .forms h1{
-    font-size: 90px;
+    font-size: 80px;
     margin-bottom: 10px;
     margin-top: 10px;
+
+    text-align: center;
 }
 .forms p{
     opacity: 0.5;
@@ -48,7 +50,7 @@ input::placeholder {
 }
 .forms .links a{
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: #F15124;
 }
 
 
@@ -57,18 +59,14 @@ input::placeholder {
     height: 50px;
     margin-top: 20px;
     margin-right: 20px;
-    border-color: rgb(240, 136, 136) ;
-    background-color: rgb(231, 228, 223);
     text-align: center;
 }
 
 .buttonsLogin .btlogin{
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-radius: 20px;
+    background-color: #F15124;
+    border-color: rgb(240, 136, 136) ;
+    color: white;
 }
-.buttonsLogin .btregistro{
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
 
-}
  

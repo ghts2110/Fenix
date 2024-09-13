@@ -1,30 +1,6 @@
 import styles from "./Forms.module.css";
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-
-// const btLogin = document.getElementById("btlogin");
-
-// btLogin.onclick = loginProcess();
-
-// function checkInput(data) {
-//     if(!input.Passw || 
-//         input.Passw.trim() === "") {}
-
-//     return true;
-// }
-
-// function loginProcess() {
-//     const email_id = document.getElementById("email").value;
-//     const password_id = document.getElementById("senha").value;
-
-//     let data = {
-//         Email: email_id,
-//         Passw: password_id
-//     };
-
-//     if(checkInput(data)) {
-//         // return that the login is wrong
-//     }
-// }
 
 function Forms(){
     return(
@@ -46,12 +22,15 @@ function Forms(){
                     <a href =" "><strong>esqueceu senha?</strong></a>
                 </div>
                 <div className = {styles.buttonsLogin}>   
-                
-                <Link to="/dashboard" className='link'>
-                    <button className = {styles.btlogin} type = "submit" name = "btlogin" id = "btlogin">Login</button>
-                </Link>
-
-                <button className = {styles.btregistro} type = "submit" name = "btregistro" id ="btregistro">Cadastre-se</button>
+                <Link to="/dashboard" className="link">
+            <button
+              className={styles.btlogin}
+              type="submit"
+              name="btlogin"
+              id="btlogin">
+              Login
+            </button>
+          </Link>
                 </div>
 
             </forms>
