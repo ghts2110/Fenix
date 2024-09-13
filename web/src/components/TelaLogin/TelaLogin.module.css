@@ -6,14 +6,11 @@
 }
 
 .telalogin .item1 {
-<<<<<<< HEAD
   background-color: rgb(255, 255, 255);
-=======
   flex: 1;
   background-color: rgb(62, 80, 200);
   display: flex;
   flex-direction: column;
->>>>>>> 9b1b3940b37d53837059411e83a7f9b115ffae18
   padding: 2rem;
 }
 

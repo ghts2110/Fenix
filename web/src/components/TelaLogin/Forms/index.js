@@ -48,11 +48,12 @@ const Forms = () => {
             ></input>
             <label for="lembrar">Lembrar-se da senha</label>
           </div>
-          <a href=" ">
+          <Link to="/forgotpasssword" className="forgotPassword">
             <strong>esqueceu senha?</strong>
-          </a>
+          </Link>
         </div>
         <div className={styles.buttonsLogin}>
+          {/* remove Link because is a button */}
           <Link to="/dashboard" className="link">
             <button
               className={styles.btlogin}
