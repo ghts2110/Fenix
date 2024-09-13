@@ -18,7 +18,7 @@ public class MoradiaModel implements Serializable {
     private String cep;
 
     @ManyToOne
-    @JoinColumn(name = "FK_telefone_telefone_PK", referencedColumnName = "telefone_PK")
+    @JoinColumn(name = "FKtelefone_PK", referencedColumnName = "telefonePK")
     private Telefone telefone;
 
     @ManyToOne
