@@ -1,8 +1,32 @@
 import styles from "./ForgotPassword.module.css";
 import React, { useState } from "react";
+var nodemailer = require('nodemailer');
 
 const ForgotPassword = () => {
-    // let transporter = nodemailer.createTransport(transport[, defaults]);
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            // user: process.env.EMAIL_USER,
+            // pass: process.env.EMAIL_PASSWORD
+            user: 'pedrosteamgtav@gmail.com',
+            pass: 'pedroSTEAMGta5'
+        }
+    });
+
+    var mailOption = {
+        from: 'pedrosteamgtav@gmail.com',
+        to: 'gabrieltorres2110@gmail.com',
+        subject: 'Email test',
+        text: 'easy'
+    };
+
+    transporter.sendMail(mailOption, function(error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent:' + info.response);
+        }
+    });
 
     const checkEmail = async () => {
         const response = await fetch(urlBase, {
@@ -11,7 +35,7 @@ const ForgotPassword = () => {
         });
 
         const data = await response.json();
-        if(checkExistence(data.results)) {
+        if (checkExistence(data.results)) {
 
         }
     };
@@ -19,8 +43,8 @@ const ForgotPassword = () => {
     const checkExistence = (data) => {
         const email = document.getElementById("emailRecover").value;
 
-        for(const d of data) {
-            if(d.email === email) {
+        for (const d of data) {
+            if (d.email === email) {
                 return true;
             }
         }
@@ -54,7 +78,7 @@ const ForgotPassword = () => {
                         <div
                             className={styles.orderInput}
                         >
-                            <label 
+                            <label
                                 className={styles.label}
                                 for="emailRecover"
                             >E-mail</label>
@@ -71,7 +95,7 @@ const ForgotPassword = () => {
                             type="submit"
                             name="btRecoverPassword"
                             id="btRecoverPassword"
-                            onClick={ checkEmail() }
+                            onClick={checkEmail()}
                         > Recuperar senha</button>
                     </div>
                 </div>
