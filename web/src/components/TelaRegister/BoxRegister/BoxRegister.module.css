@@ -19,7 +19,7 @@
   gap: 100px;
 }
 
-label {
+.label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
@@ -27,7 +27,7 @@ label {
 
 }
 
-input {
+.input {
   width: 150%;
   padding: 8px;
   border-radius: 4px;

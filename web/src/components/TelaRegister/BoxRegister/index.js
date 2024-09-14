@@ -1,5 +1,4 @@
 import styles from "./BoxRegister.module.css";
-import React, { useState } from "react";
 
 const Register = () => {
   // criar resistro
@@ -33,8 +32,8 @@ const Register = () => {
       <form>
         <div className={styles.formGroup1}>
           <div className={styles.boxName}>
-            <label htmlFor="name">Nome Completo</label>
-            <input
+            <label className={styles.label}>Nome Completo</label>
+            <input className={styles.input}
               type="text"
               name="name"
               id="name"
@@ -44,8 +43,8 @@ const Register = () => {
           </div>
 
           <div className={styles.boxEmail}>
-            <label htmlFor="email">E-mail</label>
-            <input
+            <label className={styles.label}>E-mail</label>
+            <input className={styles.input}
               type="email"
               name="email"
               id="email"
@@ -57,8 +56,8 @@ const Register = () => {
 
         <div className={styles.formGroup1}>
           <div className={styles.boxPosition}>
-            <label htmlFor="position">Cargo de Interesse</label>
-            <input
+            <label className={styles.label}>Cargo de Interesse</label>
+            <input className={styles.input}
               type="text"
               name="position"
               id="position"
@@ -68,8 +67,8 @@ const Register = () => {
           </div>
 
           <div className={styles.boxCPF}>
-            <label htmlFor="cpf">CPF</label>
-            <input
+            <label className={styles.label}>CPF</label>
+            <input className={styles.input}
               type="text"
               name="cpf"
               id="cpf"
@@ -81,8 +80,8 @@ const Register = () => {
 
         <div className={styles.formGroup1}>
           <div className={styles.boxPassword}>
-            <label htmlFor="password">Senha</label>
-            <input
+            <label className={styles.label}>Senha</label>
+            <input className={styles.input}
               type="password"
               name="password"
               id="password"
@@ -92,8 +91,8 @@ const Register = () => {
           </div>
 
           <div className={styles.boxBirthDay}>
-            <label htmlFor="birthDay">Data de Nascimento</label>
-            <input
+            <label className={styles.label}>Data de Nascimento</label>
+            <input className={styles.input}
               type="date"
               name="birthDay"
               id="birthDay"

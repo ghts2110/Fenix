@@ -1,15 +1,15 @@
 import TelaLogin from "./components/TelaLogin";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TelaDashboard from "./components/TelaDashboard";
-import { CookiesProvider, useCookies } from "react-cookie";
+// import { CookiesProvider, useCookies } from "react-cookie";
 import Register from "./components/TelaRegister";
 
 function App() {
-  const [cookies, setCookie] = useCookies(["user"]);
+  // const [cookies, setCookie] = useCookies(["user"]);
 
-  function handleLogin(user) {
-    setCookie("user", user, { path: "/" });
-  }
+  // function handleLogin(user) {
+  //   setCookie("user", user, { path: "/" });
+  // }
 
   return (
     <Router>
