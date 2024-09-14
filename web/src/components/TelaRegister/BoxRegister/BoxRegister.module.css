@@ -1,0 +1,16 @@
+.forms{    
+    width: 1000px;
+    height: 600px;
+
+    border-radius: 20px;
+    border: #F15124;
+    border-width: 2px;
+    border-style:solid;
+
+    display: flex;
+    align-items: center;
+    flex-direction:  column;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

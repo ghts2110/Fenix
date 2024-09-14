@@ -2,6 +2,12 @@
     display: flex;
 }
 
+.container2 {
+    display: flex;
+    align-items: center;
+    flex-direction:  column;
+}
+
 .item1{
     width: 400px;
     height: 1080px;
@@ -20,6 +26,12 @@
     gap: 0px;
     opacity: 0px;
     
+}
+
+.item3{
+    display: flex;
+    align-items: center;
+    flex-direction:  column;
 }
 
 .TelaDashboard{
