@@ -1,8 +1,8 @@
 import styles from "./BoxRegister.module.css";
 
-const Forms = () => {
+const Register = () => {
   return (
-    <section className={styles.forms}>
+    <section className={styles.Register}>
       <forms>
         <div>
           <label for="name">Nome</label>
@@ -62,4 +62,4 @@ const Forms = () => {
   );
 };
 
-export default Forms;
+export default Register;
