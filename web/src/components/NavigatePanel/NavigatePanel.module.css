@@ -1,22 +1,22 @@
 .NavigatePanel_bg {
     display: grid;
     grid-template-columns: auto 1fr 1fr;
+    font-family: Inter;
 }
 
 .button, .buttonConfig {
     cursor: pointer;
     border-color: rgb(240, 136, 136) ;
-    background-color: #ECE6F0;
+    background-color: #F15124;
     border-radius: 10px;
     padding: 12px 15px;
     text-transform: uppercase;
-    color: black; /* Texto branco para contraste */
+    color: white; /* Texto branco para contraste */
     font-weight: bold; /* Deixa o texto mais destacado */
-
+    font-family: Inter;
 }
 
 .h1{
-    font-family: Inter;
     font-size: 48px;
     font-weight: 400;
     line-height: 58.09px;
@@ -42,5 +42,5 @@
 }
 
 .buttonConfig{
-    margin-top: 400px;
+    margin-top: 320px;
 }

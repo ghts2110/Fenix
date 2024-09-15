@@ -1,5 +1,5 @@
 import styles from './TelaDashboard.module.css';
-import Header from '../Hearder';
+import Header from '../Header';
 import NavigatePanel from '../NavigatePanel';
 
 function TelaDashboard() {
