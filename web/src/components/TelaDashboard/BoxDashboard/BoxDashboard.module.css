@@ -49,10 +49,14 @@
 
   display: flex;
   flex-direction: column;
+}
 
+.scrollArea {
+  flex-grow: 1;
   overflow-y: auto; /* Ativa a rolagem vertical */
   overflow-x: hidden; /* Esconde a rolagem horizontal */
 }
+
 
 .performanceGraph {
   border-radius: 20px;
@@ -80,6 +84,22 @@
   overflow-x: hidden; /* Esconde a rolagem horizontal */
 }
 
+.casesToBeResolved{
+  border-radius: 20px;
+  border: #f15124;
+  border-width: 2px;
+  border-style: solid;
+
+  width: 25%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto; /* Ativa a rolagem vertical */
+  overflow-x: hidden; /* Esconde a rolagem horizontal */
+}
+
 .meeting{
   border-radius: 20px;
   border: #f15124;
@@ -88,4 +108,8 @@
 
   width: 60%;
   height: 100%;
+}
+
+.urgentButton{
+  width: 100%;
 }
