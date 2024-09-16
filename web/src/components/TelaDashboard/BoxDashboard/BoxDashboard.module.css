@@ -68,23 +68,7 @@
   height: 100%;
 }
 
-.CasosUrgentes {
-  border-radius: 20px;
-  border: #f15124;
-  border-width: 2px;
-  border-style: solid;
-
-  width: 25%;
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
-
-  overflow-y: auto; /* Ativa a rolagem vertical */
-  overflow-x: hidden; /* Esconde a rolagem horizontal */
-}
-
-.casesToBeResolved{
+.Cases{
   border-radius: 20px;
   border: #f15124;
   border-width: 2px;
@@ -112,4 +96,25 @@
 
 .urgentButton{
   width: 100%;
+}
+
+.meeting {
+  border-radius: 20px;
+  border: 2px solid #f15124;
+  width: 60%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.meeting ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.meeting li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.6;
 }
