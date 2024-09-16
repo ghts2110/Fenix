@@ -2,19 +2,12 @@ import styles from "./ForgotPassword.module.css";
 import React, { useState, useRef } from "react";
 import emailjs from '@emailjs/browser';
 
-// curl -X POST \
-// -H "X-Parse-Application-Id: qOl8b4V5itYXkY2BI3ZI08J87VqC6jqxzHUeL5lI" \
-// -H "X-Parse-REST-API-Key: uHvzO1GZXrWld55FMGpgO4nakC3JJgXruD1E6hIP" \
-// -H "Content-Type: application/json" \
-// -d "{ \"email\":\"A string\",\"password\":\"A string\",\"name\":\"A string\" }" \
-// https://parseapi.back4app.com/classes/judge3
-
 const ForgotPassword = () => {
 
-    const urlBase = "https://parseapi.back4app.com/classes/judge3";
+    const urlBase = "https://parseapi.back4app.com/classes/assistido";
     const headers = {
-        "X-Parse-Application-Id": "qOl8b4V5itYXkY2BI3ZI08J87VqC6jqxzHUeL5lI",
-        "X-Parse-REST-API-Key": "uHvzO1GZXrWld55FMGpgO4nakC3JJgXruD1E6hIP"
+        "X-Parse-Application-Id": "9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt",
+        "X-Parse-REST-API-Key": "ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump",
     };
 
     const form = useRef();
@@ -46,13 +39,12 @@ const ForgotPassword = () => {
         
         const data = await response.json();
         if (checkExistence(data.results)) {
-            sendEmail(e, );
+            sendEmail(e);
         }
-        return false;
     };
 
     const checkExistence = (data) => {
-        const email = document.getElementById("emailRecover").value;
+        const email = document.getElementById("email_to").value;
 
         for (const d of data) {
             if (d.email === email) {
@@ -60,7 +52,6 @@ const ForgotPassword = () => {
             }
         }
 
-        // warn about email not found
         return false;
     }
 
@@ -95,13 +86,12 @@ const ForgotPassword = () => {
                             >
                                 <label
                                     className={styles.label}
-                                    for="emailRecover"
                                 >E-mail</label>
                                 <input
                                     className={styles.emailRecover}
                                     type="email"
-                                    name="emailRecover"
-                                    id="emailRecover"
+                                    name="email_to"
+                                    id="email_to"
                                     placeholder="nome@gmail.com"
                                 ></input>
                             </div>
@@ -121,41 +111,3 @@ const ForgotPassword = () => {
 }
 
 export default ForgotPassword;
-
-// import React, { useRef } from 'react';
-// import emailjs from '@emailjs/browser';
-
-// export const ContactUs = () => {
-//   const form = useRef();
-
-//   const sendEmail = (e) => {
-//     e.preventDefault();
-
-//     emailjs
-//       .sendForm('service_lpzn012', 'template_4fb8dab', form.current, {
-//         publicKey: '6JP2avD_8VxlPBkpD',
-//       })
-//       .then(
-//         () => {
-//           console.log('SUCCESS!');
-//         },
-//         (error) => {
-//           console.log('FAILED...', error.text);
-//         },
-//       );
-//   };
-
-//   return (
-//     <form ref={form} onSubmit={sendEmail}>
-//       <label>Name</label>
-//       <input type="text" name="user_name" />
-//       <label>Email</label>
-//       <input type="email" name="user_email" />
-//       <label>Message</label>
-//       <textarea name="message" />
-//       <input type="submit" value="Send" />
-//     </form>
-//   );
-// };
-
-// export default ContactUs;
