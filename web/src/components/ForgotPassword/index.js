@@ -1,57 +1,53 @@
 import styles from "./ForgotPassword.module.css";
-import React, { useState } from "react";
-var nodemailer = require('nodemailer');
+import React, { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 
 const ForgotPassword = () => {
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            // user: process.env.EMAIL_USER,
-            // pass: process.env.EMAIL_PASSWORD
-            user: 'pedrosteamgtav@gmail.com',
-            pass: 'pedroSTEAMGta5'
-        }
-    });
 
-    var mailOption = {
-        from: 'pedrosteamgtav@gmail.com',
-        to: 'gabrieltorres2110@gmail.com',
-        subject: 'Email test',
-        text: 'easy'
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs
+            .sendForm('service_lpzn012', 'template_psqemhp', form.current, {
+                publicKey: '6JP2avD_8VxlPBkpD',
+            })
+            .then(
+                () => {
+                    console.log('SUCCESS!');
+                },
+                (error) => {
+                    console.log('FAILED...', error.text);
+                },
+            );
     };
-
-    transporter.sendMail(mailOption, function(error, info) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent:' + info.response);
-        }
-    });
 
     const checkEmail = async () => {
-        const response = await fetch(urlBase, {
-            method: "GET",
-            headers: headers,
-        });
+        sendEmail();
+        // const response = await fetch(urlBase, {
+        //     method: "GET",
+        //     headers: headers,
+        // });
 
-        const data = await response.json();
-        if (checkExistence(data.results)) {
-
-        }
+        // const data = await response.json();
+        // if (checkExistence(data.results)) {
+        // }
+        // return false;
     };
 
-    const checkExistence = (data) => {
-        const email = document.getElementById("emailRecover").value;
+    // const checkExistence = (data) => {
+    //     const email = document.getElementById("emailRecover").value;
 
-        for (const d of data) {
-            if (d.email === email) {
-                return true;
-            }
-        }
+    //     for (const d of data) {
+    //         if (d.email === email) {
+    //             return true;
+    //         }
+    //     }
 
-        // warn about email not found
-        return false;
-    }
+    //     // warn about email not found
+    //     return false;
+    // }
 
     return (
         <section className={styles.forgotPsswd}>
@@ -75,28 +71,33 @@ const ForgotPassword = () => {
                                 a conta Fenix.
                             </h5>
                         </div>
-                        <div
-                            className={styles.orderInput}
+                        <form
+                            ref={form}
+                            onSubmit={sendEmail}
                         >
-                            <label
-                                className={styles.label}
-                                for="emailRecover"
-                            >E-mail</label>
+                            <div
+                                className={styles.orderInput}
+                            >
+                                <label
+                                    className={styles.label}
+                                    for="emailRecover"
+                                >E-mail</label>
+                                <input
+                                    className={styles.emailRecover}
+                                    type="email"
+                                    name="emailRecover"
+                                    id="emailRecover"
+                                    placeholder="nome@gmail.com"
+                                ></input>
+                            </div>
                             <input
-                                className={styles.emailRecover}
-                                type="email"
-                                name="emailRecover"
-                                id="emailRecover"
-                                placeholder="nome@gmail.com"
-                            ></input>
-                        </div>
-                        <button
-                            className={styles.btRecoverPassword}
-                            type="submit"
-                            name="btRecoverPassword"
-                            id="btRecoverPassword"
-                            onClick={checkEmail()}
-                        > Recuperar senha</button>
+                                type="submit"
+                                className={styles.btRecoverPassword}
+                                name="btRecoverPassword"
+                                id="btRecoverPassword"
+                                value="Recuperar senha"
+                            />
+                        </form>
                     </div>
                 </div>
             </div>
@@ -105,3 +106,41 @@ const ForgotPassword = () => {
 }
 
 export default ForgotPassword;
+
+// import React, { useRef } from 'react';
+// import emailjs from '@emailjs/browser';
+
+// export const ContactUs = () => {
+//   const form = useRef();
+
+//   const sendEmail = (e) => {
+//     e.preventDefault();
+
+//     emailjs
+//       .sendForm('service_lpzn012', 'template_4fb8dab', form.current, {
+//         publicKey: '6JP2avD_8VxlPBkpD',
+//       })
+//       .then(
+//         () => {
+//           console.log('SUCCESS!');
+//         },
+//         (error) => {
+//           console.log('FAILED...', error.text);
+//         },
+//       );
+//   };
+
+//   return (
+//     <form ref={form} onSubmit={sendEmail}>
+//       <label>Name</label>
+//       <input type="text" name="user_name" />
+//       <label>Email</label>
+//       <input type="email" name="user_email" />
+//       <label>Message</label>
+//       <textarea name="message" />
+//       <input type="submit" value="Send" />
+//     </form>
+//   );
+// };
+
+// export default ContactUs;
