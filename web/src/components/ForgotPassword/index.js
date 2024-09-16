@@ -23,8 +23,10 @@ const ForgotPassword = () => {
             );
     };
 
-    const checkEmail = async () => {
-        sendEmail();
+    const checkEmail = async (e) => {
+        e.preventDefault();
+
+        sendEmail(e);
         // const response = await fetch(urlBase, {
         //     method: "GET",
         //     headers: headers,
@@ -73,7 +75,7 @@ const ForgotPassword = () => {
                         </div>
                         <form
                             ref={form}
-                            onSubmit={sendEmail}
+                            onSubmit={checkEmail}
                         >
                             <div
                                 className={styles.orderInput}
