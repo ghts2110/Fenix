@@ -1,0 +1,16 @@
+.Assisted {
+    width: 90%;
+    height: 85%;
+  
+    border-radius: 20px;
+    border: #f15124;
+    border-width: 2px;
+    border-style: solid;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Inter;
+  
+  }
+  

@@ -14,6 +14,10 @@ function NavigatePanel() {
     navigate("/register");
   }
 
+  const handleAssistedClick = () => {
+    navigate("/assisted");
+  }
+
   return (
     <section className={styles.NavigatePanel_bg}>
       <div className={styles.NavigatePanelContainer}>
@@ -23,7 +27,8 @@ function NavigatePanel() {
         <div className={styles.buttonsContainer}>
           <button className={styles.button} onClick={handleDashboardClick}> <FaUser className={styles.icon}/> Painel de Controle</button>          
           
-          <button className={styles.button}> <FaTasks className={styles.icon} /> Assistidos</button>
+          <button className={styles.button} onClick={handleAssistedClick}> <FaTasks className={styles.icon} /> Assistidos</button>
+          
           <button className={styles.button}> <FaUserPlus className={styles.icon} /> Cadastro do Cliente</button>
           <button className={styles.button}> <FaFileAlt className={styles.icon} /> Solicitações</button>
 
