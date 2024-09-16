@@ -30,7 +30,6 @@ function NavigatePanel() {
           <button className={styles.button} onClick={handleAssistedClick}> <FaTasks className={styles.icon} /> Assistidos</button>
           
           <button className={styles.button}> <FaUserPlus className={styles.icon} /> Cadastro do Cliente</button>
-          <button className={styles.button}> <FaFileAlt className={styles.icon} /> Solicitações</button>
 
           <button className={styles.button} onClick={handleRegisterClick}> <FaPencilAlt className={styles.icon} /> Cadastrar Voluntário</button>
 
