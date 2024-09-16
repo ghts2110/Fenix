@@ -1,0 +1,91 @@
+.DashBoard {
+  width: 90%;
+  height: 85%;
+
+  border-radius: 20px;
+  border: #f15124;
+  border-width: 2px;
+  border-style: solid;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Inter;
+
+  gap: 5%;
+}
+
+.grup1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 95%;
+  height: 35%;
+  
+  gap: 5%;
+}
+
+.grup2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 95%;
+  height: 35%;
+
+  gap: 5%;
+}
+
+.UrgentActions {
+  border-radius: 20px;
+  border: #f15124;
+  border-width: 2px;
+  border-style: solid;
+
+  width: 25%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto; /* Ativa a rolagem vertical */
+  overflow-x: hidden; /* Esconde a rolagem horizontal */
+}
+
+.performanceGraph {
+  border-radius: 20px;
+  border: #f15124;
+  border-width: 2px;
+  border-style: solid;
+
+  width: 60%;
+  height: 100%;
+}
+
+.CasosUrgentes {
+  border-radius: 20px;
+  border: #f15124;
+  border-width: 2px;
+  border-style: solid;
+
+  width: 25%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto; /* Ativa a rolagem vertical */
+  overflow-x: hidden; /* Esconde a rolagem horizontal */
+}
+
+.meeting{
+  border-radius: 20px;
+  border: #f15124;
+  border-width: 2px;
+  border-style: solid;
+
+  width: 60%;
+  height: 100%;
+}
