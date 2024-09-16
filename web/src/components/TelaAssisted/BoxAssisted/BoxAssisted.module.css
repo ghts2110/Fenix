@@ -1,16 +1,40 @@
 .Assisted {
-    width: 90%;
-    height: 85%;
-  
-    border-radius: 20px;
-    border: #f15124;
-    border-width: 2px;
-    border-style: solid;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Inter;
-  
-  }
-  
+  width: 90%;
+  height: 85%;
+
+  border-radius: 20px;
+  border: #f15124;
+  border-width: 2px;
+  border-style: solid;
+
+  display: flex;
+  flex-direction: column;
+  font-family: Inter;
+  overflow-y: auto;
+}
+
+.assistedBox {
+  width: 100%;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.Boxbutton {
+  height: 100%;
+  display: flex; /* Alinha os botões em linha */
+  justify-content: center; /* Centraliza os botões horizontalmente */
+  gap: 20px; /* Cria um espaço entre os botões */
+}
+
+.assistedButton {
+  background-color: #f15124;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
