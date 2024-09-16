@@ -2,7 +2,20 @@ import styles from "./ForgotPassword.module.css";
 import React, { useState, useRef } from "react";
 import emailjs from '@emailjs/browser';
 
+// curl -X POST \
+// -H "X-Parse-Application-Id: qOl8b4V5itYXkY2BI3ZI08J87VqC6jqxzHUeL5lI" \
+// -H "X-Parse-REST-API-Key: uHvzO1GZXrWld55FMGpgO4nakC3JJgXruD1E6hIP" \
+// -H "Content-Type: application/json" \
+// -d "{ \"email\":\"A string\",\"password\":\"A string\",\"name\":\"A string\" }" \
+// https://parseapi.back4app.com/classes/judge3
+
 const ForgotPassword = () => {
+
+    const urlBase = "https://parseapi.back4app.com/classes/judge3";
+    const headers = {
+        "X-Parse-Application-Id": "qOl8b4V5itYXkY2BI3ZI08J87VqC6jqxzHUeL5lI",
+        "X-Parse-REST-API-Key": "uHvzO1GZXrWld55FMGpgO4nakC3JJgXruD1E6hIP"
+    };
 
     const form = useRef();
 
@@ -26,30 +39,30 @@ const ForgotPassword = () => {
     const checkEmail = async (e) => {
         e.preventDefault();
 
-        sendEmail(e);
-        // const response = await fetch(urlBase, {
-        //     method: "GET",
-        //     headers: headers,
-        // });
-
-        // const data = await response.json();
-        // if (checkExistence(data.results)) {
-        // }
-        // return false;
+        const response = await fetch(urlBase, {
+            method: "GET",
+            headers: headers,
+        });
+        
+        const data = await response.json();
+        if (checkExistence(data.results)) {
+            sendEmail(e, );
+        }
+        return false;
     };
 
-    // const checkExistence = (data) => {
-    //     const email = document.getElementById("emailRecover").value;
+    const checkExistence = (data) => {
+        const email = document.getElementById("emailRecover").value;
 
-    //     for (const d of data) {
-    //         if (d.email === email) {
-    //             return true;
-    //         }
-    //     }
+        for (const d of data) {
+            if (d.email === email) {
+                return true;
+            }
+        }
 
-    //     // warn about email not found
-    //     return false;
-    // }
+        // warn about email not found
+        return false;
+    }
 
     return (
         <section className={styles.forgotPsswd}>
