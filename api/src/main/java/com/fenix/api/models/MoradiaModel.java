@@ -11,6 +11,7 @@ public class MoradiaModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false)
     private String endr;
     private String bairro;
     private String cidade;

@@ -14,7 +14,9 @@ public class Telefone implements Serializable {
     private long telefonePK;
     private String telefone;
 
-    public Telefone(){}
+    public Telefone(){
+        
+    }
 
     public Telefone(int telefonePK, String telefone) {
         this.telefonePK = telefonePK;

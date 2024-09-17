@@ -14,6 +14,15 @@ public class CategCnh implements Serializable {
     private long categCnhPK;
     private String categCnh;
 
+    public CategCnh(){
+
+    }
+
+    public CategCnh(long categCnhPK, String categCNH){
+        this.categCnhPK = categCnhPK;
+        this.categCnh = categCNH;
+    }
+
     public static long getSerialversionuid() {
         return serialVersionUID;
     }

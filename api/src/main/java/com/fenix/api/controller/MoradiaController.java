@@ -2,8 +2,12 @@ package com.fenix.api.controller;
 
 import com.fenix.api.models.MoradiaModel;
 import com.fenix.api.services.MoradiaService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,7 +32,7 @@ public class MoradiaController {
     }
 
     @PostMapping
-    public MoradiaModel createMoradia(@RequestBody MoradiaModel moradiaModel) {
+    public MoradiaModel createMoradia(@RequestBody @Valid MoradiaModel moradiaModel) {
         return moradiaService.save(moradiaModel);
     }
 
