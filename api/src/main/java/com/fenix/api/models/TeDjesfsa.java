@@ -3,6 +3,9 @@ package com.fenix.api.models;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Entity
 @Table(name = "TE_DJESFSA")
@@ -19,6 +22,7 @@ public class TeDjesfsa implements Serializable {
     private boolean tClt;
     private String cpf;
     private String rg;
+
     @ManyToOne
     @JoinColumn(name = "fk_categ_cnh_PK", referencedColumnName = "categcnhPK")
     private CategCnh categCnh;
@@ -31,6 +35,7 @@ public class TeDjesfsa implements Serializable {
     private Date terminoPena;
     private String regimeAtual;
     private String situacaoProcess;
+
     @ManyToOne
     @JoinColumn(name = "fk_artigo_artigo_PK", referencedColumnName = "artigoPK")
     private Artigo artigo;
@@ -47,16 +52,16 @@ public class TeDjesfsa implements Serializable {
     private String sts;
     private String obsPerfil;
     private Date dtAtndIndv;
-    @ManyToOne
-    @JoinColumn(name = "fk_exp_prof_PK", referencedColumnName = "expprofPK")
-    private ExpProf expProf;
+
+    @OneToMany(mappedBy = "Exp_Prof")
+    private Set<ExpProf> expProf = new HashSet<>();
 
     private String estadoCivil;
     private String nomeMae;
     private String nomePai;
-    @ManyToOne
-    @JoinColumn(name = "fk_idd_filhos_PK", referencedColumnName = "iddfilhosPK")
-    private IddFilhos iddFilhos;
+
+    @OneToMany(mappedBy = "Id_De_Filhos")
+    private Set<IddFilhos> iddFilhos = new HashSet<>();
 
     private boolean triagemFamilia;
     private Date dtAtendFam;
@@ -65,9 +70,9 @@ public class TeDjesfsa implements Serializable {
     private String orientacaoSexual;
     private String genero;
     private String cidadeNativa;
-    @ManyToOne
-    @JoinColumn(name = "fk_q_defPK", referencedColumnName = "qdefPK")
-    private QDef qDef;
+
+    @OneToMany(mappedBy = "Q_Def")
+    private Set<QDef> qDef = new HashSet<>();
 
     private String estadoNativo;
     private Date dtInscricao;
@@ -116,11 +121,11 @@ public class TeDjesfsa implements Serializable {
         this.sts = sts;
         this.obsPerfil = obsPerfil;
         this.dtAtndIndv = dtAtndIndv;
-        this.expProf = expProf;
+        //this.expProf = expProf;
         this.estadoCivil = estadoCivil;
         this.nomeMae = nomeMae;
         this.nomePai = nomePai;
-        this.iddFilhos = iddFilhos;
+        //this.iddFilhos = iddFilhos;
         this.triagemFamilia = triagemFamilia;
         this.dtAtendFam = dtAtendFam;
         this.dtAniversario = dtAniversario;
@@ -128,7 +133,7 @@ public class TeDjesfsa implements Serializable {
         this.orientacaoSexual = orientacaoSexual;
         this.genero = genero;
         this.cidadeNativa = cidadeNativa;
-        this.qDef = qDef;
+        //this.qDef = qDef;
         this.estadoNativo = estadoNativo;
         this.dtInscricao = dtInscricao;
         this.nomeCompleto = nomeCompleto;
@@ -373,13 +378,13 @@ public class TeDjesfsa implements Serializable {
         this.dtAtndIndv = dtAtndIndv;
     }
 
-    public ExpProf getExpProf() {
+    /*public ExpProf getExpProf() {
         return expProf;
     }
 
     public void setExpProf(ExpProf expProf) {
         this.expProf = expProf;
-    }
+    }*/
 
     public String getEstadoCivil() {
         return estadoCivil;
@@ -405,13 +410,13 @@ public class TeDjesfsa implements Serializable {
         this.nomePai = nomePai;
     }
 
-    public IddFilhos getIddFilhos() {
+    /*public IddFilhos getIddFilhos() {
         return iddFilhos;
     }
 
     public void setIddFilhos(IddFilhos iddFilhos) {
         this.iddFilhos = iddFilhos;
-    }
+    }*/
 
     public boolean isTriagemFamilia() {
         return triagemFamilia;
@@ -469,13 +474,13 @@ public class TeDjesfsa implements Serializable {
         this.cidadeNativa = cidadeNativa;
     }
 
-    public QDef getqDef() {
+    /*public QDef getqDef() {
         return qDef;
     }
 
     public void setqDef(QDef qDef) {
         this.qDef = qDef;
-    }
+    }*/
 
     public String getEstadoNativo() {
         return estadoNativo;
