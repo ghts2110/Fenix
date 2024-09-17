@@ -23,10 +23,7 @@ public class TeDjesfsa implements Serializable {
     private boolean tClt;
     private String cpf;
     private String rg;
-
-    @ManyToOne
-    @JoinColumn(name = "fk_categ_cnh_PK", referencedColumnName = "categcnhPK")
-    private CategCnh categCnh;
+    private String categCnh;
 
     private String unPrisional;
     private int tempoSentenca;
@@ -84,7 +81,7 @@ public class TeDjesfsa implements Serializable {
     public TeDjesfsa(){}
 
     public TeDjesfsa(long cadastro, String numero, String secao, String zona, boolean tClt, String cpf, String rg,
-            CategCnh categCnh, String unPrisional, int tempoSentenca, String seeu, String pje, boolean reincidente,
+            String categCnh, String unPrisional, int tempoSentenca, String seeu, String pje, boolean reincidente,
             Date terminoPena, String regimeAtual, String situacaoProcess, Artigo artigo, String escolaridade,
             String serieCurso, boolean letrado, Date dtAperfeicoamento, String obsSocial, String turma, boolean manha,
             boolean tarde, boolean cestaB, String sts, String obsPerfil, Date dtAtndIndv, ExpProf expProf,
@@ -203,11 +200,11 @@ public class TeDjesfsa implements Serializable {
         this.rg = rg;
     }
 
-    public CategCnh getCategCnh() {
+    public String getCategCnh() {
         return categCnh;
     }
 
-    public void setCategCnh(CategCnh categCnh) {
+    public void setCategCnh(String categCnh) {
         this.categCnh = categCnh;
     }
 
