@@ -1,6 +1,5 @@
 import { generateOA } from "../../Utils/index.js";
 import styles from "./ForgotPassword.module.css";
-import React, { useRef } from "react";
 import emailjs from '@emailjs/browser';
 
 const ForgotPassword = () => {
@@ -18,16 +17,16 @@ const ForgotPassword = () => {
     };
 
     const addRequest = async (auth_code) => {
-        await fetch(urlBaseRC, {
+        const response = await fetch(urlBaseRC, {
             method: "POST",
             headers: headersJson,
             body: JSON.stringify({
                 email: document.getElementById("email_to").value,
-                dateRequest: new Date(),
                 AO: auth_code,
             }),
         });
-        return;
+
+        const data = await response.json();
     };
 
     const sendEmail = (e) => {
@@ -37,6 +36,7 @@ const ForgotPassword = () => {
             email_to: document.getElementById("email_to").value,
             user_name: name,
             auth_code: auth,
+            link_not_recover: "https://cancelrequest/"+auth,
         }
 
         emailjs
@@ -46,11 +46,9 @@ const ForgotPassword = () => {
             .then(
                 () => {
                     addRequest(auth);
-                    console.log('SUCCESS!');
+                    window.open("http://localhost:3000/resetpassword/", "_self");
                 },
-                (error) => {
-                    console.log('FAILED...', error.text);
-                },
+                (error) => {},
             );
     };
 

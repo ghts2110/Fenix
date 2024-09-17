@@ -11,7 +11,8 @@ function App() {
         <Route path="/" element={<TelaLogin />} />
         <Route path="/dashboard" element={<TelaDashboard />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
-        <Route path="/resetpassword/:id/" element={<ResetPassword />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
+        <Route path="/cancelrequest/:id/" element={<ResetPassword />} />
       </Routes>
     </Router>
 
