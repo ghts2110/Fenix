@@ -1,14 +1,21 @@
-import React, { useState } from "react";
-import styles from "./BoxClient.module.css";
-import Step1 from "./steps/Step1";
-import Step2 from "./steps/Step2";
-import Step3 from "./steps/Step3";
-import Step4 from "./steps/Step4";
-import ChildrenFields from "./steps/ChildrenFields";
-import { validateStep1 } from "./validations/validateStep1";
-import { validateStep2 } from "./validations/validateStep2";
-import { validateStep3 } from "./validations/validateStep3";
-import { validateStep4 } from "./validations/validateStep4";
+// src/components/TelaClient/BoxClient/index.js
+import React, { useState } from 'react';
+import styles from './BoxClient.module.css';
+import Step1 from './steps/Step1';
+import Step2 from './steps/Step2';
+import Step3 from './steps/Step3';
+import Step4 from './steps/Step4';
+import Step5 from './steps/Step5';
+import Step6 from './steps/Step6';
+import Step7 from './steps/Step7'; // Adicione esta linha
+import ChildrenFields from './steps/ChildrenFields';
+import { validateStep1 } from './validations/validateStep1';
+import { validateStep2 } from './validations/validateStep2';
+import { validateStep3 } from './validations/validateStep3';
+import { validateStep4 } from './validations/validateStep4';
+import { validateStep5 } from './validations/validateStep5';
+import { validateStep6 } from './validations/validateStep6';
+import { validateStep7 } from './validations/validateStep7'; // Adicione a validação para o Step7
 
 const BoxClient = () => {
   const [step, setStep] = useState(1);
@@ -31,7 +38,7 @@ const BoxClient = () => {
     electoralTitle: "",
     votingSection: "",
     votingZone: "",
-    cnhCategory: "",
+    cnhCategory: [],
     civilState: "",
     hasWorkCard: "",
     numberOfChildren: "",
@@ -43,14 +50,55 @@ const BoxClient = () => {
     currentCity: "",
     currentState: "",
     cep: "",
+    hasWork: "",
+    modality: "",
+    localWork: "",
+    deficiency: "",
+    whatDefiecience: "",
+    readAndWrite: "",
+    schooling: "",
+    courseOrSeries: "",
+    incident: "",
+    currentRegime: "",
+    legalStatus: "",
+    sentenceDuration: "",
+    prisonUnit: "",
+    pje: "",
+    seeu: "",
+    penaltyEndDate: "",
+    improvementDate: "", // Adicione este campo
+    classGroup: "", // Adicione este campo
+    shift: "", // Adicione este campo
+    observations1: "", // Adicione este campo
+    observations2: "", // Adicione este campo
+    individualAttendanceDate: "", // Adicione este campo
+    assistedStatus: "", // Adicione este campo
+    basicBasket: "", // Adicione este campo
+    familyScreening: "", // Adicione este campo
+    familyScreeningDate: "", // Adicione este campo
+    professionalExperience: "", // Adicione este campo
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    const { name, value, type, checked } = e.target;
+
+    if (type === 'checkbox' && name === 'cnhCategory') {
+      setFormData((prevData) => {
+        const newCategories = checked
+          ? [...prevData.cnhCategory, value]
+          : prevData.cnhCategory.filter((category) => category !== value);
+
+        return {
+          ...prevData,
+          cnhCategory: newCategories,
+        };
+      });
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
   };
 
   const handleChildChange = (index, field, value) => {
@@ -65,7 +113,7 @@ const BoxClient = () => {
 
   const handleNext = () => {
     if (validateStep()) {
-      if (step === 4) {
+      if (step === 7) {
         handleSubmit();
       } else {
         setStep((prevStep) => prevStep + 1);
@@ -101,6 +149,12 @@ const BoxClient = () => {
         return validateStep3(formData);
       case 4:
         return validateStep4(formData);
+      case 5:
+        return validateStep5(formData);
+      case 6:
+        return validateStep6(formData);
+      case 7:
+        return validateStep7(formData); // Adicione a validação para o Step7
       default:
         return false;
     }
@@ -139,10 +193,13 @@ const BoxClient = () => {
           </>
         )}
         {step === 4 && <Step4 formData={formData} handleChange={handleChange} />}
+        {step === 5 && <Step5 formData={formData} handleChange={handleChange} />}
+        {step === 6 && <Step6 formData={formData} handleChange={handleChange} />}
+        {step === 7 && <Step7 formData={formData} handleChange={handleChange} />} {/* Adicione este trecho */}
         <div className={styles.buttonContainer}>
           {step > 1 && <button type="button" onClick={handlePrevious}>Anterior</button>}
           <button type="button" onClick={handleNext}>
-            {step === 4 ? 'Finalizar' : 'Próximo'}
+            {step === 7 ? 'Finalizar' : 'Próximo'}
           </button>
         </div>
       </form>
