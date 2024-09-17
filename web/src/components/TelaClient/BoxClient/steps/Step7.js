@@ -1,8 +1,26 @@
 // src/components/TelaClient/BoxClient/steps/Step7.js
-import React from 'react';
+
+import React, { useState } from 'react';
 import styles from '../BoxClient.module.css';
+import TurnoSelector from './TurnoSelector'; // Importar o novo componente
 
 const Step7 = ({ formData, handleChange }) => {
+  const [isTurnoSelectorOpen, setIsTurnoSelectorOpen] = useState(false);
+  const [selectedTurno, setSelectedTurno] = useState(formData.shift || '');
+
+  const openTurnoSelector = () => {
+    setIsTurnoSelectorOpen(true);
+  };
+
+  const closeTurnoSelector = () => {
+    setIsTurnoSelectorOpen(false);
+  };
+
+  const handleSelectTurno = (turno) => {
+    setSelectedTurno(turno);
+    handleChange({ target: { name: "shift", value: turno } });
+  };
+
   return (
     <>
       <div className={styles.row}>
@@ -32,17 +50,9 @@ const Step7 = ({ formData, handleChange }) => {
       <div className={styles.row}>
         <label>
           Turno:
-          <select
-            name="shift"
-            value={formData.shift || ''}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Selecione</option>
-            <option value="manha">Manhã</option>
-            <option value="tarde">Tarde</option>
-            <option value="noite">Noite</option>
-          </select>
+          <button type="button" onClick={openTurnoSelector}>
+            {selectedTurno ? selectedTurno.charAt(0).toUpperCase() + selectedTurno.slice(1) : "Selecione o turno"}
+          </button>
         </label>
 
         <label>
@@ -138,6 +148,14 @@ const Step7 = ({ formData, handleChange }) => {
           />
         </label>
       </div>
+
+      {isTurnoSelectorOpen && (
+        <div className={styles.iframeOverlay}>
+          <div className={styles.iframeContent}>
+            <TurnoSelector onClose={closeTurnoSelector} onSelect={handleSelectTurno} />
+          </div>
+        </div>
+      )}
     </>
   );
 };

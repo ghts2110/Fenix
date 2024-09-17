@@ -1,4 +1,3 @@
-// src/components/TelaClient/BoxClient/index.js
 import React, { useState } from 'react';
 import styles from './BoxClient.module.css';
 import Step1 from './steps/Step1';
@@ -7,7 +6,7 @@ import Step3 from './steps/Step3';
 import Step4 from './steps/Step4';
 import Step5 from './steps/Step5';
 import Step6 from './steps/Step6';
-import Step7 from './steps/Step7'; // Adicione esta linha
+import Step7 from './steps/Step7';
 import ChildrenFields from './steps/ChildrenFields';
 import { validateStep1 } from './validations/validateStep1';
 import { validateStep2 } from './validations/validateStep2';
@@ -15,7 +14,7 @@ import { validateStep3 } from './validations/validateStep3';
 import { validateStep4 } from './validations/validateStep4';
 import { validateStep5 } from './validations/validateStep5';
 import { validateStep6 } from './validations/validateStep6';
-import { validateStep7 } from './validations/validateStep7'; // Adicione a validação para o Step7
+import { validateStep7 } from './validations/validateStep7';
 
 const BoxClient = () => {
   const [step, setStep] = useState(1);
@@ -66,17 +65,18 @@ const BoxClient = () => {
     pje: "",
     seeu: "",
     penaltyEndDate: "",
-    improvementDate: "", // Adicione este campo
-    classGroup: "", // Adicione este campo
-    shift: "", // Adicione este campo
-    observations1: "", // Adicione este campo
-    observations2: "", // Adicione este campo
-    individualAttendanceDate: "", // Adicione este campo
-    assistedStatus: "", // Adicione este campo
-    basicBasket: "", // Adicione este campo
-    familyScreening: "", // Adicione este campo
-    familyScreeningDate: "", // Adicione este campo
-    professionalExperience: "", // Adicione este campo
+    improvementDate: "", // Campo adicionado
+    classGroup: "", // Campo adicionado
+    shift: "", // Campo adicionado
+    observations1: "", // Campo adicionado
+    observations2: "", // Campo adicionado
+    individualAttendanceDate: "", // Campo adicionado
+    assistedStatus: "", // Campo adicionado
+    basicBasket: "", // Campo adicionado
+    familyScreening: "", // Campo adicionado
+    familyScreeningDate: "", // Campo adicionado
+    professionalExperience: "", // Campo adicionado
+    artigos: [], // Campo adicionado
   });
 
   const handleChange = (e) => {
@@ -154,7 +154,7 @@ const BoxClient = () => {
       case 6:
         return validateStep6(formData);
       case 7:
-        return validateStep7(formData); // Adicione a validação para o Step7
+        return validateStep7(formData); // Validação para o Step7
       default:
         return false;
     }
@@ -195,7 +195,7 @@ const BoxClient = () => {
         {step === 4 && <Step4 formData={formData} handleChange={handleChange} />}
         {step === 5 && <Step5 formData={formData} handleChange={handleChange} />}
         {step === 6 && <Step6 formData={formData} handleChange={handleChange} />}
-        {step === 7 && <Step7 formData={formData} handleChange={handleChange} />} {/* Adicione este trecho */}
+        {step === 7 && <Step7 formData={formData} handleChange={handleChange} />} {/* Componente Step7 */}
         <div className={styles.buttonContainer}>
           {step > 1 && <button type="button" onClick={handlePrevious}>Anterior</button>}
           <button type="button" onClick={handleNext}>

@@ -1,6 +1,6 @@
 // src/components/TelaClient/BoxClient/validations/validateStep7.js
 export const validateStep7 = (formData) => {
-    const requiredFields = [
+  const requiredFields = [
       'improvementDate',
       'classGroup',
       'shift',
@@ -8,8 +8,9 @@ export const validateStep7 = (formData) => {
       'assistedStatus',
       'basicBasket',
       'familyScreening',
-    ];
-  
-    return requiredFields.every(field => formData[field] !== '');
-  };
-  
+      // 'familyScreeningDate' removido pois é opcional
+  ];
+
+  // Verifica se todos os campos obrigatórios estão preenchidos
+  return requiredFields.every(field => formData[field] !== '');
+};
