@@ -36,9 +36,8 @@ public class TeDjesfsa implements Serializable {
     private String regimeAtual;
     private String situacaoProcess;
 
-    @ManyToOne
-    @JoinColumn(name = "fk_artigo_artigo_PK", referencedColumnName = "artigoPK")
-    private Artigo artigo;
+    @OneToMany(mappedBy = "Artigo")
+    private Set<Artigo> artigo = new HashSet<>();
 
     private String escolaridade;
     private String serieCurso;
@@ -108,7 +107,7 @@ public class TeDjesfsa implements Serializable {
         this.terminoPena = terminoPena;
         this.regimeAtual = regimeAtual;
         this.situacaoProcess = situacaoProcess;
-        this.artigo = artigo;
+        //this.artigo = artigo;
         this.escolaridade = escolaridade;
         this.serieCurso = serieCurso;
         this.letrado = letrado;
@@ -274,13 +273,13 @@ public class TeDjesfsa implements Serializable {
         this.situacaoProcess = situacaoProcess;
     }
 
-    public Artigo getArtigo() {
+    /*public Artigo getArtigo() {
         return artigo;
     }
 
     public void setArtigo(Artigo artigo) {
         this.artigo = artigo;
-    }
+    }*/
 
     public String getEscolaridade() {
         return escolaridade;
