@@ -27,6 +27,8 @@ const ForgotPassword = () => {
         });
 
         const data = await response.json();
+        console.log(data)
+        console.log(response)
     };
 
     const sendEmail = (e) => {
@@ -73,6 +75,8 @@ const ForgotPassword = () => {
         });
 
         const data = await response.json();
+        console.log(data)
+        console.log(response)
         if (checkExistence(data.results)) {
             sendEmail(e);
         }

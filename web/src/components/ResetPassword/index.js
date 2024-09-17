@@ -14,19 +14,21 @@ const ResetPassword = () => {
     };
 
     const removeAuth = async (objid) => {
-        const response = await fetch(`${urlBase}/${objid}`, {
+        const response = await fetch(`${urlBaseRC}/${objid}`, {
             method: "DELETE",
             headers: headers,
         });
 
         const data = await response.json();
+        console.log(data)
+        console.log(response)
     }
 
     const updatePass = async (objid) => {
         const response = await fetch(`${urlBase}/${objid}`, {
             method: "PUT",
             headers: headersJson,
-            body: JSON.stringify({ password: document.getElementById("new_password") }),
+            body: JSON.stringify({ password: document.getElementById("new_password").value }),
         });
 
         const data = await response.json();
@@ -50,6 +52,8 @@ const ResetPassword = () => {
         });
 
         const data = await response.json();
+        console.log(data)
+        console.log(response)
         foundId(data.results, email);
     };
 
@@ -68,11 +72,16 @@ const ResetPassword = () => {
                 return {
                     id: d.objectId,
                     email: d.email,
+                    validate: true,
                 };
             }
         }
 
-        return null;
+        return {
+            id: null,
+            email: null,
+            validate: false,
+        };
     }
 
     const checkAuth = async () => {
@@ -82,16 +91,19 @@ const ResetPassword = () => {
         });
 
         const data = await response.json();
-        if (checkAuthExistence(data.results)) {
-            return true;
+        console.log(data)
+        console.log(response)
+        const obj = checkAuthExistence(data.results);
+        if (obj.validate) {
+            return obj;
         }
     }
 
-    const changePassword = (e) => {
+    const changePassword = async (e) => {
         e.preventDefault();
 
         // check AO
-        var objId = checkAuth();
+        var objId = await checkAuth();
         if(objId == null) {
             return false;
         }
@@ -100,9 +112,9 @@ const ResetPassword = () => {
             return false;
         }
         // change database
-        updatePassword(objId.email);
+        await updatePassword(objId.email);
         // remove from db
-        removeAuth(objId.id);
+        await removeAuth(objId.id);
     };
 
     return (
