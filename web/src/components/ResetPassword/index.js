@@ -1,13 +1,18 @@
 import styles from "./ResetPassword.module.css";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 
 const ResetPassword = () => {
 
     const form = useRef();
 
-    const changePassword = async (e) => {
-        e.preventDefault();
-        return true;
+    const changePassword = (e) => {
+        e.preventdefault();
+
+        // check AO
+        
+        // check equal passwords
+        // change database
+        // remove from db
     };
 
     return (

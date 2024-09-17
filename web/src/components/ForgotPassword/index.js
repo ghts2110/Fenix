@@ -1,16 +1,11 @@
+import { generateOA } from "../../Utils/index.js";
 import styles from "./ForgotPassword.module.css";
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import emailjs from '@emailjs/browser';
-
-// curl -X POST \
-// -H "X-Parse-Application-Id: 9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt" \
-// -H "X-Parse-REST-API-Key: ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump" \
-// -H "Content-Type: application/json" \
-// -d "{ \"email\":\"A string\",\"dateRequest\":{ \"__type\": \"Date\", \"iso\": \"2018-11-06T18:02:52.249Z\" } }" \
-// https://parseapi.back4app.com/classes/RequestChange
 
 const ForgotPassword = () => {
 
+    var name;
     const urlBase = "https://parseapi.back4app.com/classes/assistido";
     const urlBaseRC = "https://parseapi.back4app.com/classes/RequestChange";
     const headers = {
@@ -22,32 +17,35 @@ const ForgotPassword = () => {
         "Content-Type": "application/json",
     };
 
-    const addRequest = async () => {
-        const response = await fetch(urlBaseRC, {
+    const addRequest = async (auth_code) => {
+        await fetch(urlBaseRC, {
             method: "POST",
             headers: headersJson,
             body: JSON.stringify({
                 email: document.getElementById("email_to").value,
                 dateRequest: new Date(),
+                AO: auth_code,
             }),
         });
-
-        const data = await response.json();
-
+        return;
     };
-
-    const form = useRef();
 
     const sendEmail = (e) => {
         e.preventDefault();
+        const auth = generateOA();
+        const obj = {
+            email_to: document.getElementById("email_to").value,
+            user_name: name,
+            auth_code: auth,
+        }
 
         emailjs
-            .sendForm('service_lpzn012', 'template_psqemhp', form.current, {
+            .send('service_lpzn012', 'template_psqemhp', obj, {
                 publicKey: '6JP2avD_8VxlPBkpD',
             })
             .then(
                 () => {
-                    addRequest();
+                    addRequest(auth);
                     console.log('SUCCESS!');
                 },
                 (error) => {
@@ -56,6 +54,18 @@ const ForgotPassword = () => {
             );
     };
 
+    const checkExistence = (data) => {
+        const email = document.getElementById("email_to").value;
+
+        for (const d of data) {
+            if (d.email === email) {
+                name = d.name;
+                return true;
+            }
+        }
+        return false;
+    }
+
     const checkEmail = async (e) => {
         e.preventDefault();
 
@@ -63,23 +73,12 @@ const ForgotPassword = () => {
             method: "GET",
             headers: headers,
         });
-        
+
         const data = await response.json();
         if (checkExistence(data.results)) {
             sendEmail(e);
         }
     };
-
-    const checkExistence = (data) => {
-        const email = document.getElementById("email_to").value;
-
-        for (const d of data) {
-            if (d.email === email) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     return (
         <section className={styles.forgotPsswd}>
@@ -104,7 +103,6 @@ const ForgotPassword = () => {
                             </h5>
                         </div>
                         <form
-                            ref={form}
                             onSubmit={checkEmail}
                         >
                             <div
