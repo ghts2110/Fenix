@@ -23,7 +23,7 @@ const ResetPassword = () => {
                         <form
                             className={styles.forms}
                             ref={form}
-                            onSubmit={ changePassword }
+                            onSubmit={changePassword}
                         >
                             <label>
                                 Nova senha

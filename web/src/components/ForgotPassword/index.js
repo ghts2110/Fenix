@@ -2,12 +2,38 @@ import styles from "./ForgotPassword.module.css";
 import React, { useState, useRef } from "react";
 import emailjs from '@emailjs/browser';
 
+// curl -X POST \
+// -H "X-Parse-Application-Id: 9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt" \
+// -H "X-Parse-REST-API-Key: ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump" \
+// -H "Content-Type: application/json" \
+// -d "{ \"email\":\"A string\",\"dateRequest\":{ \"__type\": \"Date\", \"iso\": \"2018-11-06T18:02:52.249Z\" } }" \
+// https://parseapi.back4app.com/classes/RequestChange
+
 const ForgotPassword = () => {
 
     const urlBase = "https://parseapi.back4app.com/classes/assistido";
+    const urlBaseRC = "https://parseapi.back4app.com/classes/RequestChange";
     const headers = {
         "X-Parse-Application-Id": "9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt",
         "X-Parse-REST-API-Key": "ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump",
+    };
+    const headersJson = {
+        ...headers,
+        "Content-Type": "application/json",
+    };
+
+    const addRequest = async () => {
+        const response = await fetch(urlBaseRC, {
+            method: "POST",
+            headers: headersJson,
+            body: JSON.stringify({
+                email: document.getElementById("email_to").value,
+                dateRequest: new Date(),
+            }),
+        });
+
+        const data = await response.json();
+
     };
 
     const form = useRef();
@@ -21,6 +47,7 @@ const ForgotPassword = () => {
             })
             .then(
                 () => {
+                    addRequest();
                     console.log('SUCCESS!');
                 },
                 (error) => {
@@ -51,7 +78,6 @@ const ForgotPassword = () => {
                 return true;
             }
         }
-
         return false;
     }
 
