@@ -1,17 +1,17 @@
-import styles from "./TelaDashboard.module.css";
+import styles from "./Assisted.module.css";
 import Header from "../Header";
 import NavigatePanel from "../NavigatePanel";
-import Box from "./BoxDashboard";
+import Box from "./BoxAssisted";
 
-function TelaRegister() {
+function Assisted() {
   return (
-    <main className={styles.TelaRegister}>
+    <main className={styles.Assisted}>
       <div className={styles.container}>
         <NavigatePanel className={styles.item1} />
         <div className={styles.container2}>
           <Header
             className={styles.item2}
-            pagina="Cadastrar Voluntário"
+            pagina="Assistidos"
             name="iago"
             position="lutador de boxe"
             imagem="imagems/iago-de-terno.png"
@@ -23,4 +23,4 @@ function TelaRegister() {
   );
 }
 
-export default TelaRegister;
+export default Assisted;
