@@ -15,6 +15,7 @@ public class TeDjesfsa implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private Long cadastro;
     private String numero;
     private String secao;
@@ -36,7 +37,7 @@ public class TeDjesfsa implements Serializable {
     private String regimeAtual;
     private String situacaoProcess;
 
-    @OneToMany(mappedBy = "Artigo")
+    @OneToMany(mappedBy = "Artigo_Fk")
     private Set<Artigo> artigo = new HashSet<>();
 
     private String escolaridade;
@@ -52,14 +53,14 @@ public class TeDjesfsa implements Serializable {
     private String obsPerfil;
     private Date dtAtndIndv;
 
-    @OneToMany(mappedBy = "Exp_Prof")
+    @OneToMany(mappedBy = "Exp_Prof_Fk")
     private Set<ExpProf> expProf = new HashSet<>();
 
     private String estadoCivil;
     private String nomeMae;
     private String nomePai;
 
-    @OneToMany(mappedBy = "Id_De_Filhos")
+    @OneToMany(mappedBy = "Id_De_Filhos_Fk")
     private Set<IddFilhos> iddFilhos = new HashSet<>();
 
     private boolean triagemFamilia;
@@ -70,7 +71,7 @@ public class TeDjesfsa implements Serializable {
     private String genero;
     private String cidadeNativa;
 
-    @OneToMany(mappedBy = "Q_Def")
+    @OneToMany(mappedBy = "Q_Def_Fk")
     private Set<QDef> qDef = new HashSet<>();
 
     private String estadoNativo;
@@ -91,6 +92,7 @@ public class TeDjesfsa implements Serializable {
             Date dtAtendFam, Date dtAniversario, String raca, String orientacaoSexual, String genero,
             String cidadeNativa, QDef qDef, String estadoNativo, Date dtInscricao, String nomeCompleto, short idade,
             String nacionalidade, String nomeSocial) {
+                super();
         this.cadastro = cadastro;
         this.numero = numero;
         this.secao = secao;
