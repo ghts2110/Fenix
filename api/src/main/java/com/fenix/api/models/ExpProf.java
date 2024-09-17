@@ -15,11 +15,17 @@ public class ExpProf implements Serializable {
 
     private String expProf;
 
+    @ManyToOne
+    @JoinColumn(name = "fk_Usuario_Id") // Chave estrangeira referenciando Usuario
+    private TeDjesfsa FkTeDjesfsaId;
+
     public ExpProf() {}
 
-    public ExpProf(int expProfPK, String expProf) {
+    public ExpProf(int expProfPK, String expProf, TeDjesfsa FkDjesfsaId) {
+        super();
         this.expProfPK = expProfPK;
         this.expProf = expProf;
+        this.FkTeDjesfsaId = FkDjesfsaId;
     }
 
     public static long getSerialversionuid() {
@@ -40,6 +46,14 @@ public class ExpProf implements Serializable {
 
     public void setExpProf(String expProf) {
         this.expProf = expProf;
+    }
+
+    public long getExpProfPK() {
+        return expProfPK;
+    }
+
+    public void setExpProfPK(long expProfPK) {
+        this.expProfPK = expProfPK;
     }
 
     
