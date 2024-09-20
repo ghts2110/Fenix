@@ -1,5 +1,4 @@
 import styles from "./Forms.module.css";
-
 const Forms = () => {
   const urlBase = "https://parseapi.back4app.com/classes/assistido";
   const headers = {
@@ -31,24 +30,20 @@ const Forms = () => {
       }
     }
   }
-
-  
-
-
-  
-
   return (
     <section className={styles.forms}>
       <h1> Instituto Fenix </h1>
       <p>Bem vindo de volta! Por favor insira as informações de login</p>
 
-      <forms>
+      <forms onSubmit={handleSubmit}>
         <div className={styles.textinputs}>
           <label for="email">E-mail</label>
           <input
             type="email"
             name="email"
+            onChange={(e) => setLogin(e.target.value)}
             id="email"
+            value={login}
             placeholder="nome@gmail.com"
           ></input>
 
@@ -56,7 +51,9 @@ const Forms = () => {
           <input
             type="password"
             name="password"
+            onChange={(e) => setSenha(e.target.value)}
             id="senha"
+            value={senha}
             placeholder="********"
           ></input>
         </div>
@@ -71,11 +68,9 @@ const Forms = () => {
             ></input>
             <label for="lembrar">Lembrar-se da senha</label>
           </div>
-          <a href=" ">
+        <Link to="/forgotpasssword" className="forgotPassword">
             <strong>esqueceu senha?</strong>
-          </a>
-        </div>
-
+        </Link>
         <div className={styles.buttonsLogin}>
           <button
             className={styles.btlogin}
@@ -86,32 +81,10 @@ const Forms = () => {
             Login
           </button>
         </div>
+        </div>
       </forms>
     </section>
   );
 };
 
 export default Forms;
-
-
-// curl -X POST \
-// -H "X-Parse-Application-Id: 9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt" \
-// -H "X-Parse-REST-API-Key: ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump" \
-// -H "Content-Type: application/json" \
-// -d "{ \"email\":\"A string\",\"password\":\"A string\" }" \
-// https://parseapi.back4app.com/classes/assistido
-
-  // cirar conta no back4app
-  // const addbanck = async (event) => {
-  //   event.preventDefault();
-  //   const email = document.getElementById("email").value;
-  //   const password = document.getElementById("senha").value;
-  //   const response = await fetch(urlBase, {
-  //     method: "POST",
-  //     headers: headersJson,
-  //     body: JSON.stringify({ email: email, password:password }),
-  //   });
-  //   const data = await response.json();
-  //   console.log(response);
-  //   console.log(data);
-  // };
