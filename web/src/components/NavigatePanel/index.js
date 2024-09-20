@@ -1,6 +1,5 @@
 import styles from "./NavigatePanel.module.css";
-import {FaPencilAlt, FaUser, FaCog, FaTasks, FaUserPlus, FaFileAlt } from "react-icons/fa"; // Importando os ícones de usuário, lápis e engrenagem
-import {  } from "react-icons/fa"; // Importando ícones
+import {FaPencilAlt, FaUser, FaCog, FaTasks, FaUserPlus} from "react-icons/fa"; // Importando os ícones de usuário, lápis e engrenagem
 import { useNavigate } from "react-router-dom"; 
 
 function NavigatePanel() {
@@ -18,6 +17,10 @@ function NavigatePanel() {
     navigate("/assisted");
   }
 
+  const handleClientClick = () => {
+    navigate("/client");
+  }
+  
   return (
     <section className={styles.NavigatePanel_bg}>
       <div className={styles.NavigatePanelContainer}>
@@ -29,7 +32,7 @@ function NavigatePanel() {
           
           <button className={styles.button} onClick={handleAssistedClick}> <FaTasks className={styles.icon} /> Assistidos</button>
           
-          <button className={styles.button}> <FaUserPlus className={styles.icon} /> Cadastro do Cliente</button>
+          <button  className={styles.button} onClick = {handleClientClick}> <FaUserPlus className={styles.icon}/> Cadastro do Cliente</button>
 
           <button className={styles.button} onClick={handleRegisterClick}> <FaPencilAlt className={styles.icon} /> Cadastrar Voluntário</button>
 
