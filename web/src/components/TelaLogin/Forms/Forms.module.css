@@ -11,6 +11,8 @@
     font-size: 80px;
     margin-bottom: 10px;
     margin-top: 10px;
+
+    text-align: center;
 }
 .forms p{
     opacity: 0.5;

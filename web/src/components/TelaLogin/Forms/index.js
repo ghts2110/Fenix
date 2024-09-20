@@ -1,15 +1,35 @@
 import styles from "./Forms.module.css";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
 const Forms = () => {
-  const [login, setLogin] = useState("");
-  const [senha, setSenha] = useState("");
-
-  const handleSubmit = (event) => {
-    console.log("Envio");
+  const urlBase = "https://parseapi.back4app.com/classes/assistido";
+  const headers = {
+    "X-Parse-Application-Id": "9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt",
+    "X-Parse-REST-API-Key": "ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump",
   };
 
+  // verificar cadastro
+  const carregarTarefas = async () => {
+    const response = await fetch(urlBase, {
+      method: "GET",
+      headers: headers,
+    });
+    const data = await response.json();
+    listarTarefas(data.results);
+  };
+
+  const listarTarefas = (tarefas) =>{
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("senha").value;
+
+    for(const t of tarefas){
+      if(email === t.email){
+        if(password === t.password){
+          window.open("/dashboard", "_self");
+        }else{
+          console.log("not ok");
+        }
+      }
+    }
+  }
   return (
     <section className={styles.forms}>
       <h1> Instituto Fenix </h1>
@@ -48,21 +68,19 @@ const Forms = () => {
             ></input>
             <label for="lembrar">Lembrar-se da senha</label>
           </div>
-          <Link to="/forgotpasssword" className="forgotPassword">
+        <Link to="/forgotpasssword" className="forgotPassword">
             <strong>esqueceu senha?</strong>
-          </Link>
-        </div>
+        </Link>
         <div className={styles.buttonsLogin}>
-          {/* remove Link because is a button */}
-          <Link to="/dashboard" className="link">
-            <button
-              className={styles.btlogin}
-              type="submit"
-              name="btlogin"
-              id="btlogin">
-              Login
-            </button>
-          </Link>
+          <button
+            className={styles.btlogin}
+            type="submit"
+            name="btlogin"
+            id="btlogin"
+            onClick={carregarTarefas}>
+            Login
+          </button>
+        </div>
         </div>
       </forms>
     </section>
