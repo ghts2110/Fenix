@@ -11,6 +11,8 @@
     font-size: 80px;
     margin-bottom: 10px;
     margin-top: 10px;
+
+    text-align: center;
 }
 .forms p{
     opacity: 0.5;
@@ -67,4 +69,16 @@ input::placeholder {
     color: white;
 }
 
+.forgotPassword {
+    background: none;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: inherit;
+  }
+  
+  .forgotPassword:hover {
+    color: darkblue;
+  }
  

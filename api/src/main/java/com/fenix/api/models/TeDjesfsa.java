@@ -12,8 +12,7 @@ public class TeDjesfsa implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private int cadastro;
+    private Long cadastro;
     private String numero;
     private String secao;
     private String zona;
@@ -21,7 +20,7 @@ public class TeDjesfsa implements Serializable {
     private String cpf;
     private String rg;
     @ManyToOne
-    @JoinColumn(name = "fk_categ_cnh_categ_cnh_PK", referencedColumnName = "categ_cnh_PK")
+    @JoinColumn(name = "fk_categ_cnh_PK", referencedColumnName = "categcnhPK")
     private CategCnh categCnh;
 
     private String unPrisional;
@@ -33,7 +32,7 @@ public class TeDjesfsa implements Serializable {
     private String regimeAtual;
     private String situacaoProcess;
     @ManyToOne
-    @JoinColumn(name = "fk_artigo_artigo_PK", referencedColumnName = "artigo_PK")
+    @JoinColumn(name = "fk_artigo_artigo_PK", referencedColumnName = "artigoPK")
     private Artigo artigo;
 
     private String escolaridade;
@@ -49,14 +48,14 @@ public class TeDjesfsa implements Serializable {
     private String obsPerfil;
     private Date dtAtndIndv;
     @ManyToOne
-    @JoinColumn(name = "fk_exp_prof_exp_prof_PK", referencedColumnName = "exp_prof_PK")
+    @JoinColumn(name = "fk_exp_prof_PK", referencedColumnName = "expprofPK")
     private ExpProf expProf;
 
     private String estadoCivil;
     private String nomeMae;
     private String nomePai;
     @ManyToOne
-    @JoinColumn(name = "fk_idd_filhos_idd_filhos_PK", referencedColumnName = "idd_filhos_PK")
+    @JoinColumn(name = "fk_idd_filhos_PK", referencedColumnName = "iddfilhosPK")
     private IddFilhos iddFilhos;
 
     private boolean triagemFamilia;
@@ -67,7 +66,7 @@ public class TeDjesfsa implements Serializable {
     private String genero;
     private String cidadeNativa;
     @ManyToOne
-    @JoinColumn(name = "fk_q_def_q_def_PK", referencedColumnName = "q_def_PK")
+    @JoinColumn(name = "fk_q_defPK", referencedColumnName = "qdefPK")
     private QDef qDef;
 
     private String estadoNativo;
@@ -79,7 +78,7 @@ public class TeDjesfsa implements Serializable {
 
     public TeDjesfsa(){}
 
-    public TeDjesfsa(int cadastro, String numero, String secao, String zona, boolean tClt, String cpf, String rg,
+    public TeDjesfsa(long cadastro, String numero, String secao, String zona, boolean tClt, String cpf, String rg,
             CategCnh categCnh, String unPrisional, int tempoSentenca, String seeu, String pje, boolean reincidente,
             Date terminoPena, String regimeAtual, String situacaoProcess, Artigo artigo, String escolaridade,
             String serieCurso, boolean letrado, Date dtAperfeicoamento, String obsSocial, String turma, boolean manha,
@@ -142,11 +141,11 @@ public class TeDjesfsa implements Serializable {
         return serialVersionUID;
     }
 
-    public int getCadastro() {
+    public long getCadastro() {
         return cadastro;
     }
 
-    public void setCadastro(int cadastro) {
+    public void setCadastro(long cadastro) {
         this.cadastro = cadastro;
     }
 
