@@ -36,7 +36,7 @@ const Forms = () => {
   const navigate = useNavigate(); 
 
   const handleForgotPasssword = () => {
-    navigate("/forgortpassword");
+    navigate("/forgotpassword");
   }
 
   return (
