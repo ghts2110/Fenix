@@ -6,8 +6,11 @@ import java.io.Serializable;
 @Entity
 @Table(name = "sitTrab")
 public class SitTrabModel implements Serializable {
-
     private static final long serialVersionUID = 1L;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private boolean estaTb;
     private String localTb;
     private String modalidadeTb;

@@ -1,55 +1,86 @@
+import { generateOA } from "../../Utils/index.js";
 import styles from "./ForgotPassword.module.css";
-import React, { useState, useRef } from "react";
 import emailjs from '@emailjs/browser';
 
 const ForgotPassword = () => {
 
-    const form = useRef();
+    var name;
+    const urlBase = "https://parseapi.back4app.com/classes/assistido";
+    const urlBaseRC = "https://parseapi.back4app.com/classes/RequestChange";
+    const headers = {
+        "X-Parse-Application-Id": "9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt",
+        "X-Parse-REST-API-Key": "ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump",
+    };
+    const headersJson = {
+        ...headers,
+        "Content-Type": "application/json",
+    };
+
+    const addRequest = async (auth_code) => {
+        const response = await fetch(urlBaseRC, {
+            method: "POST",
+            headers: headersJson,
+            body: JSON.stringify({
+                email: document.getElementById("email_to").value,
+                AO: auth_code,
+            }),
+        });
+
+        const data = await response.json();
+        console.log(data)
+        console.log(response)
+    };
 
     const sendEmail = (e) => {
         e.preventDefault();
+        const auth = generateOA();
+        const obj = {
+            email_to: document.getElementById("email_to").value,
+            user_name: name,
+            auth_code: auth,
+            link_not_recover: "https://cancelrequest/"+auth,
+        }
 
         emailjs
-            .sendForm('service_lpzn012', 'template_psqemhp', form.current, {
+            .send('service_lpzn012', 'template_psqemhp', obj, {
                 publicKey: '6JP2avD_8VxlPBkpD',
             })
             .then(
                 () => {
-                    console.log('SUCCESS!');
+                    addRequest(auth);
+                    window.open("http://localhost:3000/resetpassword/", "_self");
                 },
-                (error) => {
-                    console.log('FAILED...', error.text);
-                },
+                (error) => {},
             );
     };
+
+    const checkExistence = (data) => {
+        const email = document.getElementById("email_to").value;
+
+        for (const d of data) {
+            if (d.email === email) {
+                name = d.name;
+                return true;
+            }
+        }
+        return false;
+    }
 
     const checkEmail = async (e) => {
         e.preventDefault();
 
-        sendEmail(e);
-        // const response = await fetch(urlBase, {
-        //     method: "GET",
-        //     headers: headers,
-        // });
+        const response = await fetch(urlBase, {
+            method: "GET",
+            headers: headers,
+        });
 
-        // const data = await response.json();
-        // if (checkExistence(data.results)) {
-        // }
-        // return false;
+        const data = await response.json();
+        console.log(data)
+        console.log(response)
+        if (checkExistence(data.results)) {
+            sendEmail(e);
+        }
     };
-
-    // const checkExistence = (data) => {
-    //     const email = document.getElementById("emailRecover").value;
-
-    //     for (const d of data) {
-    //         if (d.email === email) {
-    //             return true;
-    //         }
-    //     }
-
-    //     // warn about email not found
-    //     return false;
-    // }
 
     return (
         <section className={styles.forgotPsswd}>
@@ -74,7 +105,6 @@ const ForgotPassword = () => {
                             </h5>
                         </div>
                         <form
-                            ref={form}
                             onSubmit={checkEmail}
                         >
                             <div
@@ -82,13 +112,12 @@ const ForgotPassword = () => {
                             >
                                 <label
                                     className={styles.label}
-                                    for="emailRecover"
                                 >E-mail</label>
                                 <input
                                     className={styles.emailRecover}
                                     type="email"
-                                    name="emailRecover"
-                                    id="emailRecover"
+                                    name="email_to"
+                                    id="email_to"
                                     placeholder="nome@gmail.com"
                                 ></input>
                             </div>
@@ -108,41 +137,3 @@ const ForgotPassword = () => {
 }
 
 export default ForgotPassword;
-
-// import React, { useRef } from 'react';
-// import emailjs from '@emailjs/browser';
-
-// export const ContactUs = () => {
-//   const form = useRef();
-
-//   const sendEmail = (e) => {
-//     e.preventDefault();
-
-//     emailjs
-//       .sendForm('service_lpzn012', 'template_4fb8dab', form.current, {
-//         publicKey: '6JP2avD_8VxlPBkpD',
-//       })
-//       .then(
-//         () => {
-//           console.log('SUCCESS!');
-//         },
-//         (error) => {
-//           console.log('FAILED...', error.text);
-//         },
-//       );
-//   };
-
-//   return (
-//     <form ref={form} onSubmit={sendEmail}>
-//       <label>Name</label>
-//       <input type="text" name="user_name" />
-//       <label>Email</label>
-//       <input type="email" name="user_email" />
-//       <label>Message</label>
-//       <textarea name="message" />
-//       <input type="submit" value="Send" />
-//     </form>
-//   );
-// };
-
-// export default ContactUs;
