@@ -19,7 +19,8 @@ public class ExpProf implements Serializable {
     @JoinColumn(name = "fk_Usuario_Id") // Chave estrangeira referenciando Usuario
     private TeDjesfsa FkTeDjesfsaId;
 
-    public ExpProf() {}
+    public ExpProf() {
+    }
 
     public ExpProf(int expProfPK, String expProf, TeDjesfsa FkDjesfsaId) {
         super();
@@ -56,6 +57,12 @@ public class ExpProf implements Serializable {
         this.expProfPK = expProfPK;
     }
 
-    
+    public TeDjesfsa getFkTeDjesfsaId() {
+        return FkTeDjesfsaId;
+    }
+
+    public void setFkTeDjesfsaId(TeDjesfsa fkTeDjesfsaId) {
+        FkTeDjesfsaId = fkTeDjesfsaId;
+    }
 
 }

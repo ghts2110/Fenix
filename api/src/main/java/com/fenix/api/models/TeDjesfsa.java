@@ -3,6 +3,7 @@ package com.fenix.api.models;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,15 +16,20 @@ public class TeDjesfsa implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private Long cadastro;
+
     private String numero;
     private String secao;
     private String zona;
+
+
     private boolean tClt;
     private String cpf;
     private String rg;
-    private String categCnh;
+
+
+    //private CategCnh categCnh;
+
 
     private String unPrisional;
     private int tempoSentenca;
@@ -70,7 +76,6 @@ public class TeDjesfsa implements Serializable {
 
     @OneToMany(mappedBy = "Q_Def_Fk")
     private Set<QDef> qDef = new HashSet<>();
-
     private String estadoNativo;
     private Date dtInscricao;
     private String nomeCompleto;
@@ -81,7 +86,7 @@ public class TeDjesfsa implements Serializable {
     public TeDjesfsa(){}
 
     public TeDjesfsa(long cadastro, String numero, String secao, String zona, boolean tClt, String cpf, String rg,
-            String categCnh, String unPrisional, int tempoSentenca, String seeu, String pje, boolean reincidente,
+            String unPrisional, int tempoSentenca, String seeu, String pje, boolean reincidente,
             Date terminoPena, String regimeAtual, String situacaoProcess, Artigo artigo, String escolaridade,
             String serieCurso, boolean letrado, Date dtAperfeicoamento, String obsSocial, String turma, boolean manha,
             boolean tarde, boolean cestaB, String sts, String obsPerfil, Date dtAtndIndv, ExpProf expProf,
@@ -89,7 +94,7 @@ public class TeDjesfsa implements Serializable {
             Date dtAtendFam, Date dtAniversario, String raca, String orientacaoSexual, String genero,
             String cidadeNativa, QDef qDef, String estadoNativo, Date dtInscricao, String nomeCompleto, short idade,
             String nacionalidade, String nomeSocial) {
-                super();
+        super();
         this.cadastro = cadastro;
         this.numero = numero;
         this.secao = secao;
@@ -97,7 +102,6 @@ public class TeDjesfsa implements Serializable {
         this.tClt = tClt;
         this.cpf = cpf;
         this.rg = rg;
-        this.categCnh = categCnh;
         this.unPrisional = unPrisional;
         this.tempoSentenca = tempoSentenca;
         this.seeu = seeu;
@@ -106,7 +110,6 @@ public class TeDjesfsa implements Serializable {
         this.terminoPena = terminoPena;
         this.regimeAtual = regimeAtual;
         this.situacaoProcess = situacaoProcess;
-        //this.artigo = artigo;
         this.escolaridade = escolaridade;
         this.serieCurso = serieCurso;
         this.letrado = letrado;
@@ -119,11 +122,9 @@ public class TeDjesfsa implements Serializable {
         this.sts = sts;
         this.obsPerfil = obsPerfil;
         this.dtAtndIndv = dtAtndIndv;
-        //this.expProf = expProf;
         this.estadoCivil = estadoCivil;
         this.nomeMae = nomeMae;
         this.nomePai = nomePai;
-        //this.iddFilhos = iddFilhos;
         this.triagemFamilia = triagemFamilia;
         this.dtAtendFam = dtAtendFam;
         this.dtAniversario = dtAniversario;
@@ -131,7 +132,6 @@ public class TeDjesfsa implements Serializable {
         this.orientacaoSexual = orientacaoSexual;
         this.genero = genero;
         this.cidadeNativa = cidadeNativa;
-        //this.qDef = qDef;
         this.estadoNativo = estadoNativo;
         this.dtInscricao = dtInscricao;
         this.nomeCompleto = nomeCompleto;
@@ -200,14 +200,6 @@ public class TeDjesfsa implements Serializable {
         this.rg = rg;
     }
 
-    public String getCategCnh() {
-        return categCnh;
-    }
-
-    public void setCategCnh(String categCnh) {
-        this.categCnh = categCnh;
-    }
-
     public String getUnPrisional() {
         return unPrisional;
     }
@@ -271,14 +263,6 @@ public class TeDjesfsa implements Serializable {
     public void setSituacaoProcess(String situacaoProcess) {
         this.situacaoProcess = situacaoProcess;
     }
-
-    /*public Artigo getArtigo() {
-        return artigo;
-    }
-
-    public void setArtigo(Artigo artigo) {
-        this.artigo = artigo;
-    }*/
 
     public String getEscolaridade() {
         return escolaridade;
@@ -376,13 +360,6 @@ public class TeDjesfsa implements Serializable {
         this.dtAtndIndv = dtAtndIndv;
     }
 
-    /*public ExpProf getExpProf() {
-        return expProf;
-    }
-
-    public void setExpProf(ExpProf expProf) {
-        this.expProf = expProf;
-    }*/
 
     public String getEstadoCivil() {
         return estadoCivil;
@@ -408,13 +385,6 @@ public class TeDjesfsa implements Serializable {
         this.nomePai = nomePai;
     }
 
-    /*public IddFilhos getIddFilhos() {
-        return iddFilhos;
-    }
-
-    public void setIddFilhos(IddFilhos iddFilhos) {
-        this.iddFilhos = iddFilhos;
-    }*/
 
     public boolean isTriagemFamilia() {
         return triagemFamilia;
@@ -471,14 +441,6 @@ public class TeDjesfsa implements Serializable {
     public void setCidadeNativa(String cidadeNativa) {
         this.cidadeNativa = cidadeNativa;
     }
-
-    /*public QDef getqDef() {
-        return qDef;
-    }
-
-    public void setqDef(QDef qDef) {
-        this.qDef = qDef;
-    }*/
 
     public String getEstadoNativo() {
         return estadoNativo;

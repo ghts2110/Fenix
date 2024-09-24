@@ -15,10 +15,11 @@ public class Artigo implements Serializable {
     private String artigo;
 
     @ManyToOne
-    @JoinColumn(name = "Artigo_Fk")
+    @JoinColumn(name = "fk_Usuario_Id")
     private TeDjesfsa FkDjesfsaId;
 
-    public Artigo(){}
+    public Artigo() {
+    }
 
     public Artigo(int artigoPK, String artigo, TeDjesfsa Djse) {
         super();
@@ -54,7 +55,6 @@ public class Artigo implements Serializable {
     public void setFkDjesfsaId(TeDjesfsa fkDjesfsaId) {
         FkDjesfsaId = fkDjesfsaId;
     }
-
-
     
+
 }

@@ -14,11 +14,18 @@ public class QDef implements Serializable {
     private long QDefPK;
     private String QDef;
 
-    public QDef(){}
+    @ManyToOne
+    @JoinColumn(name = "fk_Usuario_Id")
+    private TeDjesfsa FkDjesfsaId;
 
-    public QDef(int qDefPK, String qDef) {
-        QDefPK = qDefPK;
-        QDef = qDef;
+    public QDef() {
+    }
+
+    public QDef(int qDefPK, String qDef, TeDjesfsa FkDjesfsaId) {
+        super();
+        this.QDefPK = qDefPK;
+        this.QDef = qDef;
+        this.FkDjesfsaId = FkDjesfsaId;
     }
 
     public static long getSerialversionuid() {
@@ -41,5 +48,11 @@ public class QDef implements Serializable {
         QDef = qDef;
     }
 
-    
+    public TeDjesfsa getFkDjesfsaId() {
+        return FkDjesfsaId;
+    }
+
+    public void setFkDjesfsaId(TeDjesfsa fkDjesfsaId) {
+        FkDjesfsaId = fkDjesfsaId;
+    }
 }
