@@ -1,11 +1,12 @@
-/* src/components/TelaLogin/TelaLogin.module.css */
+
 .telalogin {
   display: flex;
-  width: 100vw; /* Garante que o contêiner ocupa a largura total da viewport */
-  height: 100vh; /* Garante que o contêiner ocupa a altura total da viewport */
+  width: 100vw;
+  height: 100vh; 
 }
 
 .telalogin .item1 {
+  background-color: rgb(255, 255, 255);
   flex: 1;
   background-color: rgb(62, 80, 200);
   display: flex;
@@ -14,7 +15,6 @@
 }
 
 .telalogin .item2 {
-  flex: 1;
   background-color: black;
   background-repeat: no-repeat;
   background-size: cover;

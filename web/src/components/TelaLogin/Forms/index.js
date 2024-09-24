@@ -1,4 +1,5 @@
 import styles from "./Forms.module.css";
+import { useNavigate } from "react-router-dom"; 
 
 const Forms = () => {
   const urlBase = "https://parseapi.back4app.com/classes/assistido";
@@ -32,10 +33,11 @@ const Forms = () => {
     }
   }
 
-  
+  const navigate = useNavigate(); 
 
-
-  
+  const handleForgotPasssword = () => {
+    navigate("/forgotpassword");
+  }
 
   return (
     <section className={styles.forms}>
@@ -71,9 +73,9 @@ const Forms = () => {
             ></input>
             <label for="lembrar">Lembrar-se da senha</label>
           </div>
-          <a href=" ">
-            <strong>esqueceu senha?</strong>
-          </a>
+
+          <button className={styles.forgotPassword} onClick={handleForgotPasssword}> esqueceu senha?</button>
+
         </div>
 
         <div className={styles.buttonsLogin}>
@@ -90,9 +92,6 @@ const Forms = () => {
     </section>
   );
 };
-
-export default Forms;
-
 
 // curl -X POST \
 // -H "X-Parse-Application-Id: 9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt" \
@@ -115,3 +114,4 @@ export default Forms;
   //   console.log(response);
   //   console.log(data);
   // };
+export default Forms;

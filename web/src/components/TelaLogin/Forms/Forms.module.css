@@ -36,7 +36,7 @@
 }
 
 input::placeholder {         
-    font-size: 16px;
+    font-size: 18px;
     padding: 10px;
     opacity: 0.75;   
 }
@@ -69,4 +69,16 @@ input::placeholder {
     color: white;
 }
 
+.forgotPassword {
+    background: none;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: inherit;
+  }
+  
+  .forgotPassword:hover {
+    color: darkblue;
+  }
  

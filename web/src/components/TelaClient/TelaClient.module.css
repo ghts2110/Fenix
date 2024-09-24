@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+}
+
+.container2 {
+    display: flex;
+    align-items: center;
+    flex-direction:  column;
+}
+
+.item1{
+    width: 400px;
+    height: 1080px;
+    top: 1050px;
+    left: 76px;
+    gap: 0px;
+    border-radius: 20px 0px 0px 0px;
+    opacity: 0px;
+}
+
+.item2{
+    width: auto;
+    height: 105px;
+    top: 1050px;
+    left: 457px;
+    gap: 0px;
+    opacity: 0px;
+    
+}
+
+.item3{
+    display: flex;
+    align-items: center;
+    flex-direction:  column;
+}
+
+.TelaDashboard{
+    background-color: #ECE6F0;
+}
+
