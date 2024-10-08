@@ -6,6 +6,7 @@ import lombok.*;
 @Embeddable
 @Getter
 @Setter
+@AllArgsConstructor
 
 public class InformacoesPessoais {
 
