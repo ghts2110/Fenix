@@ -7,11 +7,16 @@
   border-width: 2px;
   border-style: solid;
 
+
+  
   display: flex;
   flex-direction: column;
   font-family: Inter;
   overflow-y: auto;
 }
+
+
+
 
 .assistedBox {
   width: 100%;
