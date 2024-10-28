@@ -14,11 +14,17 @@ public class Telefone implements Serializable {
     private long telefonePK;
     private String telefone;
 
+    @ManyToOne
+    @JoinColumn(name = "moradia")
+    private MoradiaModel moradia;
+
     public Telefone(){}
 
-    public Telefone(int telefonePK, String telefone) {
+    public Telefone(int telefonePK, String telefone,MoradiaModel moradia) {
+        super();
         this.telefonePK = telefonePK;
         this.telefone = telefone;
+        this.moradia = moradia;
     }
 
     public static long getSerialversionuid() {
@@ -40,6 +46,11 @@ public class Telefone implements Serializable {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+    public MoradiaModel getMoradia() {
+        return moradia;
+    }
+    public void setMoradia(MoradiaModel moradia) {
+        this.moradia = moradia;
+    }
 
-    
 }

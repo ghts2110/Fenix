@@ -11,13 +11,21 @@ public class Artigo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long artigoPK;
+
     private String artigo;
 
-    public Artigo(){}
+    @ManyToOne
+    @JoinColumn(name = "fk_Usuario_Id")
+    private TeDjesfsa FkDjesfsaId;
 
-    public Artigo(int artigoPK, String artigo) {
+    public Artigo() {
+    }
+
+    public Artigo(int artigoPK, String artigo, TeDjesfsa Djse) {
+        super();
         this.artigoPK = artigoPK;
         this.artigo = artigo;
+        this.FkDjesfsaId = Djse;
     }
 
     public static long getSerialversionuid() {
@@ -40,6 +48,13 @@ public class Artigo implements Serializable {
         this.artigo = artigo;
     }
 
+    public TeDjesfsa getFkDjesfsaId() {
+        return FkDjesfsaId;
+    }
 
+    public void setFkDjesfsaId(TeDjesfsa fkDjesfsaId) {
+        FkDjesfsaId = fkDjesfsaId;
+    }
     
+
 }
