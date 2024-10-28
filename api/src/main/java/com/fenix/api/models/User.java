@@ -29,14 +29,18 @@ public class User implements Serializable {
     private String email;
     private String phone;
     private String password;
+    //Criara cargo
+    //Lista de prisioneiros
+    private String cpf;
 
-    public User(Long id,String name, String email, String phone, String password){
+    public User(Long id,String name, String email, String phone, String password,String cpf){
         super();
         this.id = id;
         this.email = email;
         this.name = name;
         this.phone = phone;
         this.password = password;
+        this.cpf = cpf;
     }
 
     public User(){}
