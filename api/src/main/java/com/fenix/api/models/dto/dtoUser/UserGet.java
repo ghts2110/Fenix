@@ -1,8 +1,8 @@
 package com.fenix.api.models.dto.dtoUser;
 
-public class UsetGet {
-    private static final long serialVersionUID = 1L; //Numero do Serializable
+import com.fenix.api.models.User;
 
+public class UserGet {
     private Long id;
     private String name;
     private String email;

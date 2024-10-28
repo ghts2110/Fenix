@@ -19,7 +19,7 @@ public class MoradiaModel implements Serializable {
     private String est;
     private String cep;
 
-    @OneToMany(mappedBy = "telefones")
+    @OneToMany(mappedBy = "moradia")
     private Set<Telefone> telefone = new HashSet<>();
 
     @ManyToOne

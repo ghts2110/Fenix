@@ -1,7 +1,6 @@
 package com.fenix.api.controller.exeption;
 
 import java.time.Instant;
-import com.fenix.api.controller.exeption.Enum.ExceptionEnum;
 import com.fenix.api.services.exceptions.BaseExeptionInvalid;
 import com.fenix.api.services.exceptions.CreateNewUserException;
 import com.fenix.api.services.exceptions.DatabaseException;
@@ -11,9 +10,7 @@ import com.fenix.api.services.exceptions.ValidationException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
 
