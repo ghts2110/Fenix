@@ -1,12 +1,10 @@
 .header {
   display: flex;
-  width: 1180px;
-  height: 70px;
-  top: 1050px;
-  left: 457px;
+  width: 100%;
+  height: 10%;
   align-items:center;
-  padding-right: 10px;
   background-color: white;
+  font-family: Inter;
 }
 
 .iconButton {
@@ -19,20 +17,18 @@
 
 .icons {
   display: flex;
-  gap: 10px;
   margin-left: auto; /* Empurra os ícones para o lado direito */
 }
 
 .tooltip {
   position: absolute;
-  top: 40px; /* Posiciona o tooltip abaixo do ícone */
+  top: 10%; 
   right: 0;
   background-color: #ffffff;
   color: #333;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  width: 200px;
+  width: 10%;
   z-index: 1000;
   text-align: left;
 }
@@ -64,7 +60,7 @@
 
 .profileRole {
   font-size: 14px;
-  color: #bdc3c7;
+  color: #4b4e50;
 }
 
 .arrowButton {
