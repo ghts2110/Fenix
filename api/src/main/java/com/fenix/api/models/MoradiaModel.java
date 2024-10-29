@@ -2,6 +2,8 @@ package com.fenix.api.models;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "Moradia")
@@ -17,15 +19,15 @@ public class MoradiaModel implements Serializable {
     private String est;
     private String cep;
 
-    @ManyToOne
-    @JoinColumn(name = "FKtelefone_PK", referencedColumnName = "telefonePK")
-    private Telefone telefone;
+    @OneToMany(mappedBy = "moradia")
+    private Set<Telefone> telefone = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "FK_SFSA_cadastro", referencedColumnName = "cadastro")
     private TeDjesfsa teDjesfsa;
 
-    public MoradiaModel(){}
+    public MoradiaModel() {
+    }
 
     public MoradiaModel(String endr, String bairro, String cidade, String est, String cep, Telefone telefone,
             TeDjesfsa teDjesfsa) {
@@ -34,7 +36,7 @@ public class MoradiaModel implements Serializable {
         this.cidade = cidade;
         this.est = est;
         this.cep = cep;
-        this.telefone = telefone;
+        // this.telefone = telefone;
         this.teDjesfsa = teDjesfsa;
     }
 
@@ -82,11 +84,11 @@ public class MoradiaModel implements Serializable {
         this.cep = cep;
     }
 
-    public Telefone getTelefone() {
+    public Set<Telefone> getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Telefone telefone) {
+    public void setTelefone(Set<Telefone> telefone) {
         this.telefone = telefone;
     }
 
@@ -98,6 +100,12 @@ public class MoradiaModel implements Serializable {
         this.teDjesfsa = teDjesfsa;
     }
 
+    public long getId() {
+        return id;
+    }
 
-    
+    public void setId(long id) {
+        this.id = id;
+    }
+
 }

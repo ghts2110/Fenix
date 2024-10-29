@@ -15,11 +15,18 @@ public class IddFilhos implements Serializable {
 
     private String iddFilhos;
 
-    public IddFilhos(){}
+    @ManyToOne
+    @JoinColumn(name = "fk_Usuario_Id")
+    private TeDjesfsa FkDjesfsaId;
 
-    public IddFilhos(long iddFilhosPK, String iddFilhos) {
+    public IddFilhos() {
+    }
+
+    public IddFilhos(long iddFilhosPK, String iddFilhos, TeDjesfsa FkDjesfsaId) {
+        super();
         this.iddFilhosPK = iddFilhosPK;
         this.iddFilhos = iddFilhos;
+        this.FkDjesfsaId = FkDjesfsaId;
     }
 
     public static long getSerialversionuid() {
@@ -42,5 +49,12 @@ public class IddFilhos implements Serializable {
         this.iddFilhos = iddFilhos;
     }
 
-    
+    public TeDjesfsa getFkDjesfsaId() {
+        return FkDjesfsaId;
+    }
+
+    public void setFkDjesfsaId(TeDjesfsa fkDjesfsaId) {
+        FkDjesfsaId = fkDjesfsaId;
+    }
+
 }
