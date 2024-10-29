@@ -1,5 +1,4 @@
 import styles from "./Forms.module.css";
-import { useNavigate } from "react-router-dom"; 
 
 const Forms = () => {
   const urlBase = "https://parseapi.back4app.com/classes/assistido";
@@ -33,10 +32,8 @@ const Forms = () => {
     }
   }
 
-  const navigate = useNavigate(); 
-
   const handleForgotPasssword = () => {
-    navigate("/forgotpassword");
+    window.location.href = "/forgotpassword";
   }
 
   return (
@@ -93,25 +90,4 @@ const Forms = () => {
   );
 };
 
-// curl -X POST \
-// -H "X-Parse-Application-Id: 9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt" \
-// -H "X-Parse-REST-API-Key: ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump" \
-// -H "Content-Type: application/json" \
-// -d "{ \"email\":\"A string\",\"password\":\"A string\" }" \
-// https://parseapi.back4app.com/classes/assistido
-
-  // cirar conta no back4app
-  // const addbanck = async (event) => {
-  //   event.preventDefault();
-  //   const email = document.getElementById("email").value;
-  //   const password = document.getElementById("senha").value;
-  //   const response = await fetch(urlBase, {
-  //     method: "POST",
-  //     headers: headersJson,
-  //     body: JSON.stringify({ email: email, password:password }),
-  //   });
-  //   const data = await response.json();
-  //   console.log(response);
-  //   console.log(data);
-  // };
 export default Forms;
