@@ -1,4 +1,4 @@
-/* src/components/TelaClient/BoxClient/BoxClient.module.css */
+/* CSS Original */
 
 .BoxClient {
   width: 80%;
@@ -15,6 +15,11 @@
   padding: 20px;
 }
 
+.BoxClient a {
+  text-decoration: none;
+  color: #F15124;
+}
+
 .form {
   width: 100%;
 }
@@ -26,6 +31,8 @@
 }
 
 .BoxClient label {
+  font-size: 15px;
+  padding: 5px;
   display: flex;
   flex-direction: column;
   width: 48%;
@@ -34,15 +41,19 @@
 .BoxClient input,
 .BoxClient select {
   padding: 8px;
-  margin-top: 4px;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border-color: rgb(240, 136, 136);
 }
 
 .buttonContainer {
   display: flex;
-  justify-content: center;
   margin-top: 20px;
+  border-radius: 5px;
+  width: 4rem;
+  height: 2rem;
+  background-color: #F15124;
+  border-color: rgb(240, 136, 136);
+  color: white;
 }
 
 .BoxClient button {
@@ -75,8 +86,6 @@
   flex: 1;
 }
 
-/* src/components/TelaClient/BoxClient/BoxClient.module.css */
-
 .iframeOverlay {
   position: fixed;
   top: 0;
@@ -98,8 +107,6 @@
   max-width: 500px;
   width: 100%;
 }
-
-/* CNHSelector Styles */
 
 .cnhSelector {
   display: flex;
@@ -143,4 +150,49 @@
 
 .cnhSelector button:last-child:hover {
   background-color: #5a6268;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .BoxClient {
+    width: 90%;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .BoxClient label {
+    width: 100%;
+  }
+
+  .buttonContainer {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cnhSelector button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .BoxClient {
+    width: 100%;
+    padding: 5%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .BoxClient label {
+    font-size: 14px;
+  }
+
+  .BoxClient button {
+    padding: 8px 16px;
+  }
 }
