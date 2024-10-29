@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export function generateOA() {
     let length = getRandomArbitrary(5, 9);
 
@@ -15,3 +17,14 @@ export function generateOA() {
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
 }
+
+export const fetchUsers = async () => {
+    try {
+        const response = await axios.get('http://localhost:8080/api/users');
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.error("Erro ao buscar dados", error);
+        throw error;
+    }
+};

@@ -18,9 +18,9 @@ const Register = () => {
 
     const response = await fetch(urlBase, {
       method: "POST",
-      
+
       headers: headersJson,
-      body: JSON.stringify({name:name, email: email, password: password, position:position, cpf:cpf, birthDay:birthDay}),
+      body: JSON.stringify({ name: name, email: email, password: password, position: position, cpf: cpf, birthDay: birthDay }),
     });
     const data = await response.json();
     console.log(response);
@@ -31,74 +31,81 @@ const Register = () => {
     <section className={styles.Register}>
       <form>
         <div className={styles.formGroup1}>
-          <div className={styles.boxName}>
+          <div className={styles.BoxLabelInput}>
             <label className={styles.label}>Nome Completo</label>
             <input className={styles.input}
               type="text"
               name="name"
               id="name"
-              placeholder="Coloque seu nome"
+              placeholder="Nome"
               required
             />
           </div>
 
-          <div className={styles.boxEmail}>
+          <div className={styles.BoxLabelInput}>
             <label className={styles.label}>E-mail</label>
             <input className={styles.input}
               type="email"
               name="email"
               id="email"
-              placeholder="Coloque seu e-mail"
+              placeholder="e-mail"
               required
             />
           </div>
         </div>
 
         <div className={styles.formGroup1}>
-          <div className={styles.boxPosition}>
-            <label className={styles.label}>Cargo de Interesse</label>
-            <input className={styles.input}
-              type="text"
+          <div className={styles.BoxLabelInput}>
+            <label className={styles.label} htmlFor="position">Cargo de Interesse</label>
+            <select
+              className={styles.input}
               name="position"
               id="position"
-              placeholder="Coloque o cargo que você deseja"
               required
-            />
+            >
+              <option value="" disabled selected>Escolha o cargo</option>
+              <option value="juridico">Jurídico</option>
+              <option value="financeiro">Financeiro</option>
+              <option value="psicossocial">Psicossocial</option>
+            </select>
           </div>
 
-          <div className={styles.boxCPF}>
+          <div className={styles.BoxLabelInput}>
             <label className={styles.label}>CPF</label>
             <input className={styles.input}
               type="text"
               name="cpf"
               id="cpf"
-              placeholder="Coloque seu CPF"
+              placeholder="CPF"
               required
             />
           </div>
         </div>
 
         <div className={styles.formGroup1}>
-          <div className={styles.boxPassword}>
+          <div className={styles.BoxLabelInput}>
             <label className={styles.label}>Senha</label>
             <input className={styles.input}
               type="password"
               name="password"
               id="password"
-              placeholder="Coloque sua senha"
+              placeholder="Senha"
               required
             />
           </div>
 
-          <div className={styles.boxBirthDay}>
-            <label className={styles.label}>Data de Nascimento</label>
-            <input className={styles.input}
-              type="date"
-              name="birthDay"
-              id="birthDay"
+          <div className={styles.BoxLabelInput}>
+            <label className={styles.label} htmlFor="phoneNumber">Número de telefone</label>
+            <input
+              className={styles.input}
+              type="tel"
+              name="phoneNumber"
+              id="phoneNumber"
+              placeholder="Telefone"
               required
             />
           </div>
+
         </div>
 
         <button className={styles.btResister} type="submit" onClick={addbanck}>

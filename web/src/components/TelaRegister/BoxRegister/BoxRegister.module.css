@@ -14,9 +14,21 @@
 
 }
 
+.forms{    
+  width: 100%;
+  height: 100%;
+}
+
 .formGroup1 {
   display: flex;
-  gap: 100px;
+  gap: 10vw;
+}
+
+.BoxLabelInput{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .label {
@@ -28,8 +40,8 @@
 }
 
 .input {
-  width: 150%;
-  padding: 8px;
+  width: 100%;
+  padding: 12px;
   border-radius: 4px;
   box-sizing: border-box;
   border-radius: 10px;
@@ -56,19 +68,3 @@
     text-align: center;
 }
 
-.forms{    
-    width: 1000px;
-    height: 600px;
-
-    border-radius: 20px;
-    border: #F15124;
-    border-width: 2px;
-    border-style:solid;
-
-    display: flex;
-    align-items: center;
-    flex-direction:  column;
-
-    margin-top: 50px;
-    margin-bottom: 50px;
-}

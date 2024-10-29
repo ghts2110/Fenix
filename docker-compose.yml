@@ -1,35 +1,16 @@
 services:
-  # db:
-  #   image: mariadb:latest
-  #   container_name: fenix-project_db
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-  #     MYSQL_DATABASE: ${MYSQL_DATABASE}
-  #     MYSQL_USER: ${MYSQL_USER}
-  #     MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-  #   ports:
-  #     - "3306:3306"
-  #   volumes:
-  #     - ./database/:/docker-entrypoint-initdb.d/
-    # networks:
-    #   - my_network
-
-  # api:
-  #   build:
-  #     context: ./api
-  #     dockerfile: Dockerfile
-  #   container_name: fenix-project_api
-  #   environment:
-  #     DB_HOST: db
-  #     DB_PORT: 3306
-  #     DB_USER: ${MYSQL_PASSWORD}
-  #     DB_NAME: ${MYSQL_DATABASE}
-  #   ports:
-  #     - "8080:8080"
-  #   depends_on:
-  #     - db
-    # networks:
-    #   - my_network
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: fenix-project_api
+    # environment:
+    #   DB_HOST: db
+    #   DB_PORT: 3306
+    #   DB_USER: ${MYSQL_PASSWORD}
+    #   DB_NAME: ${MYSQL_DATABASE}
+    ports:
+      - "8080:8080"
 
   web:
     build:
@@ -38,11 +19,5 @@ services:
     container_name: fenix-project_web
     ports:
       - "3000:80"
-    # depends_on:
-    #   - api
-    # networks:
-    #   - my_network
-
-  # networks:
-  #   my_network:
-  #     driver: bridge
+    depends_on:
+      - api
