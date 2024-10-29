@@ -42,7 +42,7 @@ public class UserService {
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id,ExceptionEnum.Resource_not_found));
 	}
 
-    public User insert(User objUser) {//inseriri um novo objeto do tipo user
+    public User save(User objUser) {//inseriri um novo objeto do tipo user
 		checkEmail(objUser);
 		objUser.setPassword(CryptoService.encryptPassword(objUser.getPassword()));
 		return repository.save(objUser);
