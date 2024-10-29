@@ -49,6 +49,7 @@ input::placeholder {
     justify-content: space-between; 
 }
 .forms .links a{
+    
     text-decoration: none;
     color: #F15124;
 }
