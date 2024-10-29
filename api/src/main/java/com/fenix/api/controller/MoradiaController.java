@@ -2,12 +2,15 @@ package com.fenix.api.controller;
 
 import com.fenix.api.models.MoradiaModel;
 import com.fenix.api.services.MoradiaService;
+
+//import org.hibernate.mapping.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/moradias")

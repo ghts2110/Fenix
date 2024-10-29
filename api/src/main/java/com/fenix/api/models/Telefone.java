@@ -15,8 +15,8 @@ public class Telefone implements Serializable {
     private String telefone;
 
     @ManyToOne
-    @JoinColumn(name = "telefones")
-    private MoradiaModel fkMoradiaModelId;
+    @JoinColumn(name = "moradia")
+    private MoradiaModel moradia;
 
     public Telefone(){}
 
@@ -24,7 +24,7 @@ public class Telefone implements Serializable {
         super();
         this.telefonePK = telefonePK;
         this.telefone = telefone;
-        this.fkMoradiaModelId = moradia;
+        this.moradia = moradia;
     }
 
     public static long getSerialversionuid() {
@@ -46,11 +46,11 @@ public class Telefone implements Serializable {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    public MoradiaModel getFkMoradiaModelId() {
-        return fkMoradiaModelId;
+    public MoradiaModel getMoradia() {
+        return moradia;
     }
-    public void setFkMoradiaModelId(MoradiaModel fkMoradiaModelId) {
-        this.fkMoradiaModelId = fkMoradiaModelId;
+    public void setMoradia(MoradiaModel moradia) {
+        this.moradia = moradia;
     }
 
 }

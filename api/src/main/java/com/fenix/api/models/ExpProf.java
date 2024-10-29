@@ -17,7 +17,7 @@ public class ExpProf implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "fk_Usuario_Id") // Chave estrangeira referenciando Usuario
-    private TeDjesfsa FkTeDjesfsaId;
+    private TeDjesfsa FkDjesfsaId;
 
     public ExpProf() {
     }
@@ -26,7 +26,7 @@ public class ExpProf implements Serializable {
         super();
         this.expProfPK = expProfPK;
         this.expProf = expProf;
-        this.FkTeDjesfsaId = FkDjesfsaId;
+        this.FkDjesfsaId = FkDjesfsaId;
     }
 
     public static long getSerialversionuid() {
@@ -57,12 +57,12 @@ public class ExpProf implements Serializable {
         this.expProfPK = expProfPK;
     }
 
-    public TeDjesfsa getFkTeDjesfsaId() {
-        return FkTeDjesfsaId;
+    public TeDjesfsa getFkDjesfsaId() {
+        return FkDjesfsaId;
     }
 
-    public void setFkTeDjesfsaId(TeDjesfsa fkTeDjesfsaId) {
-        FkTeDjesfsaId = fkTeDjesfsaId;
+    public void setFkDjesfsaId(TeDjesfsa FkDjesfsaId) {
+        FkDjesfsaId = FkDjesfsaId;
     }
 
 }

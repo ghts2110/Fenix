@@ -43,27 +43,29 @@ public class TeDjesfsa implements Serializable {
     @Embedded
     private Curso curso;
 
-
-    @OneToMany(mappedBy = "Artigo_Fk")
+    @OneToMany(mappedBy = "FkDjesfsaId")
     private Set<Artigo> artigo = new HashSet<>();
 
-    @OneToMany(mappedBy = "Exp_Prof_Fk")
+    @OneToMany(mappedBy = "FkDjesfsaId")
     private Set<ExpProf> expProf = new HashSet<>();
 
     private String estadoCivil;
     private String nomeMae;
     private String nomePai;
 
-    @OneToMany(mappedBy = "Id_De_Filhos_Fk")
+    @OneToMany(mappedBy = "FkDjesfsaId")
     private Set<IddFilhos> iddFilhos = new HashSet<>();
 
     private boolean triagemFamilia;
     private Date dtAtendFam;
     private Date dtAniversario;
 
-
-    @OneToMany(mappedBy = "Q_Def_Fk")
+    @OneToMany(mappedBy = "FkDjesfsaId")
     private Set<QDef> qDef = new HashSet<>();
+
+    @OneToMany(mappedBy = "teDjesfsa") 
+    private Set<SitTrabModel> sitTrabModels = new HashSet<>();
+
 
     private String estadoNativo;
     private Date dtInscricao;
