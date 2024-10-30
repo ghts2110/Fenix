@@ -90,7 +90,8 @@ const DashBoard = () => {
               <li key={index}>
                 <strong>Data:</strong> {reuniao.data} <br />
                 <strong>Horário:</strong> {reuniao.horario} <br />
-                <strong>Descrição:</strong> {reuniao.descricao}
+                <strong>Descrição:</strong> {reuniao.descricao} <br />
+                <strong>Link:</strong> <a href="https://meet.google.com/mkq-gcsm-exr?pli=1">Link para reuniao</a>
               </li>
             ))}
           </ul>

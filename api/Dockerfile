@@ -3,8 +3,10 @@ FROM openjdk:22
 WORKDIR /app
 
 # Copy the Maven build artifact (JAR file) into the container
-COPY ./mvnw app.jar
+COPY ./target/api-0.0.1-SNAPSHOT.jar /app/app.jar
 
 EXPOSE 8080
 
-ENTRYPOINT [ "java", "-jar", "app.jar"]
+RUN ls -l /app
+
+ENTRYPOINT [ "java", "-jar", "/app/app.jar"]

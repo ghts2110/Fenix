@@ -85,7 +85,7 @@ const ForgotPassword = () => {
     return (
         <section className={styles.forgotPsswd}>
             <div className={styles.formatPage}>
-                <img className={styles.formatImagem} src="/imagems/fenix-logo-app.png" alt="fenix-logo"></img>
+                <img src="/imagems/fenix-logo-app.png" alt="fenix-logo" width="200px"></img>
                 <div
                     className={styles.organizeBox}
                 >

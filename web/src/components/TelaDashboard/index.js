@@ -13,7 +13,7 @@ function TelaDashboard() {
             className={styles.item2}
             pagina="Cadastrar Voluntário"
             name="iago"
-            position="lutador de boxe"
+            position="advogado"
             imagem="imagems/iago-de-terno.png"
           />
           <Box className={styles.item3}/>

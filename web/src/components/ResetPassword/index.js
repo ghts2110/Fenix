@@ -120,7 +120,7 @@ const ResetPassword = () => {
     return (
         <section className={styles.forgotPsswd}>
             <div className={styles.formatPage}>
-                <img src="/imagems/fenix-logo-app.png" alt="fenix-logo"></img>
+                <img src="/imagems/fenix-logo-app.png" alt="fenix-logo" width="100px"></img>
                 <div
                     className={styles.organizeBox}
                 >
