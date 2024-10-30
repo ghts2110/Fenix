@@ -1,16 +1,14 @@
 services:
-  # api:
-  #   build:
-  #     context: ./api
-  #     dockerfile: Dockerfile
-  #   container_name: fenix-project_api
-  #   # environment:
-  #   #   DB_HOST: db
-  #   #   DB_PORT: 3306
-  #   #   DB_USER: ${MYSQL_PASSWORD}
-  #   #   DB_NAME: ${MYSQL_DATABASE}
-  #   ports:
-  #     - "8080:8080"
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: fenix-project_api
+    # environment:
+    #   DB_HOST: db
+    #   DB_PORT: 3306
+    #   DB_USER: ${MYSQL_PASSWORD}
+    #   DB_NAME: ${MYSQL_DATABASE}
 
   web:
     build:
@@ -19,5 +17,5 @@ services:
     container_name: fenix-project_web
     ports:
       - "3000:80"
-    # depends_on:
-    #   - api
+    depends_on:
+      - api
