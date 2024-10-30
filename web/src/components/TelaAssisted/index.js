@@ -5,7 +5,7 @@ import Box from "./BoxAssisted";
 
 function Assisted() {
   return (
-    <main className={styles.Assisted}>
+    <main className={styles.TelaAssisted}>
       <div className={styles.container}>
         <NavigatePanel className={styles.item1} />
         <div className={styles.container2}>
