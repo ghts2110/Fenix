@@ -116,7 +116,7 @@ function Step1({ formData, handleChange }) {
             <option value="negra">Negra</option>
             <option value="parda">Parda</option>
             <option value="amarela">Amarela</option>
-            <option value="indígena">Indígena</option>
+            <option value="indigena">Indígena</option>
             <option value="outro">Outro</option>
           </select>
         </label>

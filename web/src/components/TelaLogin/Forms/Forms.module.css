@@ -7,14 +7,16 @@
     margin-bottom: 0;
     font-family: Inter;
 }
-.forms h1{
+
+.forms h1 {
     font-size: 80px;
     margin-bottom: 1%;
     margin-top: 1%;
 
     text-align: center;
 }
-.forms p{
+
+.forms p {
     opacity: 0.5;
     margin-top: 0;
     font-size: 20px;
@@ -22,7 +24,7 @@
     font-style: italic;
 }
 
-.forms .textinputs{
+.forms .textinputs {
     display: flex;
     flex-direction: column;
     padding-bottom: 10px;
@@ -32,30 +34,32 @@
     border-radius: 10px;
     height: 3rem;
     margin-bottom: 20px;
-    border-color: rgb(240, 136, 136) ;
+    border-color: rgb(240, 136, 136);
 }
 
-input::placeholder {         
+input::placeholder {
     font-size: 18px;
     padding: 10px;
-    opacity: 0.75;   
+    opacity: 0.75;
 }
-.forms .textinputs label{
+
+.forms .textinputs label {
     font-size: 17px;
     padding: 10px;
 }
-.forms .links{
+
+.forms .links {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
-.forms .links a{
-    
+
+.forms .links a {
     text-decoration: none;
     color: #F15124;
 }
 
 
-.forms .buttonsLogin button{
+.forms .buttonsLogin button {
     width: 100px;
     height: 50px;
     margin-top: 20px;
@@ -63,10 +67,10 @@ input::placeholder {
     text-align: center;
 }
 
-.buttonsLogin .btlogin{
+.buttonsLogin .btlogin {
     border-radius: 20px;
     background-color: #F15124;
-    border-color: rgb(240, 136, 136) ;
+    border-color: rgb(240, 136, 136);
     color: white;
 }
 
@@ -77,11 +81,8 @@ input::placeholder {
     text-decoration: underline;
     cursor: pointer;
     font-size: inherit;
-  }
-  
-  .forgotPassword:hover {
-    color: darkblue;
-  }
+}
 
-  
- 
+.forgotPassword:hover {
+    color: darkblue;
+}
