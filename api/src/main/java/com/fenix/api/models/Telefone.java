@@ -11,7 +11,7 @@ public class Telefone implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long telefonePK;
+    private Long telefonePK;
     private String telefone;
 
     @ManyToOne
@@ -20,7 +20,7 @@ public class Telefone implements Serializable {
 
     public Telefone(){}
 
-    public Telefone(int telefonePK, String telefone,MoradiaModel moradia) {
+    public Telefone(Long telefonePK, String telefone,MoradiaModel moradia) {
         super();
         this.telefonePK = telefonePK;
         this.telefone = telefone;
@@ -35,7 +35,7 @@ public class Telefone implements Serializable {
         return telefonePK;
     }
 
-    public void setTelefonePK(int telefonePK) {
+    public void setTelefonePK(Long telefonePK) {
         this.telefonePK = telefonePK;
     }
 
@@ -51,6 +51,31 @@ public class Telefone implements Serializable {
     }
     public void setMoradia(MoradiaModel moradia) {
         this.moradia = moradia;
+    }
+
+    public int hashCode(){
+        final int prime = 31;
+        int result = 1;
+        result = prime*result+((telefonePK == null) ? 0 : telefonePK.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj)
+            return true;
+        if(obj == null)
+            return false;
+        if(getClass() != obj.getClass())
+            return false;
+        Telefone other = (Telefone) obj;
+        if (telefonePK == null) {
+            if(other.telefonePK != null)
+                return false;
+        }else if(!telefonePK.equals(other.telefonePK)){
+            return false;
+        }
+        return true;
     }
 
 }

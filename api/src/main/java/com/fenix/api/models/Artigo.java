@@ -9,15 +9,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-@ToString
-@Setter
-@EqualsAndHashCode
-@Getter
 
 @Entity
 @Table(name = "Artigo")
@@ -26,7 +17,7 @@ public class Artigo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long artigoPK;
+    private Long artigoPK;
 
     private String artigo;
 
@@ -37,7 +28,7 @@ public class Artigo implements Serializable {
     public Artigo() {
     }
 
-    public Artigo(int artigoPK, String artigo, TeDjesfsa Djse) {
+    public Artigo(Long artigoPK, String artigo, TeDjesfsa Djse) {
         super();
         this.artigoPK = artigoPK;
         this.artigo = artigo;
@@ -48,11 +39,11 @@ public class Artigo implements Serializable {
         return serialVersionUID;
     }
 
-    public long getArtigoPK() {
+    public Long getArtigoPK() {
         return this.artigoPK;
     }
 
-    public void setArtigoPK(int artigoPK) {
+    public void setArtigoPK(Long artigoPK) {
         this.artigoPK = artigoPK;
     }
 
@@ -72,5 +63,28 @@ public class Artigo implements Serializable {
         FkDjesfsaId = fkDjesfsaId;
     }
     
-
+    public int hashCode(){
+        final int prime = 31;
+        int result = 1;
+        result = prime*result+((artigoPK == null) ? 0 : artigoPK.hashCode());
+        return result;
+    }
+    
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj)
+            return true;
+        if(obj == null)
+            return false;
+        if(getClass() != obj.getClass())
+            return false;
+        Artigo other = (Artigo) obj;
+        if (artigoPK == null) {
+            if(other.artigoPK != null)
+                return false;
+        }else if(!artigoPK.equals(other.artigoPK)){
+            return false;
+        }
+        return true;
+    }
 }

@@ -11,7 +11,7 @@ public class ExpProf implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long expProfPK;
+    private Long expProfPK;
 
     private String expProf;
 
@@ -22,7 +22,7 @@ public class ExpProf implements Serializable {
     public ExpProf() {
     }
 
-    public ExpProf(int expProfPK, String expProf, TeDjesfsa FkDjesfsaId) {
+    public ExpProf(Long expProfPK, String expProf, TeDjesfsa FkDjesfsaId) {
         super();
         this.expProfPK = expProfPK;
         this.expProf = expProf;
@@ -37,7 +37,7 @@ public class ExpProf implements Serializable {
         return this.expProfPK;
     }
 
-    public void setexpProfPK(int expProfPK) {
+    public void setexpProfPK(Long expProfPK) {
         this.expProfPK = expProfPK;
     }
 
@@ -63,6 +63,31 @@ public class ExpProf implements Serializable {
 
     public void setFkDjesfsaId(TeDjesfsa FkDjesfsaId) {
         FkDjesfsaId = FkDjesfsaId;
+    }
+
+    public int hashCode(){
+        final int prime = 31;
+        int result = 1;
+        result = prime*result+((expProfPK == null) ? 0 : expProfPK.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj)
+            return true;
+        if(obj == null)
+            return false;
+        if(getClass() != obj.getClass())
+            return false;
+            ExpProf other = (ExpProf) obj;
+        if (expProfPK == null) {
+            if(other.expProfPK != null)
+                return false;
+        }else if(!expProfPK.equals(other.expProfPK)){
+            return false;
+        }
+        return true;
     }
 
 }
