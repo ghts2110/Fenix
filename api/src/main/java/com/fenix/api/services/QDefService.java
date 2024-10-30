@@ -2,37 +2,49 @@ package com.fenix.api.services;
 
 import com.fenix.api.models.QDef;
 import com.fenix.api.repositories.QDefRepository;
-import com.fenix.api.services.serviceInterface.QDefServiceInterface;
+import com.fenix.api.services.exceptions.ResourceNotFoundException;
+import com.fenix.api.controller.exeption.Enum.ExceptionEnum;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class QDefService implements QDefServiceInterface {
+public class QDefService {
 
     @Autowired
     private QDefRepository qDefRepository;
 
-    @Override
     public List<QDef> findAll() {
         return qDefRepository.findAll();
     }
 
-    @Override
-    public Optional<QDef> findById(long id) {
-        return qDefRepository.findById(id);
+    public QDef findById(Long id) {
+        return qDefRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(id, ExceptionEnum.Resource_not_found));
     }
 
-    @Override
-    public QDef save(QDef qDef) {
+    public QDef create(QDef qDef) {
         return qDefRepository.save(qDef);
     }
 
-    @Override
-    public void deleteById(long id) {
-        qDefRepository.deleteById(id);
+    public QDef update(Long id, QDef qDef) {
+        QDef existingQDef = findById(id);
+
+        if (qDef.getQDef() != null && !qDef.getQDef().isEmpty()) {
+            existingQDef.setQDef(qDef.getQDef());
+        }
+
+        return qDefRepository.save(existingQDef);
+    }
+
+    public void deleteById(Long id) {
+        try {
+            qDefRepository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResourceNotFoundException(id, ExceptionEnum.Resource_not_found);
+        }
     }
 }
