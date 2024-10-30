@@ -3,7 +3,7 @@ import Header from "../Header";
 import NavigatePanel from "../NavigatePanel";
 import Box from "./BoxDashboard";
 
-function TelaRegister() {
+function TelaDashboard() {
   return (
     <main className={styles.TelaRegister}>
       <div className={styles.container}>
@@ -23,4 +23,4 @@ function TelaRegister() {
   );
 }
 
-export default TelaRegister;
+export default TelaDashboard;
