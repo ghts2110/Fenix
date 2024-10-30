@@ -11,7 +11,7 @@ public class IddFilhos implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long iddFilhosPK;
+    private Long iddFilhosPK;
 
     private String iddFilhos;
 
@@ -22,7 +22,7 @@ public class IddFilhos implements Serializable {
     public IddFilhos() {
     }
 
-    public IddFilhos(long iddFilhosPK, String iddFilhos, TeDjesfsa FkDjesfsaId) {
+    public IddFilhos(Long iddFilhosPK, String iddFilhos, TeDjesfsa FkDjesfsaId) {
         super();
         this.iddFilhosPK = iddFilhosPK;
         this.iddFilhos = iddFilhos;
@@ -33,7 +33,7 @@ public class IddFilhos implements Serializable {
         return serialVersionUID;
     }
 
-    public long getIddFilhosPK() {
+    public Long getIddFilhosPK() {
         return iddFilhosPK;
     }
 
@@ -55,6 +55,31 @@ public class IddFilhos implements Serializable {
 
     public void setFkDjesfsaId(TeDjesfsa fkDjesfsaId) {
         FkDjesfsaId = fkDjesfsaId;
+    }
+
+    public int hashCode(){
+        final int prime = 31;
+        int result = 1;
+        result = prime*result+((iddFilhosPK == null) ? 0 : iddFilhosPK.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj)
+            return true;
+        if(obj == null)
+            return false;
+        if(getClass() != obj.getClass())
+            return false;
+            IddFilhos other = (IddFilhos) obj;
+        if (iddFilhosPK == null) {
+            if(other.iddFilhosPK != null)
+                return false;
+        }else if(!iddFilhosPK.equals(other.iddFilhosPK)){
+            return false;
+        }
+        return true;
     }
 
 }

@@ -1,8 +1,6 @@
 package com.fenix.api.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,9 +13,6 @@ import com.fenix.api.models.embedded.Documentos;
 import com.fenix.api.models.embedded.InformacoesPessoais;
 import com.fenix.api.models.embedded.Processos;
 
-
-@AllArgsConstructor
-@NoArgsConstructor
 
 @Entity
 @Table(name = "TE_DJESFSA")
@@ -67,119 +62,158 @@ public class TeDjesfsa implements Serializable {
     private String estadoNativo;
     private Date dtInscricao;
 
-    public static Long getSerialversionuid() {
-        return serialVersionUID;
-    }
-    public Set<QDef> getqDef() {
-        return qDef;
-    }
-    public void setqDef(Set<QDef> qDef) {
-        this.qDef = qDef;
-    }
-    public Long getCadastro() {
-        return cadastro;
-    }
-    public void setCadastro(Long cadastro) {
-        this.cadastro = cadastro;
-    }
-    public InformacoesPessoais getInformacoesPessoais() {
-        return informacoesPessoais;
-    }
-    public void setInformacoesPessoais(InformacoesPessoais informacoesPessoais) {
-        this.informacoesPessoais = informacoesPessoais;
-    }
-    public Documentos getDocumentos() {
-        return documentos;
-    }
-    public void setDocumentos(Documentos documentos) {
-        this.documentos = documentos;
-    }
-    public Processos getProcessos() {
-        return processos;
-    }
-    public void setProcessos(Processos processos) {
-        this.processos = processos;
-    }
-    public Curso getCurso() {
-        return curso;
-    }
-    public void setCurso(Curso curso) {
-        this.curso = curso;
-    }
-    public Set<Artigo> getArtigo() {
-        return artigo;
-    }
-    public void setArtigo(Set<Artigo> artigo) {
-        this.artigo = artigo;
-    }
-    public Set<ExpProf> getExpProf() {
-        return expProf;
-    }
-    public void setExpProf(Set<ExpProf> expProf) {
-        this.expProf = expProf;
-    }
-    public String getEstadoCivil() {
-        return estadoCivil;
-    }
-    public void setEstadoCivil(String estadoCivil) {
-        this.estadoCivil = estadoCivil;
-    }
-    public String getNomeMae() {
-        return nomeMae;
-    }
-    public void setNomeMae(String nomeMae) {
-        this.nomeMae = nomeMae;
-    }
-    public String getNomePai() {
-        return nomePai;
-    }
-    public void setNomePai(String nomePai) {
-        this.nomePai = nomePai;
-    }
-    public Set<IddFilhos> getIddFilhos() {
-        return iddFilhos;
-    }
-    public void setIddFilhos(Set<IddFilhos> iddFilhos) {
-        this.iddFilhos = iddFilhos;
-    }
-    public boolean isTriagemFamilia() {
-        return triagemFamilia;
-    }
-    public void setTriagemFamilia(boolean triagemFamilia) {
-        this.triagemFamilia = triagemFamilia;
-    }
-    public Date getDtAtendFam() {
-        return dtAtendFam;
-    }
-    public void setDtAtendFam(Date dtAtendFam) {
-        this.dtAtendFam = dtAtendFam;
-    }
-    public Date getDtAniversario() {
-        return dtAniversario;
-    }
-    public void setDtAniversario(Date dtAniversario) {
-        this.dtAniversario = dtAniversario;
-    }
-    public Set<SitTrabModel> getSitTrabModels() {
-        return sitTrabModels;
-    }
-    public void setSitTrabModels(Set<SitTrabModel> sitTrabModels) {
-        this.sitTrabModels = sitTrabModels;
-    }
-    public String getEstadoNativo() {
-        return estadoNativo;
-    }
-    public void setEstadoNativo(String estadoNativo) {
-        this.estadoNativo = estadoNativo;
-    }
-    public Date getDtInscricao() {
-        return dtInscricao;
-    }
-    public void setDtInscricao(Date dtInscricao) {
-        this.dtInscricao = dtInscricao;
-    }
 
-    
-    
+    public TeDjesfsa(){}
+
+    public TeDjesfsa(Long cadastro, InformacoesPessoais informacoesPessoais, Documentos documentos, 
+    Processos processos, Curso curso, String estadoCivil, String nomeMae, String nomePai,
+    boolean triagemFamilia, Date dtAtendFam, Date dtAniversario, Set<QDef> qDef, 
+    String estadoNativo, Date dtInscricao) {
+this.cadastro = cadastro;
+this.informacoesPessoais = informacoesPessoais;
+this.documentos = documentos;
+this.processos = processos;
+this.curso = curso;
+this.estadoCivil = estadoCivil;
+this.nomeMae = nomeMae;
+this.nomePai = nomePai;
+this.triagemFamilia = triagemFamilia;
+this.dtAtendFam = dtAtendFam;
+this.dtAniversario = dtAniversario;
+this.estadoNativo = estadoNativo;
+this.dtInscricao = dtInscricao;
+}
+
+public Set<Artigo> getArtigo() {
+    return artigo;
+}
+public Long getCadastro() {
+    return cadastro;
+}
+public Curso getCurso() {
+    return curso;
+}
+public Documentos getDocumentos() {
+    return documentos;
+}
+public Date getDtAniversario() {
+    return dtAniversario;
+}
+public Date getDtAtendFam() {
+    return dtAtendFam;
+}
+public Date getDtInscricao() {
+    return dtInscricao;
+}
+public String getEstadoCivil() {
+    return estadoCivil;
+}
+public String getEstadoNativo() {
+    return estadoNativo;
+}
+public Set<ExpProf> getExpProf() {
+    return expProf;
+}
+public Set<IddFilhos> getIddFilhos() {
+    return iddFilhos;
+}
+public InformacoesPessoais getInformacoesPessoais() {
+    return informacoesPessoais;
+}
+public String getNomeMae() {
+    return nomeMae;
+}
+public String getNomePai() {
+    return nomePai;
+}public Processos getProcessos() {
+    return processos;
+}
+public static Long getSerialversionuid() {
+    return serialVersionUID;
+}
+public Set<SitTrabModel> getSitTrabModels() {
+    return sitTrabModels;
+}
+public Set<QDef> getqDef() {
+    return qDef;
+}
+public void setArtigo(Set<Artigo> artigo) {
+    this.artigo = artigo;
+}public void setCadastro(Long cadastro) {
+    this.cadastro = cadastro;
+}
+public void setCurso(Curso curso) {
+    this.curso = curso;
+}
+public void setDocumentos(Documentos documentos) {
+    this.documentos = documentos;
+}
+public void setDtAniversario(Date dtAniversario) {
+    this.dtAniversario = dtAniversario;
+}
+public void setDtAtendFam(Date dtAtendFam) {
+    this.dtAtendFam = dtAtendFam;
+}
+public void setDtInscricao(Date dtInscricao) {
+    this.dtInscricao = dtInscricao;
+}
+public void setEstadoCivil(String estadoCivil) {
+    this.estadoCivil = estadoCivil;
+}
+public void setEstadoNativo(String estadoNativo) {
+    this.estadoNativo = estadoNativo;
+}
+public void setExpProf(Set<ExpProf> expProf) {
+    this.expProf = expProf;
+}
+public void setIddFilhos(Set<IddFilhos> iddFilhos) {
+    this.iddFilhos = iddFilhos;
+}
+public void setInformacoesPessoais(InformacoesPessoais informacoesPessoais) {
+    this.informacoesPessoais = informacoesPessoais;
+}
+public void setNomeMae(String nomeMae) {
+    this.nomeMae = nomeMae;
+}
+public void setNomePai(String nomePai) {
+    this.nomePai = nomePai;
+}
+public void setProcessos(Processos processos) {
+    this.processos = processos;
+}
+public void setSitTrabModels(Set<SitTrabModel> sitTrabModels) {
+    this.sitTrabModels = sitTrabModels;
+}
+public void setTriagemFamilia(boolean triagemFamilia) {
+    this.triagemFamilia = triagemFamilia;
+}
+public void setqDef(Set<QDef> qDef) {
+    this.qDef = qDef;
+}
+
+public int hashCode(){
+    final int prime = 31;
+    int result = 1;
+    result = prime*result+((cadastro == null) ? 0 : cadastro.hashCode());
+    return result;
+}
+
+@Override
+public boolean equals(Object obj){
+    if(this == obj)
+        return true;
+    if(obj == null)
+        return false;
+    if(getClass() != obj.getClass())
+        return false;
+    TeDjesfsa other = (TeDjesfsa) obj;
+    if (cadastro == null) {
+        if(other.cadastro != null)
+            return false;
+    }else if(!cadastro.equals(other.cadastro)){
+        return false;
+    }
+    return true;
+}
 
 }
