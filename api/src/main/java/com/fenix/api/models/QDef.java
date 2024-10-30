@@ -11,7 +11,7 @@ public class QDef implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long QDefPK;
+    private Long QDefPK;
     private String QDef;
 
     @ManyToOne
@@ -21,7 +21,7 @@ public class QDef implements Serializable {
     public QDef() {
     }
 
-    public QDef(int qDefPK, String qDef, TeDjesfsa FkDjesfsaId) {
+    public QDef(Long qDefPK, String qDef, TeDjesfsa FkDjesfsaId) {
         super();
         this.QDefPK = qDefPK;
         this.QDef = qDef;
@@ -36,7 +36,7 @@ public class QDef implements Serializable {
         return QDefPK;
     }
 
-    public void setQDefPK(int qDefPK) {
+    public void setQDefPK(Long qDefPK) {
         QDefPK = qDefPK;
     }
 
@@ -54,5 +54,30 @@ public class QDef implements Serializable {
 
     public void setFkDjesfsaId(TeDjesfsa fkDjesfsaId) {
         FkDjesfsaId = fkDjesfsaId;
+    }
+
+    public int hashCode(){
+        final int prime = 31;
+        int result = 1;
+        result = prime*result+((QDefPK == null) ? 0 : QDefPK.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj)
+            return true;
+        if(obj == null)
+            return false;
+        if(getClass() != obj.getClass())
+            return false;
+        QDef other = (QDef) obj;
+        if (QDefPK == null) {
+            if(other.QDefPK != null)
+                return false;
+        }else if(!QDefPK.equals(other.QDefPK)){
+            return false;
+        }
+        return true;
     }
 }
