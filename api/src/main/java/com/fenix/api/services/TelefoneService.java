@@ -2,37 +2,49 @@ package com.fenix.api.services;
 
 import com.fenix.api.models.Telefone;
 import com.fenix.api.repositories.TelefoneRepository;
-import com.fenix.api.services.serviceInterface.TelefoneServiceInterface;
+import com.fenix.api.services.exceptions.ResourceNotFoundException;
+import com.fenix.api.controller.exeption.Enum.ExceptionEnum;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class TelefoneService implements TelefoneServiceInterface {
+public class TelefoneService {
 
     @Autowired
     private TelefoneRepository telefoneRepository;
 
-    @Override
     public List<Telefone> findAll() {
         return telefoneRepository.findAll();
     }
 
-    @Override
-    public Optional<Telefone> findById(long id) {
-        return telefoneRepository.findById(id);
+    public Telefone findById(Long id) {
+        return telefoneRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(id, ExceptionEnum.Resource_not_found));
     }
 
-    @Override
-    public Telefone save(Telefone telefone) {
+    public Telefone create(Telefone telefone) {
         return telefoneRepository.save(telefone);
     }
 
-    @Override
-    public void deleteById(long id) {
-        telefoneRepository.deleteById(id);
+    public Telefone update(Long id, Telefone telefone) {
+        Telefone existingTelefone = findById(id);
+
+        if (telefone.getTelefone() != null && !telefone.getTelefone().isEmpty()) {
+            existingTelefone.setTelefone(telefone.getTelefone());
+        }
+
+        return telefoneRepository.save(existingTelefone);
+    }
+
+    public void deleteById(Long id) {
+        try {
+            telefoneRepository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResourceNotFoundException(id, ExceptionEnum.Resource_not_found);
+        }
     }
 }
