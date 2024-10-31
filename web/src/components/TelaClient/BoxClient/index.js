@@ -24,6 +24,226 @@ import { validateStep8 } from './validations/validateStep8';
 
 
 const BoxClient = () => {
+
+  const urlBase = "http://localhost:8080/api";
+  const headersJson = {
+    "Content-Type": "application/json",
+  };
+
+  // subdividir entre os posts para adicionar corretamente
+  const email = document.getElementById("email").value;
+  const fullName = document.getElementById("fullName").value;
+  const socialName = document.getElementById("socialName").value;
+  const gender = document.getElementById("gender").value;
+  const sexualOrientation = document.getElementById("sexualOrientation").value;
+  const ethnicity = document.getElementById("ethnicity").value;
+  const birthDate = document.getElementById("birthDate").value;
+  const nationality = document.getElementById("nationality").value;
+  const stateOfBirth = document.getElementById("stateOfBirth").value;
+  const cityOfBirth = document.getElementById("cityOfBirth").value;
+  const fatherName = document.getElementById("fatherName").value;
+  const motherName = document.getElementById("motherName").value;
+  const phone = document.getElementById("phone").value;
+  const cpf = document.getElementById("cpf").value;
+  const rg = document.getElementById("rg").value;
+  const electoralTitle = document.getElementById("electoralTitle").value;
+  const votingSection = document.getElementById("votingSection").value;
+  const votingZone = document.getElementById("votingZone").value;
+  const cnhCategory = document.getElementById("cnhCategory").value;
+  const civilState = document.getElementById("civilState").value;
+  const hasWorkCard = document.getElementById("hasWorkCard").value;
+  const readAndWrite = document.getElementById("readAndWrite").value;
+  const schooling = document.getElementById("schooling").value;
+  const courseOrSeries = document.getElementById("courseOrSeries").value;
+  const incident = document.getElementById("incident").value;
+  const currentRegime = document.getElementById("currentRegime").value;
+  const legalStatus = document.getElementById("legalStatus").value;
+  const sentenceDuration = document.getElementById("sentenceDuration").value;
+  const prisonUnit = document.getElementById("prisonUnit").value;
+  const pje = document.getElementById("pje").value;
+  const seeu = document.getElementById("seeu").value;
+  const penaltyEndDate = document.getElementById("penaltyEndDate").value;
+  const improvementDate = document.getElementById("improvementDate").value;
+  const classGroup = document.getElementById("classGroup").value;
+  const shift = document.getElementById("shift").value;
+  const observations1 = document.getElementById("observations1").value;
+  const observations2 = document.getElementById("observations2").value;
+  const individualAttendanceDate = document.getElementById("individualAttendanceDate").value;
+  const assistedStatus = document.getElementById("assistedStatus").value;
+  const basicBasket = document.getElementById("basicBasket").value;
+  const familyScreening = document.getElementById("familyScreening").value;
+  const familyScreeningDate = document.getElementById("familyScreeningDate").value;
+  
+  const contact1 = document.getElementById("contact1").value;
+  const contact2 = document.getElementById("contact2").value;
+
+  const hasWork = document.getElementById("hasWork").value;
+  const modality = document.getElementById("modality").value;
+  const localWork = document.getElementById("localWork").value;
+
+  const deficiency = document.getElementById("deficiency").value;
+  const whatDefiecience = document.getElementById("whatDefiecience").value;
+
+  const address = document.getElementById("address").value;
+  const neighborhood = document.getElementById("neighborhood").value;
+  const currentCity = document.getElementById("currentCity").value;
+  const currentState = document.getElementById("currentState").value;
+  const cep = document.getElementById("cep").value;
+
+  const numberOfChildren = document.getElementById("numberOfChildren").value;
+  const children = document.getElementById("children").value;
+
+  const professionalExperience = document.getElementById("professionalExperience").value;
+  
+  const numberOfArticles = document.getElementById("numberOfArticles").value;
+  const article = document.getElementById("article").value;
+
+  const getArtigo = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(`${urlBase}/artigos`, {
+      method: "POST",
+      headers: headersJson,
+      body: JSON.stringify({
+
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getExpProf = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(`${urlBase}/expprof`, {
+      method: "POST",
+      headers: headersJson,
+      body: JSON.stringify({
+
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getIddFilhos = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(`${urlBase}/iddfilhos`, {
+      method: "POST",
+      headers: headersJson,
+      body: JSON.stringify({
+
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getMoradia = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(`${urlBase}/moradia`, {
+      method: "POST",
+      headers: headersJson,
+      body: JSON.stringify({
+
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getQDef = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(`${urlBase}/qdef`, {
+      method: "POST",
+      headers: headersJson,
+      body: JSON.stringify({
+
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getSitTrab = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(`${urlBase}/sittrab`, {
+      method: "POST",
+      headers: headersJson,
+      body: JSON.stringify({
+
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getTeDjesfsa = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(`${urlBase}/tedjesfsa`, {
+      method: "POST",
+      headers: headersJson,
+      body: JSON.stringify({
+
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getTelefoneController = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(`${urlBase}/telefone`, {
+      method: "POST",
+      headers: headersJson,
+      body: JSON.stringify({
+
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getUser = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(`${urlBase}/users`, {
+      method: "POST",
+      headers: headersJson,
+      body: JSON.stringify({
+
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+
+
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     email: "",
@@ -119,7 +339,7 @@ const BoxClient = () => {
     }));
   };
 
-  const handleArticleChange = (index, field,value) => {
+  const handleArticleChange = (index, field, value) => {
     const updatedArticle = formData.article.map((article, i) =>
       i === index ? { ...article, [field]: value } : article
     );
@@ -225,7 +445,7 @@ const BoxClient = () => {
         {step === 4 && <Step4 formData={formData} handleChange={handleChange} />}
         {step === 5 && <Step5 formData={formData} handleChange={handleChange} />}
         {step === 6 && <Step6 formData={formData} handleChange={handleChange} />}
-        
+
         {step === 7 && (
           <>
             <div className={styles.row}>
