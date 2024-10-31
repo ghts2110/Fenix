@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import styles from "./CalculadoraJuridica.module.css";
-import FGTSCalculator from "./FGTSCalculator";
-import RescisaoCalculator from "./RescisaoCalculator";
+import styles from "./Boxcalculadora.module.css";
+import FGTSCalculator from "./Steps/FGTSCalculator";
+import RescisaoCalculator from "./Steps/RescisaoCalculator";
 
-function TelaCalculadoraJuridica() {
+function Boxcalculadora() {
   const [selectedCalc, setSelectedCalc] = useState("fgts");
 
   const renderCalculator = () => {
@@ -31,4 +31,4 @@ function TelaCalculadoraJuridica() {
   );
 }
 
-export default TelaCalculadoraJuridica;
+export default Boxcalculadora;

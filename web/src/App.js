@@ -6,7 +6,7 @@ import Client from "./components/TelaClient";
 import TelaLogin from "./components/TelaLogin";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from './components/ResetPassword';
-import TelaCalculadoraJuridica from "./components/TelaCalculadoraJuridica/CalculadoraJuridica";
+import TelaCalculadoraJuridica from "./components/TelaCalculadoraJuridica";
 
 function App() {
   // const [cookies, setCookie] = useCookies(["user"]);

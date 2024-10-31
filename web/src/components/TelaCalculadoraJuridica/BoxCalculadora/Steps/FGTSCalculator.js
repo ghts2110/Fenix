@@ -1,6 +1,6 @@
 // src/components/CalculadoraJuridica/FGTSCalculator.js
 import React, { useState } from "react";
-import styles from "./CalculadoraJuridica.module.css";
+import styles from '../Boxcalculadora.module.css';
 
 function FGTSCalculator() {
   const [salario, setSalario] = useState(0);
