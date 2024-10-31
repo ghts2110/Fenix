@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from '../Boxcalculadora.module.css';
 
 function RescisaoCalculator() {
   const [salary, setSalary] = useState("");
