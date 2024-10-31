@@ -1,3 +1,4 @@
+// src/components/TelaClient/BoxClient/BoxClient.js
 import React, { useState } from 'react';
 import styles from './BoxClient.module.css';
 import Step1 from './steps/Step1';
@@ -7,7 +8,9 @@ import Step4 from './steps/Step4';
 import Step5 from './steps/Step5';
 import Step6 from './steps/Step6';
 import Step7 from './steps/Step7';
+import Step8 from './steps/Step8'; // Importando Step8
 import ChildrenFields from './steps/ChildrenFields';
+import ArticlesFields from './steps/ArticlesFields';
 import { validateStep1 } from './validations/validateStep1';
 import { validateStep2 } from './validations/validateStep2';
 import { validateStep3 } from './validations/validateStep3';
@@ -15,6 +18,8 @@ import { validateStep4 } from './validations/validateStep4';
 import { validateStep5 } from './validations/validateStep5';
 import { validateStep6 } from './validations/validateStep6';
 import { validateStep7 } from './validations/validateStep7';
+import { validateStep8 } from './validations/validateStep8';
+
 
 const BoxClient = () => {
   const [step, setStep] = useState(1);
@@ -65,18 +70,19 @@ const BoxClient = () => {
     pje: "",
     seeu: "",
     penaltyEndDate: "",
-    improvementDate: "", // Campo adicionado
-    classGroup: "", // Campo adicionado
-    shift: "", // Campo adicionado
-    observations1: "", // Campo adicionado
-    observations2: "", // Campo adicionado
-    individualAttendanceDate: "", // Campo adicionado
-    assistedStatus: "", // Campo adicionado
-    basicBasket: "", // Campo adicionado
-    familyScreening: "", // Campo adicionado
-    familyScreeningDate: "", // Campo adicionado
-    professionalExperience: "", // Campo adicionado
-    artigos: [], // Campo adicionado
+    improvementDate: "",
+    classGroup: "",
+    shift: "",
+    observations1: "",
+    observations2: "",
+    individualAttendanceDate: "",
+    assistedStatus: "",
+    basicBasket: "",
+    familyScreening: "",
+    familyScreeningDate: "",
+    professionalExperience: "",
+    numberOfArticles: "",
+    article: [], // Campo para article
   });
 
   const handleChange = (e) => {
@@ -111,9 +117,19 @@ const BoxClient = () => {
     }));
   };
 
+  const handleArticleChange = (index, field,value) => {
+    const updatedArticle = formData.article.map((article, i) =>
+      i === index ? { ...article, [field]: value } : article
+    );
+    setFormData((prevData) => ({
+      ...prevData,
+      article: updatedArticle,
+    }));
+  };
+
   const handleNext = () => {
     if (validateStep()) {
-      if (step === 7) {
+      if (step === 8) {
         handleSubmit();
       } else {
         setStep((prevStep) => prevStep + 1);
@@ -138,6 +154,16 @@ const BoxClient = () => {
       })),
     }));
   };
+  const handleNumberOfArticlesChange = (e) => {
+    const newNumber = e.target.value;
+    setFormData((prevData) => ({
+      ...prevData,
+      numberOfArticles: newNumber,
+      article: Array.from({ length: newNumber }, (_, i) => ({
+        number: prevData.article[i]?.number || "",
+      })),
+    }));
+  };
 
   const validateStep = () => {
     switch (step) {
@@ -154,7 +180,9 @@ const BoxClient = () => {
       case 6:
         return validateStep6(formData);
       case 7:
-        return validateStep7(formData); // Validação para o Step7
+        return validateStep7(formData);
+      case 8:
+        return validateStep8(formData); // A validação para o Step8 pode ser implementada se necessário
       default:
         return false;
     }
@@ -195,11 +223,36 @@ const BoxClient = () => {
         {step === 4 && <Step4 formData={formData} handleChange={handleChange} />}
         {step === 5 && <Step5 formData={formData} handleChange={handleChange} />}
         {step === 6 && <Step6 formData={formData} handleChange={handleChange} />}
-        {step === 7 && <Step7 formData={formData} handleChange={handleChange} />} {/* Componente Step7 */}
+        
+        {step === 7 && (
+          <>
+            <div className={styles.row}>
+              <label>
+                Número de Artigos:
+                <input
+                  type="number"
+                  name="numberOfArticles"
+                  value={formData.numberOfArticles}
+                  onChange={handleNumberOfArticlesChange}
+                  required
+                />
+              </label>
+            </div>
+            {formData.numberOfArticles > 0 && (
+              <ArticlesFields
+                article={formData.article}
+                handleArticleChange={handleArticleChange}
+              />
+            )}
+          </>
+        )}
+
+        {step === 8 && <Step8 formData={formData} handleChange={handleChange} />}
+
         <div className={styles.buttonContainer}>
           {step > 1 && <button type="button" onClick={handlePrevious}>Anterior</button>}
           <button type="button" onClick={handleNext}>
-            {step === 7 ? 'Finalizar' : 'Próximo'}
+            {step === 8 ? 'Finalizar' : 'Próximo'}
           </button>
         </div>
       </form>
