@@ -24,6 +24,12 @@
   gap: 10vw;
 }
 
+.formGroup2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .BoxLabelInput{
   width: 50%;
   display: flex;

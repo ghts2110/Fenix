@@ -108,6 +108,20 @@ const Register = () => {
 
         </div>
 
+        <div className={styles.formGroup2}>
+          <div className={styles.BoxLabelInput}>
+            <label className={styles.label} htmlFor="userPhoto">Foto de Perfil</label>
+            <input
+              className={styles.input}
+              type="file"
+              name="userPhoto"
+              id="userPhoto"
+              accept="image/*"
+              required
+            />
+          </div>
+        </div>
+
         <button className={styles.btResister} type="submit" onClick={addbanck}>
           Cadastrar
         </button>
