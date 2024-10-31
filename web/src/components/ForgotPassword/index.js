@@ -5,19 +5,13 @@ import emailjs from '@emailjs/browser';
 const ForgotPassword = () => {
 
     var name;
-    const urlBase = "https://parseapi.back4app.com/classes/assistido";
-    const urlBaseRC = "https://parseapi.back4app.com/classes/RequestChange";
-    const headers = {
-        "X-Parse-Application-Id": "9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt",
-        "X-Parse-REST-API-Key": "ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump",
-    };
+    const urlBase = "https://localhost:8080/api/users";
     const headersJson = {
-        ...headers,
         "Content-Type": "application/json",
     };
 
     const addRequest = async (auth_code) => {
-        const response = await fetch(urlBaseRC, {
+        const response = await fetch(urlBase, {
             method: "POST",
             headers: headersJson,
             body: JSON.stringify({
@@ -71,7 +65,7 @@ const ForgotPassword = () => {
 
         const response = await fetch(urlBase, {
             method: "GET",
-            headers: headers,
+            headers: headersJson,
         });
 
         const data = await response.json();
