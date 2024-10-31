@@ -21,6 +21,8 @@ import { validateStep7 } from './validations/validateStep7';
 import { validateStep8 } from './validations/validateStep8';
 
 
+
+
 const BoxClient = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
