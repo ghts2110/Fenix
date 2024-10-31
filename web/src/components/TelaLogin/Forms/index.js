@@ -1,17 +1,16 @@
 import styles from "./Forms.module.css";
 
 const Forms = () => {
-  const urlBase = "https://parseapi.back4app.com/classes/assistido";
-  const headers = {
-    "X-Parse-Application-Id": "9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt",
-    "X-Parse-REST-API-Key": "ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump",
+  const urlBase = "http://localhost:8080/api/users";
+  const headersJson = {
+    "Content-Type": "application/json",
   };
 
   // verificar cadastro
   const carregarTarefas = async () => {
     const response = await fetch(urlBase, {
       method: "GET",
-      headers: headers,
+      headers: headersJson,
     });
     const data = await response.json();
     listarTarefas(data.results);
