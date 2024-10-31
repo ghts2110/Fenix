@@ -17,15 +17,25 @@ const Forms = () => {
     listarTarefas(data.results);
   };
 
-  const listarTarefas = (tarefas) =>{
+  const openNewWindow = (t) => {
+    const params = new URLSearchParams({
+      name: t.name,
+      position: t.position,
+      imagem: t.imagem,
+    }).toString();
+
+    window.open(`/dashboard?${params}`, "_self");
+  };
+
+  const listarTarefas = (tarefas) => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("senha").value;
 
-    for(const t of tarefas){
-      if(email === t.email){
-        if(password === t.password){
-          window.open("/dashboard", "_self");
-        }else{
+    for (const t of tarefas) {
+      if (email === t.email) {
+        if (password === t.password) {
+          openNewWindow(t)
+        } else {
           console.log("not ok");
         }
       }
