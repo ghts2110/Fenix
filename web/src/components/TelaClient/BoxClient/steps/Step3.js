@@ -12,6 +12,7 @@ const Step3 = ({ formData, handleChange, handleChildChange }) => (
         <input type="number" name="numberOfChildren" value={formData.numberOfChildren} onChange={handleChange} required />
       </label>
     </div>
+    
     {formData.numberOfChildren > 0 && (
       <>
         <h4>Informações dos filhos</h4>

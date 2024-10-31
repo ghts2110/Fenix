@@ -1,18 +1,18 @@
 // src/components/TelaClient/BoxClient/steps/ArticlesFields.js
-import React from "react";
-import styles from "../BoxClient.module.css";
+import React from 'react';
+import styles from '../BoxClient.module.css';
 
-const ArticlesFields = ({ articles, handleArticleChange }) => {
+const ArticlesFields = ({ article, handleArticleChange }) => {
   return (
     <>
-      {articles.map((article, index) => (
-        <div key={index} className={styles.articleRow}>
+      {article.map((article, index) => (
+        <div key={index} className={styles.childRow}>
           <label>
-            Artigo {index + 1}:
+            Numero do artigo {index + 1}:
             <input
-              type="text"
+              type="number"
               value={article.number}
-              onChange={(e) => handleArticleChange(index, e.target.value)}
+              onChange={(e) => handleArticleChange(index, 'number', e.target.value)}
               required
             />
           </label>
