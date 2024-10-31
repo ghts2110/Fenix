@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser';
 const ForgotPassword = () => {
 
     var name;
-    const urlBase = "https://localhost:8080/api/users";
+    const urlBase = "http://localhost:8080/api/users";
     const headersJson = {
         "Content-Type": "application/json",
     };

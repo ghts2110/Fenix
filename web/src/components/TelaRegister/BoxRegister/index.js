@@ -2,25 +2,25 @@ import styles from "./BoxRegister.module.css";
 
 const Register = () => {
   // criar resistro
-  const urlBase = "https://parseapi.back4app.com/classes/assistido";
+  const urlBase = "http://localhost:8080/api/users";
   const headersJson = {
-    "X-Parse-Application-Id": "9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt",
-    "X-Parse-REST-API-Key": "ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump",
+    "Content-Type": "application/json",
   };
+
   const addbanck = async (event) => {
     event.preventDefault();
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
-    const position = document.getElementById("position").value;
+    // const position = document.getElementById("position").value;
     const cpf = document.getElementById("cpf").value;
     const password = document.getElementById("password").value;
-    const birthDay = document.getElementById("birthDay").value;
-
+    const phoneNumber = document.getElementById("phoneNumber").value;
+    
     const response = await fetch(urlBase, {
       method: "POST",
 
       headers: headersJson,
-      body: JSON.stringify({ name: name, email: email, password: password, position: position, cpf: cpf, birthDay: birthDay }),
+      body: JSON.stringify({ cpf: cpf, email: email, name: name, password: password, phone: phoneNumber }),
     });
     const data = await response.json();
     console.log(response);
@@ -106,6 +106,20 @@ const Register = () => {
             />
           </div>
 
+        </div>
+
+        <div className={styles.formGroup2}>
+          <div className={styles.BoxLabelInput}>
+            <label className={styles.label} htmlFor="userPhoto">Foto de Perfil</label>
+            <input
+              className={styles.input}
+              type="file"
+              name="userPhoto"
+              id="userPhoto"
+              accept="image/*"
+              required
+            />
+          </div>
         </div>
 
         <button className={styles.btResister} type="submit" onClick={addbanck}>

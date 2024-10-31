@@ -1,5 +1,5 @@
 import styles from "./NavigatePanel.module.css";
-import {FaPencilAlt, FaUser, FaCog, FaTasks, FaUserPlus} from "react-icons/fa"; // Importando os ícones de usuário, lápis e engrenagem
+import { FaPencilAlt, FaUser, FaCog, FaTasks, FaUserPlus, FaCalculator } from "react-icons/fa";
 import { useNavigate } from "react-router-dom"; 
 
 function NavigatePanel() {
@@ -20,6 +20,10 @@ function NavigatePanel() {
   const handleClientClick = () => {
     navigate("/client");
   }
+
+  const handleCalculadoraJuridica = () => {
+    navigate("/calculadorajuridica");
+  }
   
   return (
     <section className={styles.NavigatePanel_bg}>
@@ -35,6 +39,8 @@ function NavigatePanel() {
           <button  className={styles.button} onClick = {handleClientClick}> <FaUserPlus className={styles.icon}/> Cadastro do Cliente</button>
 
           <button className={styles.button} onClick={handleRegisterClick}> <FaPencilAlt className={styles.icon} /> Cadastrar Voluntário</button>
+
+          <button className={styles.button} onClick={handleCalculadoraJuridica}> <FaCalculator className={styles.icon} /> Calculadora Juridica</button>
 
           <button className={styles.buttonConfig}> <FaCog className={styles.icon} /> Configurações</button>
         </div>

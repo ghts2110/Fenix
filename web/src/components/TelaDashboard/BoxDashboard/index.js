@@ -2,6 +2,18 @@ import styles from "./BoxDashboard.module.css";
 import Chart from "react-apexcharts";
 
 const DashBoard = () => {
+  const getArtigo = async (e) => {
+    e.preventDefault();
+    
+    const response = await fetch(`${urlBase}/artigos`, {
+      method: "GET",
+      headers: headersJson,
+    });
+    
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
   const processos = [
     { numero: "12345", descricao: "Processo sobre revisão de contrato" },
     { numero: "67890", descricao: "Processo sobre pagamento pendente" },

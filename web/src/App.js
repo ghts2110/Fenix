@@ -6,6 +6,7 @@ import Client from "./components/TelaClient";
 import TelaLogin from "./components/TelaLogin";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from './components/ResetPassword';
+import TelaCalculadoraJuridica from "./components/TelaCalculadoraJuridica/CalculadoraJuridica";
 
 function App() {
   // const [cookies, setCookie] = useCookies(["user"]);
@@ -36,6 +37,8 @@ function App() {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/cancelrequest/:id/" element={<ResetPassword />} />
+        <Route path="/calculadorajuridica" element={<TelaCalculadoraJuridica />} />
+
       </Routes>
     </Router>
   );
