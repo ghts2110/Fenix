@@ -13,7 +13,12 @@ function TelaDashboard() {
   return (
     <main className={styles.TelaRegister}>
       <div className={styles.container}>
-        <NavigatePanel className={styles.item1} />
+        <NavigatePanel 
+          className={styles.item1} 
+          name={name}
+          position={position}
+          imagem={imagem}
+        />
         <div className={styles.container2}>
           <Header
             className={styles.item2}
