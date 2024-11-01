@@ -13,7 +13,7 @@ const Forms = () => {
       headers: headersJson,
     });
     const data = await response.json();
-    listarTarefas(data.results);
+    listarTarefas(data);
   };
 
   const openNewWindow = (t) => {

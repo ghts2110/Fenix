@@ -42,7 +42,7 @@ const ResetPassword = () => {
     const updatePassword = async (email) => {
         const response = await fetch(urlBase, {
             method: "GET",
-            headers: headers,
+            headers: headersJson,
         });
 
         const data = await response.json();
@@ -79,9 +79,9 @@ const ResetPassword = () => {
     }
 
     const checkAuth = async () => {
-        const response = await fetch(urlBaseRC, {
+        const response = await fetch(urlBase, {
             method: "GET",
-            headers: headers,
+            headers: headersJson,
         });
 
         const data = await response.json();

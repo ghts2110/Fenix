@@ -2,6 +2,11 @@ import styles from "./BoxDashboard.module.css";
 import Chart from "react-apexcharts";
 
 const DashBoard = () => {
+  const urlBase = "http://localhost:8080/api/assistido";
+  const headersJson = {
+      "Content-Type": "application/json",
+  };
+  
   const getArtigo = async (e) => {
     e.preventDefault();
     
