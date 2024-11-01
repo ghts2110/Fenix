@@ -1,6 +1,9 @@
+import { useState } from "react";
 import styles from "./Forms.module.css";
 
 const Forms = () => {
+  const [errorMessage, setErrorMessage] = useState("");
+
   const urlBase = "http://localhost:8080/api/users";
   const headersJson = {
     "Content-Type": "application/json",
@@ -39,6 +42,8 @@ const Forms = () => {
         }
       }
     }
+
+    setErrorMessage('Email ou senha estão incorretos');
   }
 
   const handleForgotPasssword = () => {
@@ -79,6 +84,10 @@ const Forms = () => {
             ></input>
             <label for="lembrar">Lembrar-se da senha</label>
           </div>
+
+          {errorMessage && (
+            <p style={{ color: 'red' }}>{errorMessage}</p>
+          )}
 
           <button className={styles.forgotPassword} onClick={handleForgotPasssword}> esqueceu senha?</button>
 

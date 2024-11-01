@@ -1,88 +1,156 @@
-.calculadoraContainer {
-    width: 80%;
-    height: 100%;
-    justify-content: center;
-    border-radius: 20px;
-    border: 2px solid #F15124;
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    padding: 20px;
-    margin: 20px;
+
+.Boxcalculadora {
+  width: 80%;
+  height: 100%;
+  justify-content: center;
+  border-radius: 20px;
+  border: 2px solid #F15124;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 20px;
+}
+
+.Boxcalculadora a {
+  text-decoration: none;
+  color: #F15124;
+}
+
+.form {
+  width: 100%;
+}
+
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.Boxcalculadora label {
+  font-size: 15px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+
+.Boxcalculadora input,
+.Boxcalculadora select {
+  padding: 8px;
+  border-radius: 4px;
+  border-color: rgb(240, 136, 136);
+}
+
+.buttonContainer {
+  display: flex;
+  margin-top: 20px;
+  border-radius: 5px;
+  width: 4rem;
+  height: 2rem;
+  background-color: #F15124;
+  border-color: rgb(240, 136, 136);
+  color: white;
+}
+
+.Boxcalculadora button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #F15124;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  width: max-content;
+  flex-direction: column;
+  justify-self: center;
+  gap: 25px;
+  margin: 0 auto;
+}
+
+.Boxcalculadora button:hover {
+  background-color: #e03e00;
+}
+
+.childRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.childRow label {
+  margin-right: 10px;
+  flex: 1;
+}
+
+.childRow input {
+  margin-left: 5px;
+  flex: 1;
+}
+
+.iframeOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.iframeContent {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .Boxcalculadora {
+    width: 90%;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
-  .form {
+  .row {
+    flex-direction: column;
+  }
+
+  .Boxcalculadora label {
     width: 100%;
   }
-  
-  .row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-  }
-  
-  .calculadoraContainer label {
-    font-size: 15px;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    width: 48%;
-  }
-  
-  .calculadoraContainera input,
-  .calculadoraContainer select {
-    padding: 8px;
-    border-radius: 4px;
-    border-color: rgb(240, 136, 136);
-  }
-  
-  .calculadoraContainer button {
 
-    cursor: pointer;
-    border-color: rgb(240, 136, 136) ;
-    background-color: #F15124;
-    border-radius: 10px;
-    padding: 12px 15px;
-    text-transform: uppercase;
-    color: white; /* Texto branco para contraste */
-    font-weight: bold; /* Deixa o texto mais destacado */
-    font-family: Inter;
-    display: flex;
-    width: max-content;
-    flex-direction: column;
-    justify-self: center;
-    gap: 25px;
-    margin: 0 auto;
+  .buttonContainer {
+    width: 100%;
+    justify-content: center;
+  }
 
-    
-    /* margin-top: 30px;
-    display: flex;
-    width: 6rem;
-    height: 4rem;
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: none;
-    border-radius: 5px;
-    border-color: rgb(240, 136, 136);
-    background-color: #F15124;
-    color: white;
-    cursor: pointer; */
-  }
-  
-  .calculadoraContainer button:hover {
-    background-color: #e03e00;
-  }
-  
-  
-  .selectorContainer {
-    display: flex;
-    gap: 10px;
+}
+
+@media (max-width: 480px) {
+  .Boxcalculadora {
+    width: 100%;
+    padding: 5%;
+    margin-top: 20px;
     margin-bottom: 20px;
   }
-  
-  .calculatorContent {
-    padding: 10px;
+
+  .Boxcalculadora label {
+    font-size: 14px;
   }
+
+  .Boxcalculadora button {
+    padding: 8px 16px;
+  }
+}
+
