@@ -27,22 +27,54 @@ public class User implements Serializable {
     private String email;
     private String phone;
     private String password;
-    private Integer cargo;
+    private String cargo;
     private String cpf;
+    private String imagem;
+
 
     @OneToMany
     private Set<TeDjesfsa> list = new HashSet<>();
 
     public User(){}
 
-    public User(Long id,String name, String email, String phone, String password, UserEnum cargo){
+    public User(Long id,String name, String email, String phone, String password, String cargo, String imagem){
         super();
         this.id = id;
         this.email = email;
         this.name = name;
         this.phone = phone;
         this.password = password;
-        setUserEnum(cargo);
+        this.cargo = cargo;
+        this.imagem = imagem;
+    }
+
+    
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
+    public Set<TeDjesfsa> getList() {
+        return list;
+    }
+
+    public void setList(Set<TeDjesfsa> list) {
+        this.list = list;
     }
 
     public String getCpf() {
@@ -80,16 +112,6 @@ public class User implements Serializable {
     }
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public void setUserEnum(UserEnum cargo) {
-        if (cargo != null) {
-            this.cargo = cargo.getCode();
-        }
-    }
-
-    public UserEnum getUserEnum() {
-        return UserEnum.valueOf(cargo);
     }
 
     public int hashCode(){

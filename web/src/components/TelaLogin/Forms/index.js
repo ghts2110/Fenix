@@ -19,7 +19,7 @@ const Forms = () => {
   const openNewWindow = (t) => {
     const params = new URLSearchParams({
       name: t.name,
-      position: t.position,
+      position: t.cargo,
       imagem: t.imagem,
     }).toString();
 
