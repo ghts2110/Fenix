@@ -1,42 +1,48 @@
 import styles from "./Forms.module.css";
-import { useNavigate } from "react-router-dom"; 
 
 const Forms = () => {
-  const urlBase = "https://parseapi.back4app.com/classes/assistido";
-  const headers = {
-    "X-Parse-Application-Id": "9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt",
-    "X-Parse-REST-API-Key": "ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump",
+  const urlBase = "http://localhost:8080/api/users";
+  const headersJson = {
+    "Content-Type": "application/json",
   };
 
   // verificar cadastro
   const carregarTarefas = async () => {
     const response = await fetch(urlBase, {
       method: "GET",
-      headers: headers,
+      headers: headersJson,
     });
     const data = await response.json();
     listarTarefas(data.results);
   };
 
-  const listarTarefas = (tarefas) =>{
+  const openNewWindow = (t) => {
+    const params = new URLSearchParams({
+      name: t.name,
+      position: t.position,
+      imagem: t.imagem,
+    }).toString();
+
+    window.open(`/dashboard?${params}`, "_self");
+  };
+
+  const listarTarefas = (tarefas) => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("senha").value;
 
-    for(const t of tarefas){
-      if(email === t.email){
-        if(password === t.password){
-          window.open("/dashboard", "_self");
-        }else{
+    for (const t of tarefas) {
+      if (email === t.email) {
+        if (password === t.password) {
+          openNewWindow(t)
+        } else {
           console.log("not ok");
         }
       }
     }
   }
 
-  const navigate = useNavigate(); 
-
   const handleForgotPasssword = () => {
-    navigate("/forgotpassword");
+    window.location.href = "/forgotpassword";
   }
 
   return (
@@ -93,25 +99,4 @@ const Forms = () => {
   );
 };
 
-// curl -X POST \
-// -H "X-Parse-Application-Id: 9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt" \
-// -H "X-Parse-REST-API-Key: ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump" \
-// -H "Content-Type: application/json" \
-// -d "{ \"email\":\"A string\",\"password\":\"A string\" }" \
-// https://parseapi.back4app.com/classes/assistido
-
-  // cirar conta no back4app
-  // const addbanck = async (event) => {
-  //   event.preventDefault();
-  //   const email = document.getElementById("email").value;
-  //   const password = document.getElementById("senha").value;
-  //   const response = await fetch(urlBase, {
-  //     method: "POST",
-  //     headers: headersJson,
-  //     body: JSON.stringify({ email: email, password:password }),
-  //   });
-  //   const data = await response.json();
-  //   console.log(response);
-  //   console.log(data);
-  // };
 export default Forms;

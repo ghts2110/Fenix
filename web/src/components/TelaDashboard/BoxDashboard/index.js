@@ -2,6 +2,18 @@ import styles from "./BoxDashboard.module.css";
 import Chart from "react-apexcharts";
 
 const DashBoard = () => {
+  const getArtigo = async (e) => {
+    e.preventDefault();
+    
+    const response = await fetch(`${urlBase}/artigos`, {
+      method: "GET",
+      headers: headersJson,
+    });
+    
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
   const processos = [
     { numero: "12345", descricao: "Processo sobre revisão de contrato" },
     { numero: "67890", descricao: "Processo sobre pagamento pendente" },
@@ -90,7 +102,8 @@ const DashBoard = () => {
               <li key={index}>
                 <strong>Data:</strong> {reuniao.data} <br />
                 <strong>Horário:</strong> {reuniao.horario} <br />
-                <strong>Descrição:</strong> {reuniao.descricao}
+                <strong>Descrição:</strong> {reuniao.descricao} <br />
+                <strong>Link:</strong> <a href="https://meet.google.com/mkq-gcsm-exr?pli=1">Link para reuniao</a>
               </li>
             ))}
           </ul>

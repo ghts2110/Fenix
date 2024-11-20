@@ -2,37 +2,49 @@ package com.fenix.api.services;
 
 import com.fenix.api.models.TeDjesfsa;
 import com.fenix.api.repositories.TeDjesfsaRepository;
-import com.fenix.api.services.serviceInterface.TeDjesfsaServiceInterface;
+import com.fenix.api.services.exceptions.ResourceNotFoundException;
+import com.fenix.api.controller.exeption.Enum.ExceptionEnum;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class TeDjesfsaService implements TeDjesfsaServiceInterface {
+public class TeDjesfsaService {
 
     @Autowired
     private TeDjesfsaRepository teDjesfsaRepository;
 
-    @Override
     public List<TeDjesfsa> findAll() {
         return teDjesfsaRepository.findAll();
     }
 
-    @Override
-    public Optional<TeDjesfsa> findById(Long id) {
-        return teDjesfsaRepository.findById(id);
+    public TeDjesfsa findById(Long id) {
+        return teDjesfsaRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(id, ExceptionEnum.Resource_not_found));
     }
 
-    @Override
-    public TeDjesfsa save(TeDjesfsa teDjesfsa) {
+    public TeDjesfsa create(TeDjesfsa teDjesfsa) {
         return teDjesfsaRepository.save(teDjesfsa);
     }
 
-    @Override
+    public TeDjesfsa update(Long id, TeDjesfsa teDjesfsa) {
+        TeDjesfsa existingTeDjesfsa = findById(id);
+
+        if (teDjesfsa.getArtigo() != null && !teDjesfsa.getArtigo().isEmpty()) {
+            existingTeDjesfsa.setArtigo(teDjesfsa.getArtigo());
+        }
+
+        return teDjesfsaRepository.save(existingTeDjesfsa);
+    }
+
     public void deleteById(Long id) {
-        teDjesfsaRepository.deleteById(id);
+        try {
+            teDjesfsaRepository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResourceNotFoundException(id, ExceptionEnum.Resource_not_found);
+        }
     }
 }

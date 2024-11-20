@@ -2,6 +2,128 @@ import { useState } from "react";
 import styles from "./BoxAssisted.module.css";
 
 const Assisted = () => {
+  const urlBase = "http://localhost:8080/api";
+  const headersJson = {
+    "Content-Type": "application/json",
+  };
+
+  const getArtigo = async (e) => {
+    e.preventDefault();
+    
+    const response = await fetch(`${urlBase}/artigos`, {
+      method: "GET",
+      headers: headersJson,
+    });
+    
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getExpProf = async (e) => {
+    e.preventDefault();
+    
+    const response = await fetch(`${urlBase}/expprof`, {
+      method: "GET",
+      headers: headersJson,
+    });
+    
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getIddFilhos = async (e) => {
+    e.preventDefault();
+    
+    const response = await fetch(`${urlBase}/iddfilhos`, {
+      method: "GET",
+      headers: headersJson,
+    });
+    
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getMoradia = async (e) => {
+    e.preventDefault();
+    
+    const response = await fetch(`${urlBase}/moradia`, {
+      method: "GET",
+      headers: headersJson,
+    });
+    
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getQDef = async (e) => {
+    e.preventDefault();
+    
+    const response = await fetch(`${urlBase}/qdef`, {
+      method: "GET",
+      headers: headersJson,
+    });
+    
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getSitTrab = async (e) => {
+    e.preventDefault();
+    
+    const response = await fetch(`${urlBase}/sittrab`, {
+      method: "GET",
+      headers: headersJson,
+    });
+    
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getTeDjesfsa = async (e) => {
+    e.preventDefault();
+    
+    const response = await fetch(`${urlBase}/tedjesfsa`, {
+      method: "GET",
+      headers: headersJson,
+    });
+    
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getTelefoneController = async (e) => {
+    e.preventDefault();
+    
+    const response = await fetch(`${urlBase}/telefone`, {
+      method: "GET",
+      headers: headersJson,
+    });
+    
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
+  const getUser = async (e) => {
+    e.preventDefault();
+    
+    const response = await fetch(`${urlBase}/users`, {
+      method: "GET",
+      headers: headersJson,
+    });
+    
+    const data = await response.json();
+    console.log(data)
+    console.log(response)
+  };
+
   const processosIniciais = [
     {
       nome: "João Silva",

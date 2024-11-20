@@ -11,22 +11,29 @@ public class IddFilhos implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long iddFilhosPK;
+    private Long iddFilhosPK;
 
     private String iddFilhos;
 
-    public IddFilhos(){}
+    @ManyToOne
+    @JoinColumn(name = "fk_Usuario_Id")
+    private TeDjesfsa FkDjesfsaId;
 
-    public IddFilhos(long iddFilhosPK, String iddFilhos) {
+    public IddFilhos() {
+    }
+
+    public IddFilhos(Long iddFilhosPK, String iddFilhos, TeDjesfsa FkDjesfsaId) {
+        super();
         this.iddFilhosPK = iddFilhosPK;
         this.iddFilhos = iddFilhos;
+        this.FkDjesfsaId = FkDjesfsaId;
     }
 
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
 
-    public long getIddFilhosPK() {
+    public Long getIddFilhosPK() {
         return iddFilhosPK;
     }
 
@@ -42,5 +49,37 @@ public class IddFilhos implements Serializable {
         this.iddFilhos = iddFilhos;
     }
 
-    
+    public TeDjesfsa getFkDjesfsaId() {
+        return FkDjesfsaId;
+    }
+
+    public void setFkDjesfsaId(TeDjesfsa fkDjesfsaId) {
+        FkDjesfsaId = fkDjesfsaId;
+    }
+
+    public int hashCode(){
+        final int prime = 31;
+        int result = 1;
+        result = prime*result+((iddFilhosPK == null) ? 0 : iddFilhosPK.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj)
+            return true;
+        if(obj == null)
+            return false;
+        if(getClass() != obj.getClass())
+            return false;
+            IddFilhos other = (IddFilhos) obj;
+        if (iddFilhosPK == null) {
+            if(other.iddFilhosPK != null)
+                return false;
+        }else if(!iddFilhosPK.equals(other.iddFilhosPK)){
+            return false;
+        }
+        return true;
+    }
+
 }

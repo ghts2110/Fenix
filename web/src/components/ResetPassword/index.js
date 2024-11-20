@@ -2,21 +2,15 @@ import styles from "./ResetPassword.module.css";
 
 const ResetPassword = () => {
 
-    const urlBase = "https://parseapi.back4app.com/classes/assistido";
-    const urlBaseRC = "https://parseapi.back4app.com/classes/RequestChange";
-    const headers = {
-        "X-Parse-Application-Id": "9oVDtFSi4LvkNyv1ORv3Yy3Xb59v4GpMQLMwpKzt",
-        "X-Parse-REST-API-Key": "ewQW6PmSaxcJaSTOC5z1iKKBv1P3YzdYU8D72Ump",
-    };
+    const urlBase = "http://localhost:8080/api/assistido";
     const headersJson = {
-        ...headers,
         "Content-Type": "application/json",
     };
 
     const removeAuth = async (objid) => {
-        const response = await fetch(`${urlBaseRC}/${objid}`, {
+        const response = await fetch(`${urlBase}/${objid}`, {
             method: "DELETE",
-            headers: headers,
+            headers: headersJson,
         });
 
         const data = await response.json();
@@ -120,7 +114,7 @@ const ResetPassword = () => {
     return (
         <section className={styles.forgotPsswd}>
             <div className={styles.formatPage}>
-                <img src="/imagems/fenix-logo-app.png" alt="fenix-logo"></img>
+                <img src="/imagems/fenix-logo-app.png" alt="fenix-logo" width="100px"></img>
                 <div
                     className={styles.organizeBox}
                 >
